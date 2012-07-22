@@ -1,0 +1,22 @@
+//
+// Prefix header for all source files of the 'RussianToast' target in the 'RussianToast' project
+//
+
+#import <Availability.h>
+#import <CoreData/CoreData.h>
+#import "CoreDataManager.h"
+#import "ExPrefixAppDelegate.h"
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+#endif
+
+#define APP_DELEGATE ((ExPrefixAppDelegate *)[[UIApplication sharedApplication] delegate])
+#define DLog(fmt, ...) NSLog((@"%08x [%@|%@] " fmt), (int)self, NSStringFromClass([self class]), NSStringFromSelector(_cmd), ##__VA_ARGS__)
+

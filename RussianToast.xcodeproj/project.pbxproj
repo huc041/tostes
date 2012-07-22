@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5251FF0315BAC7F40039C78C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5251FF0215BAC7F40039C78C /* UIKit.framework */; };
+		5251FF0515BAC7F40039C78C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5251FF0415BAC7F40039C78C /* Foundation.framework */; };
+		5251FF0715BAC7F40039C78C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5251FF0615BAC7F40039C78C /* CoreGraphics.framework */; };
+		5251FF0915BAC7F40039C78C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5251FF0815BAC7F40039C78C /* CoreData.framework */; };
+		5251FF0F15BAC7F40039C78C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5251FF0D15BAC7F40039C78C /* InfoPlist.strings */; };
+		5251FF1115BAC7F40039C78C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF1015BAC7F40039C78C /* main.m */; };
+		5251FF1515BAC7F40039C78C /* ExPrefixAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF1415BAC7F40039C78C /* ExPrefixAppDelegate.m */; };
+		5251FF1815BAC7F50039C78C /* RussianToast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF1615BAC7F50039C78C /* RussianToast.xcdatamodeld */; };
+		5251FF2B15BAC8B40039C78C /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF2A15BAC8B40039C78C /* MainVC.m */; };
+		5251FF3115BACDFE0039C78C /* GroupDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF3015BACDFE0039C78C /* GroupDB.m */; };
+		5251FF3815BAD1140039C78C /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF3715BAD1140039C78C /* CoreDataManager.m */; };
+		5251FF3B15BB0AD30039C78C /* MediaDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF3A15BB0AD30039C78C /* MediaDB.m */; };
+		52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E25E9C15BC704500AF82DE /* FavoriteVC.m */; };
+		52E25EA415BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52E25EA215BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt */; };
+		52E25EA515BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52E25EA315BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5251FEFE15BAC7F40039C78C /* RussianToast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RussianToast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5251FF0215BAC7F40039C78C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5251FF0415BAC7F40039C78C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5251FF0615BAC7F40039C78C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5251FF0815BAC7F40039C78C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5251FF0C15BAC7F40039C78C /* RussianToast-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RussianToast-Info.plist"; sourceTree = "<group>"; };
+		5251FF0E15BAC7F40039C78C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5251FF1015BAC7F40039C78C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5251FF1215BAC7F40039C78C /* RussianToast-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RussianToast-Prefix.pch"; sourceTree = "<group>"; };
+		5251FF1315BAC7F40039C78C /* ExPrefixAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExPrefixAppDelegate.h; sourceTree = "<group>"; };
+		5251FF1415BAC7F40039C78C /* ExPrefixAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExPrefixAppDelegate.m; sourceTree = "<group>"; };
+		5251FF1715BAC7F50039C78C /* RussianToast.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RussianToast.xcdatamodel; sourceTree = "<group>"; };
+		5251FF2915BAC8B40039C78C /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		5251FF2A15BAC8B40039C78C /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		5251FF2F15BACDFE0039C78C /* GroupDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDB.h; sourceTree = "<group>"; };
+		5251FF3015BACDFE0039C78C /* GroupDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDB.m; sourceTree = "<group>"; };
+		5251FF3615BAD1140039C78C /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		5251FF3715BAD1140039C78C /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		5251FF3915BB0AD30039C78C /* MediaDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaDB.h; sourceTree = "<group>"; };
+		5251FF3A15BB0AD30039C78C /* MediaDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaDB.m; sourceTree = "<group>"; };
+		52E25E9815BC678B00AF82DE /* CustomTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTabbarController.h; sourceTree = "<group>"; };
+		52E25E9915BC678B00AF82DE /* CustomTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTabbarController.m; sourceTree = "<group>"; };
+		52E25E9B15BC704500AF82DE /* FavoriteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteVC.h; sourceTree = "<group>"; };
+		52E25E9C15BC704500AF82DE /* FavoriteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteVC.m; sourceTree = "<group>"; };
+		52E25EA215BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&2_пьем за любовь.txt"; sourceTree = "<group>"; };
+		52E25EA315BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&1_за семейное счастье.txt"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5251FEFB15BAC7F40039C78C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5251FF0315BAC7F40039C78C /* UIKit.framework in Frameworks */,
+				5251FF0515BAC7F40039C78C /* Foundation.framework in Frameworks */,
+				5251FF0715BAC7F40039C78C /* CoreGraphics.framework in Frameworks */,
+				5251FF0915BAC7F40039C78C /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5251FEF315BAC7F40039C78C = {
+			isa = PBXGroup;
+			children = (
+				5251FF0A15BAC7F40039C78C /* RussianToast */,
+				5251FF0115BAC7F40039C78C /* Frameworks */,
+				5251FEFF15BAC7F40039C78C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5251FEFF15BAC7F40039C78C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5251FEFE15BAC7F40039C78C /* RussianToast.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5251FF0115BAC7F40039C78C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5251FF0215BAC7F40039C78C /* UIKit.framework */,
+				5251FF0415BAC7F40039C78C /* Foundation.framework */,
+				5251FF0615BAC7F40039C78C /* CoreGraphics.framework */,
+				5251FF0815BAC7F40039C78C /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5251FF0A15BAC7F40039C78C /* RussianToast */ = {
+			isa = PBXGroup;
+			children = (
+				5251FF2015BAC82D0039C78C /* SDK */,
+				5251FF1F15BAC8240039C78C /* CoreData */,
+				5251FF1E15BAC8140039C78C /* Classes */,
+				5251FF1315BAC7F40039C78C /* ExPrefixAppDelegate.h */,
+				5251FF1415BAC7F40039C78C /* ExPrefixAppDelegate.m */,
+				5251FF1615BAC7F50039C78C /* RussianToast.xcdatamodeld */,
+				5251FF0B15BAC7F40039C78C /* Supporting Files */,
+			);
+			path = RussianToast;
+			sourceTree = "<group>";
+		};
+		5251FF0B15BAC7F40039C78C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52E25EA615BC7D0D00AF82DE /* sourses */,
+				5251FF0C15BAC7F40039C78C /* RussianToast-Info.plist */,
+				5251FF0D15BAC7F40039C78C /* InfoPlist.strings */,
+				5251FF1015BAC7F40039C78C /* main.m */,
+				5251FF1215BAC7F40039C78C /* RussianToast-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5251FF1E15BAC8140039C78C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				52E25E9B15BC704500AF82DE /* FavoriteVC.h */,
+				52E25E9C15BC704500AF82DE /* FavoriteVC.m */,
+				5251FF2915BAC8B40039C78C /* MainVC.h */,
+				5251FF2A15BAC8B40039C78C /* MainVC.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		5251FF1F15BAC8240039C78C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5251FF3915BB0AD30039C78C /* MediaDB.h */,
+				5251FF3A15BB0AD30039C78C /* MediaDB.m */,
+				5251FF2F15BACDFE0039C78C /* GroupDB.h */,
+				5251FF3015BACDFE0039C78C /* GroupDB.m */,
+				5251FF3615BAD1140039C78C /* CoreDataManager.h */,
+				5251FF3715BAD1140039C78C /* CoreDataManager.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		5251FF2015BAC82D0039C78C /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				52E25E9815BC678B00AF82DE /* CustomTabbarController.h */,
+				52E25E9915BC678B00AF82DE /* CustomTabbarController.m */,
+			);
+			name = SDK;
+			sourceTree = "<group>";
+		};
+		52E25EA615BC7D0D00AF82DE /* sourses */ = {
+			isa = PBXGroup;
+			children = (
+				52E25EA215BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt */,
+				52E25EA315BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt */,
+			);
+			name = sourses;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5251FEFD15BAC7F40039C78C /* RussianToast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5251FF1B15BAC7F50039C78C /* Build configuration list for PBXNativeTarget "RussianToast" */;
+			buildPhases = (
+				5251FEFA15BAC7F40039C78C /* Sources */,
+				5251FEFB15BAC7F40039C78C /* Frameworks */,
+				5251FEFC15BAC7F40039C78C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RussianToast;
+			productName = RussianToast;
+			productReference = 5251FEFE15BAC7F40039C78C /* RussianToast.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5251FEF515BAC7F40039C78C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ExPrefix;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 5251FEF815BAC7F40039C78C /* Build configuration list for PBXProject "RussianToast" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5251FEF315BAC7F40039C78C;
+			productRefGroup = 5251FEFF15BAC7F40039C78C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5251FEFD15BAC7F40039C78C /* RussianToast */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5251FEFC15BAC7F40039C78C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5251FF0F15BAC7F40039C78C /* InfoPlist.strings in Resources */,
+				52E25EA415BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt in Resources */,
+				52E25EA515BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5251FEFA15BAC7F40039C78C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5251FF1115BAC7F40039C78C /* main.m in Sources */,
+				5251FF1515BAC7F40039C78C /* ExPrefixAppDelegate.m in Sources */,
+				5251FF1815BAC7F50039C78C /* RussianToast.xcdatamodeld in Sources */,
+				5251FF2B15BAC8B40039C78C /* MainVC.m in Sources */,
+				5251FF3115BACDFE0039C78C /* GroupDB.m in Sources */,
+				5251FF3815BAD1140039C78C /* CoreDataManager.m in Sources */,
+				5251FF3B15BB0AD30039C78C /* MediaDB.m in Sources */,
+				52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5251FF0D15BAC7F40039C78C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5251FF0E15BAC7F40039C78C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5251FF1915BAC7F50039C78C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5251FF1A15BAC7F50039C78C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5251FF1C15BAC7F50039C78C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RussianToast/RussianToast-Prefix.pch";
+				INFOPLIST_FILE = "RussianToast/RussianToast-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5251FF1D15BAC7F50039C78C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RussianToast/RussianToast-Prefix.pch";
+				INFOPLIST_FILE = "RussianToast/RussianToast-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5251FEF815BAC7F40039C78C /* Build configuration list for PBXProject "RussianToast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5251FF1915BAC7F50039C78C /* Debug */,
+				5251FF1A15BAC7F50039C78C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5251FF1B15BAC7F50039C78C /* Build configuration list for PBXNativeTarget "RussianToast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5251FF1C15BAC7F50039C78C /* Debug */,
+				5251FF1D15BAC7F50039C78C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5251FF1615BAC7F50039C78C /* RussianToast.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5251FF1715BAC7F50039C78C /* RussianToast.xcdatamodel */,
+			);
+			currentVersion = 5251FF1715BAC7F50039C78C /* RussianToast.xcdatamodel */;
+			path = RussianToast.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5251FEF515BAC7F40039C78C /* Project object */;
+}
