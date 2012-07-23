@@ -16,12 +16,13 @@
 		5251FF1515BAC7F40039C78C /* ExPrefixAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF1415BAC7F40039C78C /* ExPrefixAppDelegate.m */; };
 		5251FF1815BAC7F50039C78C /* RussianToast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF1615BAC7F50039C78C /* RussianToast.xcdatamodeld */; };
 		5251FF2B15BAC8B40039C78C /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF2A15BAC8B40039C78C /* MainVC.m */; };
-		5251FF3115BACDFE0039C78C /* GroupDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF3015BACDFE0039C78C /* GroupDB.m */; };
 		5251FF3815BAD1140039C78C /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF3715BAD1140039C78C /* CoreDataManager.m */; };
-		5251FF3B15BB0AD30039C78C /* MediaDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF3A15BB0AD30039C78C /* MediaDB.m */; };
 		52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E25E9C15BC704500AF82DE /* FavoriteVC.m */; };
 		52E25EA415BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52E25EA215BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt */; };
 		52E25EA515BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52E25EA315BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt */; };
+		52E95AC715BDDEEF004DF9B7 /* GroupDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E95AC615BDDEEF004DF9B7 /* GroupDB.m */; };
+		52E95ACB15BDDF86004DF9B7 /* MediaDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E95ACA15BDDF86004DF9B7 /* MediaDB.m */; };
+		52E95AD015BDE1B3004DF9B7 /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E95ACF15BDE1B3004DF9B7 /* DetailVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,18 +40,20 @@
 		5251FF1715BAC7F50039C78C /* RussianToast.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RussianToast.xcdatamodel; sourceTree = "<group>"; };
 		5251FF2915BAC8B40039C78C /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		5251FF2A15BAC8B40039C78C /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
-		5251FF2F15BACDFE0039C78C /* GroupDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDB.h; sourceTree = "<group>"; };
-		5251FF3015BACDFE0039C78C /* GroupDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDB.m; sourceTree = "<group>"; };
 		5251FF3615BAD1140039C78C /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		5251FF3715BAD1140039C78C /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
-		5251FF3915BB0AD30039C78C /* MediaDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaDB.h; sourceTree = "<group>"; };
-		5251FF3A15BB0AD30039C78C /* MediaDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaDB.m; sourceTree = "<group>"; };
 		52E25E9815BC678B00AF82DE /* CustomTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTabbarController.h; sourceTree = "<group>"; };
 		52E25E9915BC678B00AF82DE /* CustomTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTabbarController.m; sourceTree = "<group>"; };
 		52E25E9B15BC704500AF82DE /* FavoriteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteVC.h; sourceTree = "<group>"; };
 		52E25E9C15BC704500AF82DE /* FavoriteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteVC.m; sourceTree = "<group>"; };
 		52E25EA215BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&2_пьем за любовь.txt"; sourceTree = "<group>"; };
 		52E25EA315BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&1_за семейное счастье.txt"; sourceTree = "<group>"; };
+		52E95AC515BDDEEF004DF9B7 /* GroupDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDB.h; sourceTree = "<group>"; };
+		52E95AC615BDDEEF004DF9B7 /* GroupDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDB.m; sourceTree = "<group>"; };
+		52E95AC915BDDF86004DF9B7 /* MediaDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaDB.h; sourceTree = "<group>"; };
+		52E95ACA15BDDF86004DF9B7 /* MediaDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaDB.m; sourceTree = "<group>"; };
+		52E95ACE15BDE1B3004DF9B7 /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
+		52E95ACF15BDE1B3004DF9B7 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +128,8 @@
 		5251FF1E15BAC8140039C78C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				52E25E9B15BC704500AF82DE /* FavoriteVC.h */,
-				52E25E9C15BC704500AF82DE /* FavoriteVC.m */,
-				5251FF2915BAC8B40039C78C /* MainVC.h */,
-				5251FF2A15BAC8B40039C78C /* MainVC.m */,
+				52E95ACD15BDE186004DF9B7 /* tab_2 */,
+				52E95ACC15BDE17B004DF9B7 /* tab_1 */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -136,10 +137,10 @@
 		5251FF1F15BAC8240039C78C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				5251FF3915BB0AD30039C78C /* MediaDB.h */,
-				5251FF3A15BB0AD30039C78C /* MediaDB.m */,
-				5251FF2F15BACDFE0039C78C /* GroupDB.h */,
-				5251FF3015BACDFE0039C78C /* GroupDB.m */,
+				52E95AC915BDDF86004DF9B7 /* MediaDB.h */,
+				52E95ACA15BDDF86004DF9B7 /* MediaDB.m */,
+				52E95AC515BDDEEF004DF9B7 /* GroupDB.h */,
+				52E95AC615BDDEEF004DF9B7 /* GroupDB.m */,
 				5251FF3615BAD1140039C78C /* CoreDataManager.h */,
 				5251FF3715BAD1140039C78C /* CoreDataManager.m */,
 			);
@@ -162,6 +163,26 @@
 				52E25EA315BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt */,
 			);
 			name = sourses;
+			sourceTree = "<group>";
+		};
+		52E95ACC15BDE17B004DF9B7 /* tab_1 */ = {
+			isa = PBXGroup;
+			children = (
+				52E95ACE15BDE1B3004DF9B7 /* DetailVC.h */,
+				52E95ACF15BDE1B3004DF9B7 /* DetailVC.m */,
+				5251FF2915BAC8B40039C78C /* MainVC.h */,
+				5251FF2A15BAC8B40039C78C /* MainVC.m */,
+			);
+			name = tab_1;
+			sourceTree = "<group>";
+		};
+		52E95ACD15BDE186004DF9B7 /* tab_2 */ = {
+			isa = PBXGroup;
+			children = (
+				52E25E9B15BC704500AF82DE /* FavoriteVC.h */,
+				52E25E9C15BC704500AF82DE /* FavoriteVC.m */,
+			);
+			name = tab_2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,10 +253,11 @@
 				5251FF1515BAC7F40039C78C /* ExPrefixAppDelegate.m in Sources */,
 				5251FF1815BAC7F50039C78C /* RussianToast.xcdatamodeld in Sources */,
 				5251FF2B15BAC8B40039C78C /* MainVC.m in Sources */,
-				5251FF3115BACDFE0039C78C /* GroupDB.m in Sources */,
 				5251FF3815BAD1140039C78C /* CoreDataManager.m in Sources */,
-				5251FF3B15BB0AD30039C78C /* MediaDB.m in Sources */,
 				52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */,
+				52E95AC715BDDEEF004DF9B7 /* GroupDB.m in Sources */,
+				52E95ACB15BDDF86004DF9B7 /* MediaDB.m in Sources */,
+				52E95AD015BDE1B3004DF9B7 /* DetailVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

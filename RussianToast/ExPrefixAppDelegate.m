@@ -87,22 +87,33 @@
         NSArray *array = [nameFile componentsSeparatedByString:@"&"];
         NSArray *arrayGroup = [[array objectAtIndex:0] componentsSeparatedByString:@"_"];
         
-        GroupDB *groupDB = [CoreDataManager object:@"GroupDB" predicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"id == %@",[arrayGroup objectAtIndex:0]]] inMainContext:YES];
+        GroupDB *groupDB = [CoreDataManager object:@"GroupDB" predicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"id == %@ AND idParent == 0",[arrayGroup objectAtIndex:0]]] inMainContext:YES];
         if(!groupDB) // если небыло группы - создаем
         {
             groupDB = (GroupDB*)[CoreDataManager newObject:@"GroupDB" inMainContext:YES];
             groupDB.id = [NSNumber numberWithInt:[[arrayGroup objectAtIndex:0]intValue]];
+            groupDB.idParent = [NSNumber numberWithInt:0];
             groupDB.name = [arrayGroup objectAtIndex:1];
         }
         
         MediaDB *mediaDB = (MediaDB*)[CoreDataManager newObject:@"MediaDB" inMainContext:YES];
         mediaDB.idGroup = groupDB.id;
+        mediaDB.nameGroup = groupDB.name;
         mediaDB.isFavorite = [NSNumber numberWithBool:0];
         if([array count]>1) // есть ли подгруппа?
         {
            NSArray *arraySubGroup = [[array objectAtIndex:1] componentsSeparatedByString:@"_"]; 
-           mediaDB.idSubGroup = [NSNumber numberWithInt:[[arraySubGroup objectAtIndex:0]intValue]];
-           mediaDB.nameSubGroup = [arraySubGroup objectAtIndex:1];
+           GroupDB *subGroupDB = [CoreDataManager object:@"GroupDB" predicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"id == %@ AND idParent == %@",[arraySubGroup objectAtIndex:0],groupDB.id]] inMainContext:YES];
+            if(!subGroupDB)
+            {
+                subGroupDB = (GroupDB*)[CoreDataManager newObject:@"GroupDB" inMainContext:YES];
+                subGroupDB.id = [NSNumber numberWithInt:[[arraySubGroup objectAtIndex:0]intValue]];
+                subGroupDB.idParent = groupDB.id;
+                subGroupDB.name = ((NSString*)[arraySubGroup objectAtIndex:1]).stringByDeletingPathExtension;
+            }
+            
+           mediaDB.idSubGroup = subGroupDB.id;
+           mediaDB.nameSubGroup = subGroupDB.name;
         }
         // разбираемся с текстом полным
 
@@ -115,12 +126,12 @@
     
     [CoreDataManager saveMainContext];
 
-    NSArray *arrayGroups = [CoreDataManager objects:@"GroupDB" withPredicate:nil inMainContext:YES];  
-    for (GroupDB*groupDB in arrayGroups)
-        NSLog(@"name group - %@",groupDB.name);
-    NSArray *arrayMedia = [CoreDataManager objects:@"MediaDB" withPredicate:nil inMainContext:YES];
-    for (MediaDB*mediaDB in arrayMedia)
-        NSLog(@"arrayMedia - %@",mediaDB.idGroup);
+//    NSArray *arrayGroups = [CoreDataManager objects:@"GroupDB" withPredicate:nil inMainContext:YES];  
+//    for (GroupDB*groupDB in arrayGroups)
+//        NSLog(@"name group - %@",groupDB.name);
+//    NSArray *arrayMedia = [CoreDataManager objects:@"MediaDB" withPredicate:nil inMainContext:YES];
+//    for (MediaDB*mediaDB in arrayMedia)
+//        NSLog(@"arrayMedia - %@",mediaDB.idGroup);
 }
 //------------------------------------------------------------------------------------------------------------
 - (void)applicationWillResignActive:(UIApplication *)application

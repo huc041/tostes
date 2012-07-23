@@ -1,27 +1,42 @@
 //
-//  MainVC.m
-//  ExperimentProject
+//  DetailVC.m
+//  RussianToast
 //
-//  Created by Евгений Иванов on 28.04.12.
+//  Created by Евгений Иванов on 23.07.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MainVC.h"
-#import "GroupDB.h"
 #import "DetailVC.h"
+#import "GroupDB.h"
+#import "MediaDB.h"
 
-@interface MainVC ()
+@interface DetailVC ()
+
 @end
 
-@implementation MainVC
+@implementation DetailVC
 
-@synthesize fetchResultController;
+@synthesize detailFetchResultController;
 
-- (id)init
+//--------------------------------------------------------------------
+-(void)dealloc
+{
+    [classParentName release];
+    [idParent release];
+    
+    [super dealloc];
+}
+//--------------------------------------------------------------------
+- (id)initWithNameParentClass:(NSString*)parentClass WithIDParent:(NSString*)parentID FromSubGroup:(BOOL)isSub
 {
     self = [super init];
-    if (self) {
+    if (self) 
+    {
         // Custom initialization
+        
+        classParentName = [[NSString alloc] initWithString:parentClass];
+        idParent        = [[NSString alloc] initWithString:parentID];
+        isSubGroup = isSub;
     }
     return self;
 }
@@ -33,7 +48,7 @@
     self.navigationController.navigationBar.topItem.title = @"Главная";
     
     table = [[UITableView alloc] initWithFrame:self.view.bounds];
-    table.backgroundColor = [UIColor grayColor];
+    table.backgroundColor = [UIColor darkGrayColor];
     table.delegate = self;
     table.dataSource = self;
     [self.view addSubview:table];
@@ -54,12 +69,15 @@
 //-----------------------------------------------------------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.fetchResultController.fetchedObjects count];
+    NSLog(@"detail objects - %d",[self.detailFetchResultController.fetchedObjects count]);
+    return [self.detailFetchResultController.fetchedObjects count];
 }
 //-----------------------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GroupDB *groupDB = [self.fetchResultController.fetchedObjects objectAtIndex:indexPath.row];
+    
+    Class myClass = (NSClassFromString(classParentName));
+    myClass = [self.detailFetchResultController.fetchedObjects objectAtIndex:indexPath.row];
     
     static NSString *CellIdentifier = @"id";
     UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -69,9 +87,11 @@
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 	}
     
-    if(groupDB)
-        cell.textLabel.text = groupDB.name;
-    
+    if([classParentName isEqualToString:@"GroupDB"])
+        cell.textLabel.text = ((GroupDB*)myClass).name;
+    else 
+        cell.textLabel.text = ((MediaDB*)myClass).fullText;
+
 	return cell;
 }
 //-----------------------------------------------------------------------------------
@@ -80,45 +100,53 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     DLog(@"");
-    GroupDB *groupDB = [self.fetchResultController.fetchedObjects objectAtIndex:indexPath.row];
-    
-    NSString *predicateSTR = [NSString stringWithFormat:@"idParent == %@",groupDB.id];
-    NSArray *arraySubGroups = [CoreDataManager objects:@"GroupDB" withPredicate:[NSPredicate predicateWithFormat:predicateSTR] inMainContext:YES];
-    if([arraySubGroups count] > 0)
-    {
-        DetailVC *detailVC = [[DetailVC alloc] initWithNameParentClass:@"GroupDB" WithIDParent:[NSString stringWithFormat:@"%@",groupDB.id] FromSubGroup:YES];
-        [self.navigationController pushViewController:detailVC animated:YES];
-        [detailVC release];
-    }
 }
 //-----------------------------------------------------------------------------------//-------------------------------------------------------------------------------
 #pragma mark
 #pragma mark NSFetchedResultsController Delegate
-- (NSFetchedResultsController*) fetchResultController
+- (NSFetchedResultsController*) detailFetchResultController
 {
-    if (fetchResultController != nil)
+    if (detailFetchResultController != nil)
     {
-        fetchResultController.delegate = (id <NSFetchedResultsControllerDelegate>) self;
-        return fetchResultController;     
+        detailFetchResultController.delegate = (id <NSFetchedResultsControllerDelegate>) self;
+        return detailFetchResultController;     
     }
     NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"GroupDB" inManagedObjectContext:CoreDataManager.shared.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:classParentName inManagedObjectContext:CoreDataManager.shared.managedObjectContext];
     [request setEntity:entity];
     [request setFetchLimit:10];
     [request setFetchBatchSize:200];    
     
-    [request setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idParent == 0"]]];
-    [request setSortDescriptors:[NSArray arrayWithObjects:
-                                 [[[NSSortDescriptor alloc] initWithKey:@"id" ascending:NO] autorelease],
-                                 nil]];
+    NSString *predicate;    
+    if([classParentName isEqualToString:@"GroupDB"])
+    {
+        predicate = [NSString stringWithFormat:@"idParent == %@",idParent];
+        [request setSortDescriptors:[NSArray arrayWithObjects:
+                                     [[[NSSortDescriptor alloc] initWithKey:@"id" ascending:NO] autorelease],
+                                     nil]];
+    }
+    else if(isSubGroup){
+        predicate = [NSString stringWithFormat:@"idSubGroup == %@",idParent];
+        [request setSortDescriptors:[NSArray arrayWithObjects:
+                                     [[[NSSortDescriptor alloc] initWithKey:@"fullText" ascending:NO] autorelease],
+                                     nil]];
+    }
+    else {
+        predicate = [NSString stringWithFormat:@"idGroup == %@",idParent];
+        [request setSortDescriptors:[NSArray arrayWithObjects:
+                                     [[[NSSortDescriptor alloc] initWithKey:@"fullText" ascending:NO] autorelease],
+                                     nil]];
+    }
+    [request setPredicate:[NSPredicate predicateWithFormat:predicate]];
+
     
-    fetchResultController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:CoreDataManager.shared.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    fetchResultController.delegate = (id <NSFetchedResultsControllerDelegate>) self;
+    detailFetchResultController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:CoreDataManager.shared.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    detailFetchResultController.delegate = (id <NSFetchedResultsControllerDelegate>) self;
     
     NSError *error = nil;
     @try {
         
-        if (![fetchResultController performFetch:&error])
+        if (![detailFetchResultController performFetch:&error])
         {
             //abort();
         }
@@ -128,7 +156,7 @@
         NSLog(@"NewRead:::Context: %@", CoreDataManager.shared.managedObjectContext);
     }
     
-    return fetchResultController;
+    return detailFetchResultController;
 }
 //--------------------------------------------------------------------
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller

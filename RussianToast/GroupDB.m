@@ -2,7 +2,7 @@
 //  GroupDB.m
 //  RussianToast
 //
-//  Created by Евгений Иванов on 21.07.12.
+//  Created by Евгений Иванов on 23.07.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,5 +13,6 @@
 
 @dynamic id;
 @dynamic name;
+@dynamic idParent;
 
 @end
