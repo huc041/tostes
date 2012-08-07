@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522854D915CD5FD70078DF6D /* TableCurrentObjVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 522854D815CD5FD70078DF6D /* TableCurrentObjVC.m */; };
+		522854DD15CD69E00078DF6D /* WebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 522854DC15CD69E00078DF6D /* WebViewVC.m */; };
 		5251FF0315BAC7F40039C78C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5251FF0215BAC7F40039C78C /* UIKit.framework */; };
 		5251FF0515BAC7F40039C78C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5251FF0415BAC7F40039C78C /* Foundation.framework */; };
 		5251FF0715BAC7F40039C78C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5251FF0615BAC7F40039C78C /* CoreGraphics.framework */; };
@@ -17,6 +19,10 @@
 		5251FF1815BAC7F50039C78C /* RussianToast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF1615BAC7F50039C78C /* RussianToast.xcdatamodeld */; };
 		5251FF2B15BAC8B40039C78C /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF2A15BAC8B40039C78C /* MainVC.m */; };
 		5251FF3815BAD1140039C78C /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5251FF3715BAD1140039C78C /* CoreDataManager.m */; };
+		529E3B7F15D1BE1D00EA1685 /* 2_поздравления&3_c 8 марта.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B7E15D1BE1D00EA1685 /* 2_поздравления&3_c 8 марта.txt */; };
+		529E3B8215D1BFB400EA1685 /* 2_поздравления&4_с 23 февраля.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B8115D1BFB400EA1685 /* 2_поздравления&4_с 23 февраля.txt */; };
+		529E3B8415D1C17500EA1685 /* 2_поздравления&5_с днем Святого Валентина.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B8315D1C17500EA1685 /* 2_поздравления&5_с днем Святого Валентина.txt */; };
+		529E3B8615D1C2BE00EA1685 /* 2_поздравления&6_с Новым Годом.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B8515D1C2BE00EA1685 /* 2_поздравления&6_с Новым Годом.txt */; };
 		52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E25E9C15BC704500AF82DE /* FavoriteVC.m */; };
 		52E25EA415BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52E25EA215BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt */; };
 		52E25EA515BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52E25EA315BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt */; };
@@ -26,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		522854D715CD5FD70078DF6D /* TableCurrentObjVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCurrentObjVC.h; sourceTree = "<group>"; };
+		522854D815CD5FD70078DF6D /* TableCurrentObjVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCurrentObjVC.m; sourceTree = "<group>"; };
+		522854DB15CD69E00078DF6D /* WebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewVC.h; sourceTree = "<group>"; };
+		522854DC15CD69E00078DF6D /* WebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewVC.m; sourceTree = "<group>"; };
 		5251FEFE15BAC7F40039C78C /* RussianToast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RussianToast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5251FF0215BAC7F40039C78C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5251FF0415BAC7F40039C78C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -42,6 +52,10 @@
 		5251FF2A15BAC8B40039C78C /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		5251FF3615BAD1140039C78C /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		5251FF3715BAD1140039C78C /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		529E3B7E15D1BE1D00EA1685 /* 2_поздравления&3_c 8 марта.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&3_c 8 марта.txt"; sourceTree = "<group>"; };
+		529E3B8115D1BFB400EA1685 /* 2_поздравления&4_с 23 февраля.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&4_с 23 февраля.txt"; sourceTree = "<group>"; };
+		529E3B8315D1C17500EA1685 /* 2_поздравления&5_с днем Святого Валентина.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&5_с днем Святого Валентина.txt"; sourceTree = "<group>"; };
+		529E3B8515D1C2BE00EA1685 /* 2_поздравления&6_с Новым Годом.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&6_с Новым Годом.txt"; sourceTree = "<group>"; };
 		52E25E9815BC678B00AF82DE /* CustomTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTabbarController.h; sourceTree = "<group>"; };
 		52E25E9915BC678B00AF82DE /* CustomTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTabbarController.m; sourceTree = "<group>"; };
 		52E25E9B15BC704500AF82DE /* FavoriteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteVC.h; sourceTree = "<group>"; };
@@ -128,6 +142,8 @@
 		5251FF1E15BAC8140039C78C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				522854DB15CD69E00078DF6D /* WebViewVC.h */,
+				522854DC15CD69E00078DF6D /* WebViewVC.m */,
 				52E95ACD15BDE186004DF9B7 /* tab_2 */,
 				52E95ACC15BDE17B004DF9B7 /* tab_1 */,
 			);
@@ -161,6 +177,10 @@
 			children = (
 				52E25EA215BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt */,
 				52E25EA315BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt */,
+				529E3B7E15D1BE1D00EA1685 /* 2_поздравления&3_c 8 марта.txt */,
+				529E3B8115D1BFB400EA1685 /* 2_поздравления&4_с 23 февраля.txt */,
+				529E3B8315D1C17500EA1685 /* 2_поздравления&5_с днем Святого Валентина.txt */,
+				529E3B8515D1C2BE00EA1685 /* 2_поздравления&6_с Новым Годом.txt */,
 			);
 			name = sourses;
 			sourceTree = "<group>";
@@ -168,6 +188,8 @@
 		52E95ACC15BDE17B004DF9B7 /* tab_1 */ = {
 			isa = PBXGroup;
 			children = (
+				522854D715CD5FD70078DF6D /* TableCurrentObjVC.h */,
+				522854D815CD5FD70078DF6D /* TableCurrentObjVC.m */,
 				52E95ACE15BDE1B3004DF9B7 /* DetailVC.h */,
 				52E95ACF15BDE1B3004DF9B7 /* DetailVC.m */,
 				5251FF2915BAC8B40039C78C /* MainVC.h */,
@@ -239,6 +261,10 @@
 				5251FF0F15BAC7F40039C78C /* InfoPlist.strings in Resources */,
 				52E25EA415BC7A6600AF82DE /* 1_тосты&2_пьем за любовь.txt in Resources */,
 				52E25EA515BC7A6600AF82DE /* 1_тосты&1_за семейное счастье.txt in Resources */,
+				529E3B7F15D1BE1D00EA1685 /* 2_поздравления&3_c 8 марта.txt in Resources */,
+				529E3B8215D1BFB400EA1685 /* 2_поздравления&4_с 23 февраля.txt in Resources */,
+				529E3B8415D1C17500EA1685 /* 2_поздравления&5_с днем Святого Валентина.txt in Resources */,
+				529E3B8615D1C2BE00EA1685 /* 2_поздравления&6_с Новым Годом.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +284,8 @@
 				52E95AC715BDDEEF004DF9B7 /* GroupDB.m in Sources */,
 				52E95ACB15BDDF86004DF9B7 /* MediaDB.m in Sources */,
 				52E95AD015BDE1B3004DF9B7 /* DetailVC.m in Sources */,
+				522854D915CD5FD70078DF6D /* TableCurrentObjVC.m in Sources */,
+				522854DD15CD69E00078DF6D /* WebViewVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "DetailVC.h"
 #import "GroupDB.h"
 #import "MediaDB.h"
+#import "TableCurrentObjVC.h"
 
 @interface DetailVC ()
 
@@ -75,7 +76,6 @@
 //-----------------------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     Class myClass = (NSClassFromString(classParentName));
     myClass = [self.detailFetchResultController.fetchedObjects objectAtIndex:indexPath.row];
     
@@ -100,8 +100,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     DLog(@"");
+    
+    GroupDB *currentSubGroup = [self.detailFetchResultController.fetchedObjects objectAtIndex:indexPath.row];
+    
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idSubGroup == %@",currentSubGroup.id]];
+    MediaDB *mediaObjectWithSubGroup = [CoreDataManager object:@"MediaDB" predicate:predicate1 inMainContext:YES];
+    if(mediaObjectWithSubGroup != nil)
+    {
+        TableCurrentObjVC *tableVC = [[[TableCurrentObjVC alloc] initWithStringData:mediaObjectWithSubGroup.fullText] autorelease];
+        [self.navigationController pushViewController:tableVC animated:YES];
+    }
 }
-//-----------------------------------------------------------------------------------//-------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
 #pragma mark
 #pragma mark NSFetchedResultsController Delegate
 - (NSFetchedResultsController*) detailFetchResultController

@@ -88,7 +88,7 @@
         NSArray *arrayGroup = [[array objectAtIndex:0] componentsSeparatedByString:@"_"];
         
         GroupDB *groupDB = [CoreDataManager object:@"GroupDB" predicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"id == %@ AND idParent == 0",[arrayGroup objectAtIndex:0]]] inMainContext:YES];
-        if(!groupDB) // если небыло группы - создаем
+        if(!groupDB) // если не было группы - создаем
         {
             groupDB = (GroupDB*)[CoreDataManager newObject:@"GroupDB" inMainContext:YES];
             groupDB.id = [NSNumber numberWithInt:[[arrayGroup objectAtIndex:0]intValue]];
