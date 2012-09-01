@@ -6,15 +6,15 @@
 //
 //
 
-#import "TableCurrentObjVC.h"
+#import "MediaListTableVC.h"
 #import "WebViewVC.h"
 #import "MediaDB.h"
 
-@interface TableCurrentObjVC ()
+@interface MediaListTableVC ()
 
 @end
 
-@implementation TableCurrentObjVC
+@implementation MediaListTableVC
 
 -(void)dealloc
 {

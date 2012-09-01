@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableCurrentObjVC : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface MediaListTableVC : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
 {
     NSArray *mediaArray;

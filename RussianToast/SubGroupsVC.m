@@ -9,7 +9,7 @@
 #import "SubGroupsVC.h"
 #import "GroupDB.h"
 #import "MediaDB.h"
-#import "TableCurrentObjVC.h"
+#import "MediaListTableVC.h"
 
 @interface SubGroupsVC ()
 
@@ -107,7 +107,7 @@
     NSArray *arrayMediaObjectsInSubGroup = [CoreDataManager objects:@"MediaDB" withPredicate:predicate1 inMainContext:YES];
     if([arrayMediaObjectsInSubGroup count] > 0)
     {
-        TableCurrentObjVC *tableVC = [[[TableCurrentObjVC alloc] initWithMediaArray:arrayMediaObjectsInSubGroup] autorelease];
+        MediaListTableVC *tableVC = [[[MediaListTableVC alloc] initWithMediaArray:arrayMediaObjectsInSubGroup] autorelease];
         [self.navigationController pushViewController:tableVC animated:YES];
     }
 }

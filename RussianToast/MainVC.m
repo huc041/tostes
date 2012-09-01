@@ -9,6 +9,7 @@
 #import "MainVC.h"
 #import "GroupDB.h"
 #import "SubGroupsVC.h"
+#import "SongsListVC.h"
 
 @interface MainVC ()
 @end
@@ -84,7 +85,18 @@
     
     NSString *predicateSTR = [NSString stringWithFormat:@"idParent == %@",groupDB.id];
     NSArray *arraySubGroups = [CoreDataManager objects:@"GroupDB" withPredicate:[NSPredicate predicateWithFormat:predicateSTR] inMainContext:YES];
-    if([arraySubGroups count] > 0)
+    if([arraySubGroups count] == 1) // это песня
+    {
+        NSPredicate *predicateSongs = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idGroup == %@",groupDB.id]];
+        NSArray *arraySongs = [CoreDataManager objects:@"MediaDB" withPredicate:predicateSongs inMainContext:YES];
+        if([arraySongs count] > 0)
+        {
+            SongsListVC *songsListVC = [[SongsListVC alloc] init];
+            [self.navigationController pushViewController:songsListVC animated:YES];
+            [songsListVC release];
+        }
+    }
+    else if([arraySubGroups count] > 0)
     {
         SubGroupsVC *detailVC = [[SubGroupsVC alloc] initWithNameParentClass:@"GroupDB" WithIDParent:[NSString stringWithFormat:@"%@",groupDB.id] FromSubGroup:YES];
         [self.navigationController pushViewController:detailVC animated:YES];
