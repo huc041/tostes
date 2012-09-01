@@ -11,10 +11,10 @@
 @interface TableCurrentObjVC : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
 {
-    NSArray *arrayData;
+    NSArray *mediaArray;
     UITableView *table;
 }
 
-- (id)initWithStringData:(NSString*)strData;
+- (id)initWithMediaArray:(NSArray*)arrayData;
 
 @end

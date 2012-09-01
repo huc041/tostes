@@ -8,6 +8,7 @@
 
 #import "TableCurrentObjVC.h"
 #import "WebViewVC.h"
+#import "MediaDB.h"
 
 @interface TableCurrentObjVC ()
 
@@ -17,19 +18,17 @@
 
 -(void)dealloc
 {
-    [arrayData release];
-    
+    [mediaArray release];
     [super dealloc];
 }
 //-------------------------------------------------------------------------------
-- (id)initWithStringData:(NSString*)strData
+- (id)initWithMediaArray:(NSArray*)arrayData
 {
     self = [super init];
     if (self) {
         // Custom initialization
         
-        NSArray *tempArray = [strData componentsSeparatedByString:@"* * *"];
-        arrayData = [[NSArray alloc] initWithArray:tempArray];
+        mediaArray = [[NSArray alloc] initWithArray:arrayData];
     }
     return self;
 }
@@ -60,8 +59,8 @@
 //-----------------------------------------------------------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"detail objects - %d",[arrayData count]);
-    return [arrayData count];
+    NSLog(@"mediaArray objects - %d",[mediaArray count]);
+    return [mediaArray count];
 }
 //-----------------------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,7 +73,8 @@
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 	}
     
-    cell.textLabel.text = [arrayData objectAtIndex:indexPath.row];
+    MediaDB *mediaDB = [mediaArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = mediaDB.fullText;
     
 	return cell;
 }
@@ -85,7 +85,9 @@
 {
     DLog(@"");
     
-    WebViewVC *webViewVC = [[[WebViewVC alloc] initWithTextData:[arrayData objectAtIndex:indexPath.row]] autorelease];
+    MediaDB *mediaDB = [mediaArray objectAtIndex:indexPath.row];
+    
+    WebViewVC *webViewVC = [[[WebViewVC alloc] initWithTextData:mediaDB.fullText] autorelease];
     [webViewVC setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:webViewVC animated:YES];
 }

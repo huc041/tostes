@@ -6,16 +6,16 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "DetailVC.h"
+#import "SubGroupsVC.h"
 #import "GroupDB.h"
 #import "MediaDB.h"
 #import "TableCurrentObjVC.h"
 
-@interface DetailVC ()
+@interface SubGroupsVC ()
 
 @end
 
-@implementation DetailVC
+@implementation SubGroupsVC
 
 @synthesize detailFetchResultController;
 
@@ -102,12 +102,12 @@
     DLog(@"");
     
     GroupDB *currentSubGroup = [self.detailFetchResultController.fetchedObjects objectAtIndex:indexPath.row];
-    
     NSPredicate *predicate1 = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idSubGroup == %@",currentSubGroup.id]];
-    MediaDB *mediaObjectWithSubGroup = [CoreDataManager object:@"MediaDB" predicate:predicate1 inMainContext:YES];
-    if(mediaObjectWithSubGroup != nil)
+    
+    NSArray *arrayMediaObjectsInSubGroup = [CoreDataManager objects:@"MediaDB" withPredicate:predicate1 inMainContext:YES];
+    if([arrayMediaObjectsInSubGroup count] > 0)
     {
-        TableCurrentObjVC *tableVC = [[[TableCurrentObjVC alloc] initWithStringData:mediaObjectWithSubGroup.fullText] autorelease];
+        TableCurrentObjVC *tableVC = [[[TableCurrentObjVC alloc] initWithMediaArray:arrayMediaObjectsInSubGroup] autorelease];
         [self.navigationController pushViewController:tableVC animated:YES];
     }
 }

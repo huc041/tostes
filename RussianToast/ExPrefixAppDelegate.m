@@ -96,14 +96,11 @@
             groupDB.name = [arrayGroup objectAtIndex:1];
         }
         
-        MediaDB *mediaDB = (MediaDB*)[CoreDataManager newObject:@"MediaDB" inMainContext:YES];
-        mediaDB.idGroup = groupDB.id;
-        mediaDB.nameGroup = groupDB.name;
-        mediaDB.isFavorite = [NSNumber numberWithBool:0];
+        GroupDB *subGroupDB = nil;
         if([array count]>1) // есть ли подгруппа?
         {
-           NSArray *arraySubGroup = [[array objectAtIndex:1] componentsSeparatedByString:@"_"]; 
-           GroupDB *subGroupDB = [CoreDataManager object:@"GroupDB" predicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"id == %@ AND idParent == %@",[arraySubGroup objectAtIndex:0],groupDB.id]] inMainContext:YES];
+            NSArray *arraySubGroup = [[array objectAtIndex:1] componentsSeparatedByString:@"_"];
+            subGroupDB = [CoreDataManager object:@"GroupDB" predicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"id == %@ AND idParent == %@",[arraySubGroup objectAtIndex:0],groupDB.id]] inMainContext:YES];
             if(!subGroupDB)
             {
                 subGroupDB = (GroupDB*)[CoreDataManager newObject:@"GroupDB" inMainContext:YES];
@@ -111,16 +108,25 @@
                 subGroupDB.idParent = groupDB.id;
                 subGroupDB.name = ((NSString*)[arraySubGroup objectAtIndex:1]).stringByDeletingPathExtension;
             }
-            
-           mediaDB.idSubGroup = subGroupDB.id;
-           mediaDB.nameSubGroup = subGroupDB.name;
         }
-        // разбираемся с текстом полным
-
+        
         NSData *dataFromFile = [NSData dataWithContentsOfFile:filePath];
         NSString *dataString = [[NSString alloc] initWithData:dataFromFile encoding:NSUTF8StringEncoding];
-        if(dataString)
-            mediaDB.fullText = dataString;
+//        NSLog(@"dataString - %@",dataString);
+        if(dataString) // разбиваем полный текст на элементы MediaDB
+        {
+            NSArray *arrayMedia = [dataString componentsSeparatedByString:@"* * *"];
+            for (NSString *mediaText in arrayMedia)
+            {
+                MediaDB *mediaDB = (MediaDB*)[CoreDataManager newObject:@"MediaDB" inMainContext:YES];
+                mediaDB.idGroup = groupDB.id;
+                mediaDB.nameGroup = groupDB.name;
+                mediaDB.isFavorite = [NSNumber numberWithBool:0];
+                mediaDB.idSubGroup = subGroupDB.id;
+                mediaDB.nameSubGroup = subGroupDB.name;
+                mediaDB.fullText = mediaText;
+            }
+        }
         [dataString release];
     }
     
@@ -129,9 +135,9 @@
 //    NSArray *arrayGroups = [CoreDataManager objects:@"GroupDB" withPredicate:nil inMainContext:YES];  
 //    for (GroupDB*groupDB in arrayGroups)
 //        NSLog(@"name group - %@",groupDB.name);
-//    NSArray *arrayMedia = [CoreDataManager objects:@"MediaDB" withPredicate:nil inMainContext:YES];
-//    for (MediaDB*mediaDB in arrayMedia)
-//        NSLog(@"arrayMedia - %@",mediaDB.idGroup);
+//    NSArray *arrayMediaFromDB = [CoreDataManager objects:@"MediaDB" withPredicate:nil inMainContext:YES];
+//    for (MediaDB*mediaDB in arrayMediaFromDB)
+//        NSLog(@"arrayMedia - %@",mediaDB.idSubGroup);
 }
 //------------------------------------------------------------------------------------------------------------
 - (void)applicationWillResignActive:(UIApplication *)application

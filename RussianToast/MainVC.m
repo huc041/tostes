@@ -8,7 +8,7 @@
 
 #import "MainVC.h"
 #import "GroupDB.h"
-#import "DetailVC.h"
+#import "SubGroupsVC.h"
 
 @interface MainVC ()
 @end
@@ -86,7 +86,7 @@
     NSArray *arraySubGroups = [CoreDataManager objects:@"GroupDB" withPredicate:[NSPredicate predicateWithFormat:predicateSTR] inMainContext:YES];
     if([arraySubGroups count] > 0)
     {
-        DetailVC *detailVC = [[DetailVC alloc] initWithNameParentClass:@"GroupDB" WithIDParent:[NSString stringWithFormat:@"%@",groupDB.id] FromSubGroup:YES];
+        SubGroupsVC *detailVC = [[SubGroupsVC alloc] initWithNameParentClass:@"GroupDB" WithIDParent:[NSString stringWithFormat:@"%@",groupDB.id] FromSubGroup:YES];
         [self.navigationController pushViewController:detailVC animated:YES];
         [detailVC release];
     }
