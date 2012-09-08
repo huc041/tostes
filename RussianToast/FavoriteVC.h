@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavoriteVC : UIViewController
+@interface FavoriteVC : UIViewController <UITableViewDelegate,UITableViewDataSource>
+
+{
+    
+    BOOL isReady;
+    UITableView *table;
+    
+    NSMutableDictionary *dic;
+}
 
 @end

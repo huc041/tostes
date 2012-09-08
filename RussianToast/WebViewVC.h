@@ -7,17 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MediaDB.h"
 
 @interface WebViewVC : UIViewController <UIWebViewDelegate>
 
 {
-    NSString *dataText;
+    MediaDB *media;    
     UIWebView *webView;
+    UIView *toolBarView;
     
     float blockTextHeight;
     float fontSize;
 }
 
-- (id)initWithTextData:(NSString*)textData;
+@property (nonatomic,retain)MediaDB *media;
 
 @end

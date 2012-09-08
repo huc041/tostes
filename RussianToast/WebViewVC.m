@@ -33,53 +33,24 @@ static NSString *htmlSTR =  @"<html>"
 
 @implementation WebViewVC
 
+@synthesize media;
+
 //-----------------------------------------------------------------------------------
 -(void)dealloc
-{
-    [dataText release];
-    
+{    
     [super dealloc];
 }
 //-----------------------------------------------------------------------------------
-- (id)initWithTextData:(NSString*)textData
+- (id)init
 {
     self = [super init];
     if (self) {
         // Custom initialization
-        
-        dataText = [[NSString alloc] initWithString:textData];
+                
         blockTextHeight = 0;
         fontSize = 15.0f;
     }
     return self;
-}
-//-----------------------------------------------------------------------------------
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSNumber *fontNum  = [userDefaults objectForKey:@"fontSize"];
-    if(fontNum)
-    {
-        fontSize = [fontNum floatValue];
-        DLog(@"fontSize - %f",fontSize);
-
-        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByClassName('block1')[0].style.fontSize = '%fpt';", fontSize]];
-    }
-    
-    NSString *innerHtml=[NSString stringWithFormat:(NSString*)htmlSTR,fontSize,dataText];
-    [webView loadHTMLString:innerHtml baseURL:nil];
-}
-//-----------------------------------------------------------------------------------
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:YES];
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSNumber *fontNum = [NSNumber numberWithFloat:fontSize];
-    [userDefaults setObject:fontNum forKey:@"fontSize"];
-    [userDefaults synchronize];
 }
 //-----------------------------------------------------------------------------------
 - (void)viewDidLoad
@@ -92,7 +63,7 @@ static NSString *htmlSTR =  @"<html>"
     [self.view addSubview:webView];
     [webView release];
     
-    UIView *toolBarView  = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(webView.frame), self.view.bounds.size.width, 49.0f)];
+    toolBarView  = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(webView.frame), self.view.bounds.size.width, 49.0f)];
     toolBarView.backgroundColor = [UIColor colorWithWhite:0.4f alpha:1.0f];
     [self.view addSubview:toolBarView];
     [toolBarView release];
@@ -111,7 +82,42 @@ static NSString *htmlSTR =  @"<html>"
         [toolBarButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
         [toolBarButton setSelected:NO];
         [toolBarView addSubview:toolBarButton];
+
     }
+}
+//-----------------------------------------------------------------------------------
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *fontNum  = [userDefaults objectForKey:@"fontSize"];
+    if(fontNum)
+    {
+        fontSize = [fontNum floatValue];
+        DLog(@"fontSize - %f",fontSize);
+        
+        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByClassName('block1')[0].style.fontSize = '%fpt';", fontSize]];
+    }
+    
+    NSString *innerHtml=[NSString stringWithFormat:(NSString*)htmlSTR,fontSize,media.fullText];
+    [webView loadHTMLString:innerHtml baseURL:nil];
+    
+    // кнопка Избранное
+    
+    UIButton *buttonFavorite = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 2];
+    buttonFavorite.selected = [media.isFavorite boolValue];
+    buttonFavorite.backgroundColor = (buttonFavorite.selected) ? [UIColor redColor] : [UIColor greenColor];
+}
+//-----------------------------------------------------------------------------------
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *fontNum = [NSNumber numberWithFloat:fontSize];
+    [userDefaults setObject:fontNum forKey:@"fontSize"];
+    [userDefaults synchronize];
 }
 //-----------------------------------------------------------------------------------
 -(void)buttonPress:(UIButton*)button
@@ -138,12 +144,8 @@ static NSString *htmlSTR =  @"<html>"
         button.selected = !button.selected;
         button.backgroundColor = (button.selected) ? [UIColor redColor] : [UIColor greenColor];
         
-//        NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"fullText ==[c] %@",dataText]];
-//        MediaDB *currentMedia = [CoreDataManager object:@"" predicate:predicate inMainContext:YES];
-//        if(currentMedia)
-//            currentMedia.isFavorite = [NSNumber numberWithBool:button.selected];
-//        NSLog(@"favorite - %@",currentMedia.isFavorite);
-//        [CoreDataManager saveMainContext];
+        media.isFavorite = [NSNumber numberWithBool:button.selected];
+        [CoreDataManager saveMainContext];
     }
 }
 //-----------------------------------------------------------------------------------

@@ -9,6 +9,7 @@
 #import "MediaListTableVC.h"
 #import "WebViewVC.h"
 #import "MediaDB.h"
+#import "GroupDB.h"
 
 @interface MediaListTableVC ()
 
@@ -74,7 +75,8 @@
 	}
     
     MediaDB *mediaDB = [mediaArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = mediaDB.fullText;
+    if(mediaDB)
+        cell.textLabel.text = mediaDB.fullText;
     
 	return cell;
 }
@@ -87,9 +89,12 @@
     
     MediaDB *mediaDB = [mediaArray objectAtIndex:indexPath.row];
     
-    WebViewVC *webViewVC = [[[WebViewVC alloc] initWithTextData:mediaDB.fullText] autorelease];
+    WebViewVC *webViewVC = [[WebViewVC alloc] init];
+    webViewVC.media = mediaDB;
+    
     [webViewVC setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:webViewVC animated:YES];
+    [webViewVC release];
 }
 //-----------------------------------------------------------------------------------
 @end

@@ -123,9 +123,11 @@
     MediaDB *mediaDB = (MediaDB*)[arraySongsWithCurrentBeginSymbols objectAtIndex:indexPath.row];
     if(mediaDB)
     {
-        WebViewVC *webViewVC = [[[WebViewVC alloc] initWithTextData:mediaDB.fullText] autorelease];
+        WebViewVC *webViewVC = [[WebViewVC alloc] init];
+        webViewVC.media = mediaDB;
         [webViewVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:webViewVC animated:YES];
+        [webViewVC release];
     }
 }
 //-----------------------------------------------------------------------------------

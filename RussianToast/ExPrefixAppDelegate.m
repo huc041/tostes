@@ -41,6 +41,7 @@
     {
         Class classVC = NSClassFromString(classesArray[j]);
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:[[[classVC alloc] init] autorelease]];
+        [navVC.navigationBar setBarStyle:UIBarStyleBlackOpaque];
 //        navVC.navigationBarHidden = YES;
         [tabsArray addObject:navVC];
         [navVC release];
@@ -125,6 +126,8 @@
                 mediaDB.idSubGroup = subGroupDB.id;
                 mediaDB.nameSubGroup = subGroupDB.name;
                 mediaDB.fullText = mediaText;
+                
+                [groupDB addMediaObject:mediaDB];
             }
         }
         [dataString release];

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		522854D915CD5FD70078DF6D /* MediaListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 522854D815CD5FD70078DF6D /* MediaListTableVC.m */; };
 		522854DD15CD69E00078DF6D /* WebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 522854DC15CD69E00078DF6D /* WebViewVC.m */; };
+		523708A115FB3DDD00395103 /* GroupDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 523708A015FB3DDD00395103 /* GroupDB.m */; };
+		523708A515FB3DF400395103 /* MediaDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 523708A415FB3DF400395103 /* MediaDB.m */; };
 		5251FF0315BAC7F40039C78C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5251FF0215BAC7F40039C78C /* UIKit.framework */; };
 		5251FF0515BAC7F40039C78C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5251FF0415BAC7F40039C78C /* Foundation.framework */; };
 		5251FF0715BAC7F40039C78C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5251FF0615BAC7F40039C78C /* CoreGraphics.framework */; };
@@ -41,8 +43,6 @@
 		52DA77C215F24F95009B7EC8 /* 3_застольные песни&1_nil.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52DA77C115F24F95009B7EC8 /* 3_застольные песни&1_nil.txt */; };
 		52DA77C515F25225009B7EC8 /* SongsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA77C415F25225009B7EC8 /* SongsListVC.m */; };
 		52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E25E9C15BC704500AF82DE /* FavoriteVC.m */; };
-		52E95AC715BDDEEF004DF9B7 /* GroupDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E95AC615BDDEEF004DF9B7 /* GroupDB.m */; };
-		52E95ACB15BDDF86004DF9B7 /* MediaDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E95ACA15BDDF86004DF9B7 /* MediaDB.m */; };
 		52E95AD015BDE1B3004DF9B7 /* SubGroupsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E95ACF15BDE1B3004DF9B7 /* SubGroupsVC.m */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +51,10 @@
 		522854D815CD5FD70078DF6D /* MediaListTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaListTableVC.m; sourceTree = "<group>"; };
 		522854DB15CD69E00078DF6D /* WebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewVC.h; sourceTree = "<group>"; };
 		522854DC15CD69E00078DF6D /* WebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewVC.m; sourceTree = "<group>"; };
+		5237089F15FB3DDD00395103 /* GroupDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDB.h; sourceTree = "<group>"; };
+		523708A015FB3DDD00395103 /* GroupDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDB.m; sourceTree = "<group>"; };
+		523708A315FB3DF400395103 /* MediaDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaDB.h; sourceTree = "<group>"; };
+		523708A415FB3DF400395103 /* MediaDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaDB.m; sourceTree = "<group>"; };
 		5251FEFE15BAC7F40039C78C /* RussianToast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RussianToast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5251FF0215BAC7F40039C78C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5251FF0415BAC7F40039C78C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,10 +97,6 @@
 		52E25E9915BC678B00AF82DE /* CustomTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTabbarController.m; sourceTree = "<group>"; };
 		52E25E9B15BC704500AF82DE /* FavoriteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteVC.h; sourceTree = "<group>"; };
 		52E25E9C15BC704500AF82DE /* FavoriteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteVC.m; sourceTree = "<group>"; };
-		52E95AC515BDDEEF004DF9B7 /* GroupDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDB.h; sourceTree = "<group>"; };
-		52E95AC615BDDEEF004DF9B7 /* GroupDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDB.m; sourceTree = "<group>"; };
-		52E95AC915BDDF86004DF9B7 /* MediaDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaDB.h; sourceTree = "<group>"; };
-		52E95ACA15BDDF86004DF9B7 /* MediaDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaDB.m; sourceTree = "<group>"; };
 		52E95ACE15BDE1B3004DF9B7 /* SubGroupsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubGroupsVC.h; sourceTree = "<group>"; };
 		52E95ACF15BDE1B3004DF9B7 /* SubGroupsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubGroupsVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,10 +184,10 @@
 		5251FF1F15BAC8240039C78C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				52E95AC915BDDF86004DF9B7 /* MediaDB.h */,
-				52E95ACA15BDDF86004DF9B7 /* MediaDB.m */,
-				52E95AC515BDDEEF004DF9B7 /* GroupDB.h */,
-				52E95AC615BDDEEF004DF9B7 /* GroupDB.m */,
+				523708A315FB3DF400395103 /* MediaDB.h */,
+				523708A415FB3DF400395103 /* MediaDB.m */,
+				5237089F15FB3DDD00395103 /* GroupDB.h */,
+				523708A015FB3DDD00395103 /* GroupDB.m */,
 				5251FF3615BAD1140039C78C /* CoreDataManager.h */,
 				5251FF3715BAD1140039C78C /* CoreDataManager.m */,
 			);
@@ -342,12 +342,12 @@
 				5251FF2B15BAC8B40039C78C /* MainVC.m in Sources */,
 				5251FF3815BAD1140039C78C /* CoreDataManager.m in Sources */,
 				52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */,
-				52E95AC715BDDEEF004DF9B7 /* GroupDB.m in Sources */,
-				52E95ACB15BDDF86004DF9B7 /* MediaDB.m in Sources */,
 				52E95AD015BDE1B3004DF9B7 /* SubGroupsVC.m in Sources */,
 				522854D915CD5FD70078DF6D /* MediaListTableVC.m in Sources */,
 				522854DD15CD69E00078DF6D /* WebViewVC.m in Sources */,
 				52DA77C515F25225009B7EC8 /* SongsListVC.m in Sources */,
+				523708A115FB3DDD00395103 /* GroupDB.m in Sources */,
+				523708A515FB3DF400395103 /* MediaDB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
