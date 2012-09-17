@@ -55,7 +55,7 @@
 		523708A015FB3DDD00395103 /* GroupDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDB.m; sourceTree = "<group>"; };
 		523708A315FB3DF400395103 /* MediaDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaDB.h; sourceTree = "<group>"; };
 		523708A415FB3DF400395103 /* MediaDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaDB.m; sourceTree = "<group>"; };
-		5251FEFE15BAC7F40039C78C /* RussianToast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RussianToast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5251FEFE15BAC7F40039C78C /* RussianToasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RussianToasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5251FF0215BAC7F40039C78C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5251FF0415BAC7F40039C78C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5251FF0615BAC7F40039C78C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,7 +128,7 @@
 		5251FEFF15BAC7F40039C78C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5251FEFE15BAC7F40039C78C /* RussianToast.app */,
+				5251FEFE15BAC7F40039C78C /* RussianToasts.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 			);
 			name = RussianToast;
 			productName = RussianToast;
-			productReference = 5251FEFE15BAC7F40039C78C /* RussianToast.app */;
+			productReference = 5251FEFE15BAC7F40039C78C /* RussianToasts.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -281,7 +281,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ExPrefix;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 5251FEF815BAC7F40039C78C /* Build configuration list for PBXProject "RussianToast" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -369,8 +369,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = armv6;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ivan Polyntsev (8HTUPZQ8YU)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -380,12 +380,15 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "1827DF7F-FCCE-4EC2-A58C-054F2EB8C32F";
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -393,16 +396,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = armv6;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ivan Polyntsev";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "CAFEA060-0EF1-4E0C-AE41-D18A0DE47FD5";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -413,8 +418,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RussianToast/RussianToast-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "RussianToast/RussianToast-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RussianToasts;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -424,11 +430,51 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RussianToast/RussianToast-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "RussianToast/RussianToast-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RussianToasts;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
+		};
+		52C937DC15FCFE0100EBB252 /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv6;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ivan Polyntsev";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "42C5B8BC-4A64-483C-8FBA-77420FF88914";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AdHoc;
+		};
+		52C937DD15FCFE0100EBB252 /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RussianToast/RussianToast-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				INFOPLIST_FILE = "RussianToast/RussianToast-Info.plist";
+				PRODUCT_NAME = RussianToasts;
+				WRAPPER_EXTENSION = app;
+			};
+			name = AdHoc;
 		};
 /* End XCBuildConfiguration section */
 
@@ -437,6 +483,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5251FF1915BAC7F50039C78C /* Debug */,
+				52C937DC15FCFE0100EBB252 /* AdHoc */,
 				5251FF1A15BAC7F50039C78C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -446,6 +493,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5251FF1C15BAC7F50039C78C /* Debug */,
+				52C937DD15FCFE0100EBB252 /* AdHoc */,
 				5251FF1D15BAC7F50039C78C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

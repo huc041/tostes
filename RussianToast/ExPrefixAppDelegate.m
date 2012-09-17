@@ -113,7 +113,6 @@
         
         NSData *dataFromFile = [NSData dataWithContentsOfFile:filePath];
         NSString *dataString = [[NSString alloc] initWithData:dataFromFile encoding:NSUTF8StringEncoding];
-//        NSLog(@"dataString - %@",dataString);
         if(dataString) // разбиваем полный текст на элементы MediaDB
         {
             NSArray *arrayMedia = [dataString componentsSeparatedByString:@"* * *"];

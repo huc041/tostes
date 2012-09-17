@@ -115,10 +115,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DLog(@"");
-    
     GroupDB *group = [self getGroupWithIndexSetion:indexPath.section];
     MediaDB *mediaDB = [[[dic objectForKey:group.name] allObjects] objectAtIndex:indexPath.row];
-    
     if(mediaDB)
     {
         WebViewVC *webViewVC = [[WebViewVC alloc] init];
@@ -143,14 +141,13 @@
     NSString *predicateString = [NSString stringWithFormat:@"ANY media.isFavorite == 1"];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
     NSArray *arrayGroups = [CoreDataManager objects:@"GroupDB" withPredicate:predicate inMainContext:YES];
-    if(dic)
-    {
-        [dic removeAllObjects];
-        for (GroupDB *group in arrayGroups) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idGroup == %@ AND isFavorite == 1",group.id]];
-            NSArray *arrayMediaObjects = [CoreDataManager objects:@"MediaDB" withPredicate:predicate inMainContext:YES];
-            [dic setObject:arrayMediaObjects forKey:group.name];
-        }
+    
+    if(!dic) dic = [NSMutableDictionary new];
+    [dic removeAllObjects];
+    for (GroupDB *group in arrayGroups) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idGroup == %@ AND isFavorite == 1",group.id]];
+        NSArray *arrayMediaObjects = [CoreDataManager objects:@"MediaDB" withPredicate:predicate inMainContext:YES];
+        [dic setObject:arrayMediaObjects forKey:group.name];
     }
 }
 //-----------------------------------------------------------------------------------

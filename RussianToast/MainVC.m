@@ -116,7 +116,7 @@
     NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"GroupDB" inManagedObjectContext:CoreDataManager.shared.managedObjectContext];
     [request setEntity:entity];
-    [request setFetchLimit:10];
+    [request setFetchLimit:100];
     [request setFetchBatchSize:200];    
     
     [request setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idParent == 0"]]];

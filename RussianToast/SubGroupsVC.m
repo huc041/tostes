@@ -48,7 +48,7 @@
     
     self.navigationController.navigationBar.topItem.title = @"Главная";
     
-    table = [[UITableView alloc] initWithFrame:self.view.bounds];
+    table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 49.0f - 46.0f)];
     table.backgroundColor = [UIColor darkGrayColor];
     table.delegate = self;
     table.dataSource = self;
@@ -124,7 +124,7 @@
     NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
     NSEntityDescription *entity = [NSEntityDescription entityForName:classParentName inManagedObjectContext:CoreDataManager.shared.managedObjectContext];
     [request setEntity:entity];
-    [request setFetchLimit:10];
+    [request setFetchLimit:100];
     [request setFetchBatchSize:200];    
     
     NSString *predicate;    
