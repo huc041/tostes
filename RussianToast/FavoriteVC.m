@@ -17,10 +17,11 @@
 
 @implementation FavoriteVC
 
+//@synthesize fetchFavoriteController;
+
 //-----------------------------------------------------------------------------------
 -(void)dealloc
 {
-    [dic release];
     [super dealloc];
 }
 //-----------------------------------------------------------------------------------
@@ -29,7 +30,7 @@
     self = [super init];
     if (self) {
         // Custom initialization
-        
+        DLog(@"");
     }
     return self;
 }
@@ -47,38 +48,34 @@
     table.dataSource = self;
     [self.view addSubview:table];
     [table release];
-    
-    dic = [NSMutableDictionary new];
-    
-    isReady = NO;
 }
 //-----------------------------------------------------------------------------------
 -(void)viewWillAppear:(BOOL)animated
 {
-    isReady = YES;
     [table reloadData];
+}
+//-----------------------------------------------------------------------------------
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [fetchFavoriteController release], fetchFavoriteController = nil;
 }
 //-----------------------------------------------------------------------------------
 #pragma mark
 #pragma mark TableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if(!isReady)
-        return 0;
-    else
-    {
-        [self saveDataToDictionary];
-        return [[dic allKeys] count];
-    }
+//    DLog(@"section count - %d",self.fetchFavoriteController.sections.count);
+//    for (MediaDB*media in self.fetchFavoriteController.fetchedObjects) {
+//        NSLog(@"name section - %@",media.nameGroup);
+//    }
+    
+    return self.fetchFavoriteController.sections.count;
 }
-//-----------------------------------------------------------------------------------
+////-----------------------------------------------------------------------------------
 - (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section
 {
-    NSString *titleSection = @"";
-    
-    GroupDB *group = [self getGroupWithIndexSetion:section];
-    if(group) titleSection = group.name;
-    return titleSection;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchFavoriteController sections] objectAtIndex:section];
+    return [sectionInfo name];
 }
 //-----------------------------------------------------------------------------------
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,8 +85,8 @@
 //-----------------------------------------------------------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    GroupDB *group = [self getGroupWithIndexSetion:section];
-    return [[[dic objectForKey:group.name] allObjects] count];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchFavoriteController sections] objectAtIndex:section];
+    return [[sectionInfo objects] count];
 }
 //-----------------------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,10 +99,10 @@
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 	}
     
-    GroupDB *group = [self getGroupWithIndexSetion:indexPath.section];
-    MediaDB *media = [[[dic objectForKey:group.name] allObjects] objectAtIndex:indexPath.row];
-    if(media)
-        cell.textLabel.text = media.fullText;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchFavoriteController sections] objectAtIndex:indexPath.section];
+    MediaDB *mediaDB = [[sectionInfo objects] objectAtIndex:indexPath.row];
+    if(mediaDB)
+        cell.textLabel.text = mediaDB.fullText;
     
 	return cell;
 }
@@ -115,40 +112,67 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DLog(@"");
-    GroupDB *group = [self getGroupWithIndexSetion:indexPath.section];
-    MediaDB *mediaDB = [[[dic objectForKey:group.name] allObjects] objectAtIndex:indexPath.row];
-    if(mediaDB)
-    {
-        WebViewVC *webViewVC = [[WebViewVC alloc] init];
-        webViewVC.media = mediaDB;
-        [webViewVC setHidesBottomBarWhenPushed:YES];
-        [self.navigationController pushViewController:webViewVC animated:YES];
-        [webViewVC release];
-    }
 }
 //-----------------------------------------------------------------------------------
--(GroupDB*)getGroupWithIndexSetion:(int)section
-{    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"ANY media.isFavorite == 1"]];
-    NSArray *arrayobjects = [CoreDataManager objects:@"GroupDB" withPredicate:predicate WithSortArray:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES]autorelease]] WithAscending:YES inMainContext:YES];
-    GroupDB *curGroup = [arrayobjects objectAtIndex:section];
-    
-    return curGroup;
-}
-//-----------------------------------------------------------------------------------
--(void)saveDataToDictionary
+#pragma mark
+#pragma mark NSFetchedResultsController Delegate
+- (NSFetchedResultsController*) fetchFavoriteController
 {
-    NSString *predicateString = [NSString stringWithFormat:@"ANY media.isFavorite == 1"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
-    NSArray *arrayGroups = [CoreDataManager objects:@"GroupDB" withPredicate:predicate inMainContext:YES];
-    
-    if(!dic) dic = [NSMutableDictionary new];
-    [dic removeAllObjects];
-    for (GroupDB *group in arrayGroups) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idGroup == %@ AND isFavorite == 1",group.id]];
-        NSArray *arrayMediaObjects = [CoreDataManager objects:@"MediaDB" withPredicate:predicate inMainContext:YES];
-        [dic setObject:arrayMediaObjects forKey:group.name];
+    DLog(@"");
+    if (fetchFavoriteController != nil)
+    {
+        fetchFavoriteController.delegate = (id <NSFetchedResultsControllerDelegate>) self;
+        return fetchFavoriteController;
     }
+    NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MediaDB" inManagedObjectContext:CoreDataManager.shared.managedObjectContext];
+    [request setEntity:entity];
+    [request setFetchLimit:100];
+    [request setFetchBatchSize:200];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isFavorite == 1"];
+    [request setPredicate:predicate];
+    [request setSortDescriptors:[NSArray arrayWithObjects:
+                                 [[[NSSortDescriptor alloc] initWithKey:@"idGroup" ascending:NO] autorelease],
+                                 [[[NSSortDescriptor alloc] initWithKey:@"fullText" ascending:NO] autorelease],
+                                 nil]];
+    
+    fetchFavoriteController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:CoreDataManager.shared.managedObjectContext sectionNameKeyPath:@"nameGroup" cacheName:nil];
+    fetchFavoriteController.delegate = (id <NSFetchedResultsControllerDelegate>) self;
+    
+    NSError *error = nil;
+    @try {
+        
+        if (![fetchFavoriteController performFetch:&error])
+        {
+            //abort();
+        }
+    }
+    @catch (NSException *exception) {
+        
+        NSLog(@"NewRead:::Context: %@", CoreDataManager.shared.managedObjectContext);
+    }
+    
+    return fetchFavoriteController;
 }
-//-----------------------------------------------------------------------------------
+//--------------------------------------------------------------------
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    //DLog(@"");
+}
+//--------------------------------------------------------------------
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+}
+//--------------------------------------------------------------------
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    //DLog(@"");
+//    [table reloadData];
+}
+//--------------------------------------------------------------------
 @end

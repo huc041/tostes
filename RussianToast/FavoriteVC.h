@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavoriteVC : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@interface FavoriteVC : UIViewController <UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate>
 
 {
-    
-    BOOL isReady;
     UITableView *table;
-    
-    NSMutableDictionary *dic;
+    NSFetchedResultsController *fetchFavoriteController;
 }
+
+
+@property (nonatomic,readonly,retain) NSFetchedResultsController *fetchFavoriteController;
+
 
 @end

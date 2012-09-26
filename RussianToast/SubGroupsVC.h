@@ -11,17 +11,14 @@
 @interface SubGroupsVC : UIViewController <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>
 
 {
-    UITableView *table;
-    
-    NSString *classParentName;
     NSString *idParent;
-    BOOL isSubGroup;
     
+    UITableView *table;
     NSFetchedResultsController *detailFetchResultController;
 }
 
 @property (nonatomic,readonly,retain)NSFetchedResultsController *detailFetchResultController;
 
-- (id)initWithNameParentClass:(NSString*)parentClass WithIDParent:(NSString*)parentID FromSubGroup:(BOOL)isSub;
+- (id)initWithWithIDParent:(NSString*)parentID;
 
 @end

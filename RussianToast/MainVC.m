@@ -10,6 +10,7 @@
 #import "GroupDB.h"
 #import "SubGroupsVC.h"
 #import "SongsListVC.h"
+#import "MediaDB.h"
 
 @interface MainVC ()
 @end
@@ -98,7 +99,7 @@
     }
     else if([arraySubGroups count] > 0)
     {
-        SubGroupsVC *detailVC = [[SubGroupsVC alloc] initWithNameParentClass:@"GroupDB" WithIDParent:[NSString stringWithFormat:@"%@",groupDB.id] FromSubGroup:YES];
+        SubGroupsVC *detailVC = [[SubGroupsVC alloc] initWithWithIDParent:[NSString stringWithFormat:@"%@",groupDB.id]];
         [self.navigationController pushViewController:detailVC animated:YES];
         [detailVC release];
     }

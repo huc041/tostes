@@ -118,12 +118,15 @@
             NSArray *arrayMedia = [dataString componentsSeparatedByString:@"* * *"];
             for (NSString *mediaText in arrayMedia)
             {
+//                NSLog(@"subGroupDB.name - %@",subGroupDB.name);
+
+                
                 MediaDB *mediaDB = (MediaDB*)[CoreDataManager newObject:@"MediaDB" inMainContext:YES];
                 mediaDB.idGroup = groupDB.id;
                 mediaDB.nameGroup = groupDB.name;
                 mediaDB.isFavorite = [NSNumber numberWithBool:0];
                 mediaDB.idSubGroup = subGroupDB.id;
-                mediaDB.nameSubGroup = subGroupDB.name;
+//                mediaDB.nameSubGroup = subGroupDB.name;
                 mediaDB.fullText = mediaText;
                 
                 [groupDB addMediaObject:mediaDB];
@@ -133,10 +136,12 @@
     }
     
     [CoreDataManager saveMainContext];
-
-//    NSArray *arrayGroups = [CoreDataManager objects:@"GroupDB" withPredicate:nil inMainContext:YES];  
-//    for (GroupDB*groupDB in arrayGroups)
-//        NSLog(@"name group - %@",groupDB.name);
+    
+    NSArray *allMedia = [CoreDataManager objects:@"MediaDB" withPredicate:nil inMainContext:YES];
+    for (MediaDB*media in allMedia)
+    {
+        NSLog(@"name group - %@",media.nameGroup);
+    }
 //    NSArray *arrayMediaFromDB = [CoreDataManager objects:@"MediaDB" withPredicate:nil inMainContext:YES];
 //    for (MediaDB*mediaDB in arrayMediaFromDB)
 //        NSLog(@"arrayMedia - %@",mediaDB.idSubGroup);

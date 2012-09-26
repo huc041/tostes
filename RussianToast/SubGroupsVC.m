@@ -22,22 +22,16 @@
 //--------------------------------------------------------------------
 -(void)dealloc
 {
-    [classParentName release];
-    [idParent release];
-    
+    [idParent release];    
     [super dealloc];
 }
 //--------------------------------------------------------------------
-- (id)initWithNameParentClass:(NSString*)parentClass WithIDParent:(NSString*)parentID FromSubGroup:(BOOL)isSub
+- (id)initWithWithIDParent:(NSString*)parentID
 {
     self = [super init];
     if (self) 
     {
-        // Custom initialization
-        
-        classParentName = [[NSString alloc] initWithString:parentClass];
-        idParent        = [[NSString alloc] initWithString:parentID];
-        isSubGroup = isSub;
+        idParent = [[NSString alloc] initWithString:parentID];
     }
     return self;
 }
@@ -75,10 +69,7 @@
 }
 //-----------------------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Class myClass = (NSClassFromString(classParentName));
-    myClass = [self.detailFetchResultController.fetchedObjects objectAtIndex:indexPath.row];
-    
+{    
     static NSString *CellIdentifier = @"id";
     UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if(!cell)
@@ -87,10 +78,9 @@
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 	}
     
-    if([classParentName isEqualToString:@"GroupDB"])
-        cell.textLabel.text = ((GroupDB*)myClass).name;
-    else 
-        cell.textLabel.text = ((MediaDB*)myClass).fullText;
+    GroupDB *subGroup = [self.detailFetchResultController.fetchedObjects objectAtIndex:indexPath.row];
+    if(subGroup)
+        cell.textLabel.text = subGroup.name;
 
 	return cell;
 }
@@ -102,7 +92,7 @@
     DLog(@"");
     
     GroupDB *currentSubGroup = [self.detailFetchResultController.fetchedObjects objectAtIndex:indexPath.row];
-    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idSubGroup == %@",currentSubGroup.id]];
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idGroup == %@ AND idSubGroup == %@",idParent,currentSubGroup.id]];
     
     NSArray *arrayMediaObjectsInSubGroup = [CoreDataManager objects:@"MediaDB" withPredicate:predicate1 inMainContext:YES];
     if([arrayMediaObjectsInSubGroup count] > 0)
@@ -122,34 +112,17 @@
         return detailFetchResultController;     
     }
     NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:classParentName inManagedObjectContext:CoreDataManager.shared.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"GroupDB" inManagedObjectContext:CoreDataManager.shared.managedObjectContext];
     [request setEntity:entity];
     [request setFetchLimit:100];
     [request setFetchBatchSize:200];    
     
-    NSString *predicate;    
-    if([classParentName isEqualToString:@"GroupDB"])
-    {
-        predicate = [NSString stringWithFormat:@"idParent == %@",idParent];
-        [request setSortDescriptors:[NSArray arrayWithObjects:
+    NSString *predicate = [NSString stringWithFormat:@"idParent == %@",idParent];
+    [request setSortDescriptors:[NSArray arrayWithObjects:
                                      [[[NSSortDescriptor alloc] initWithKey:@"id" ascending:NO] autorelease],
                                      nil]];
-    }
-    else if(isSubGroup){
-        predicate = [NSString stringWithFormat:@"idSubGroup == %@",idParent];
-        [request setSortDescriptors:[NSArray arrayWithObjects:
-                                     [[[NSSortDescriptor alloc] initWithKey:@"fullText" ascending:NO] autorelease],
-                                     nil]];
-    }
-    else {
-        predicate = [NSString stringWithFormat:@"idGroup == %@",idParent];
-        [request setSortDescriptors:[NSArray arrayWithObjects:
-                                     [[[NSSortDescriptor alloc] initWithKey:@"fullText" ascending:NO] autorelease],
-                                     nil]];
-    }
     [request setPredicate:[NSPredicate predicateWithFormat:predicate]];
 
-    
     detailFetchResultController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:CoreDataManager.shared.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     detailFetchResultController.delegate = (id <NSFetchedResultsControllerDelegate>) self;
     
