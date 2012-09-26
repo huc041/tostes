@@ -38,7 +38,7 @@
         
         for (int j = 0;j < [alphabet count]; j++) {
             
-            NSString *strREx = [NSString stringWithFormat:@"fullText BEGINSWITH[cd] '%@'",[alphabet objectAtIndex:j]];
+            NSString *strREx = [NSString stringWithFormat:@"idGroup == 3 AND fullText BEGINSWITH[cd] '%@'",[alphabet objectAtIndex:j]];
             NSPredicate *predicate = [NSPredicate predicateWithFormat:strREx];
             NSArray *tempArray = [CoreDataManager objects:@"MediaDB" withPredicate:predicate inMainContext:YES];
             if([tempArray count] > 0)

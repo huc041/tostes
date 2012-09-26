@@ -137,11 +137,6 @@
     
     [CoreDataManager saveMainContext];
     
-    NSArray *allMedia = [CoreDataManager objects:@"MediaDB" withPredicate:nil inMainContext:YES];
-    for (MediaDB*media in allMedia)
-    {
-        NSLog(@"name group - %@",media.nameGroup);
-    }
 //    NSArray *arrayMediaFromDB = [CoreDataManager objects:@"MediaDB" withPredicate:nil inMainContext:YES];
 //    for (MediaDB*mediaDB in arrayMediaFromDB)
 //        NSLog(@"arrayMedia - %@",mediaDB.idSubGroup);
