@@ -6,10 +6,10 @@
 //
 //
 
-#import "WebViewVC.h"
+#import "TextViewVC.h"
 #import "MediaDB.h"
 
-@interface WebViewVC ()
+@interface TextViewVC ()
 
 @end
 
@@ -31,7 +31,7 @@ static NSString *htmlSTR =  @"<html>"
 @"</div>"
 @"</body></html>";
 
-@implementation WebViewVC
+@implementation TextViewVC
 
 @synthesize media;
 
@@ -56,14 +56,15 @@ static NSString *htmlSTR =  @"<html>"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
-    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 49.0f - 46.0f)];
-    webView.backgroundColor = [UIColor greenColor];
-    webView.delegate = self;
-    [self.view addSubview:webView];
-    [webView release];
     
-    toolBarView  = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(webView.frame), self.view.bounds.size.width, 49.0f)];
+    CGRect rectTextView = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 49.0f - 46.0f);
+    
+    textView = [[UITextView alloc] initWithFrame:rectTextView];
+    textView.backgroundColor = [UIColor whiteColor];
+    textView.textAlignment = UITextAlignmentCenter;
+    [self.view addSubview:textView];
+    
+    toolBarView  = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(textView.frame), self.view.bounds.size.width, 49.0f)];
     toolBarView.backgroundColor = [UIColor colorWithWhite:0.4f alpha:1.0f];
     [self.view addSubview:toolBarView];
     [toolBarView release];
@@ -93,15 +94,12 @@ static NSString *htmlSTR =  @"<html>"
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSNumber *fontNum  = [userDefaults objectForKey:@"fontSize"];
     if(fontNum)
-    {
         fontSize = [fontNum floatValue];
-        DLog(@"fontSize - %f",fontSize);
+    else
+        fontSize = 16.0f;
         
-        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByClassName('block1')[0].style.fontSize = '%fpt';", fontSize]];
-    }
-    
-    NSString *innerHtml=[NSString stringWithFormat:(NSString*)htmlSTR,fontSize,media.fullText];
-    [webView loadHTMLString:innerHtml baseURL:nil];
+    textView.font = [UIFont systemFontOfSize:fontSize];
+    textView.text = media.fullText;
     
     // кнопка Избранное
     
@@ -126,18 +124,15 @@ static NSString *htmlSTR =  @"<html>"
     if(button.tag == BUTTON_OFFSET_TAG) // decrease font
     {
         if(fontSize > 10)
-        {
             fontSize -=5;
-            [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByClassName('block1')[0].style.fontSize = '%fpt';", fontSize]];
-        }
+        
+        textView.font = [UIFont systemFontOfSize:fontSize];
     }
     else if (button.tag == BUTTON_OFFSET_TAG + 1)
     {
         if(fontSize < 35)
-        {
             fontSize +=5;
-            [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByClassName('block1')[0].style.fontSize = '%fpt';", fontSize]];
-        }
+        textView.font = [UIFont systemFontOfSize:fontSize];
     }
     else
     {
@@ -149,17 +144,5 @@ static NSString *htmlSTR =  @"<html>"
     }
 }
 //-----------------------------------------------------------------------------------
-#pragma mark
-#pragma mark UIWebView Delegate
-- (void)webViewDidFinishLoad:(UIWebView *)web
-{
-    blockTextHeight = [[web stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('block1')[0].offsetHeight;"] floatValue];
-    DLog(@"blockTextHeight - %f",blockTextHeight);
-}
-//-----------------------------------------------------------------------------------
-- (void)webView:(UIWebView *)_webView didFailLoadWithError:(NSError *)error
-{
-    DLog(@"");
-}
-//-----------------------------------------------------------------------------------
+
 @end

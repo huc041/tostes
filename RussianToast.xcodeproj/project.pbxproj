@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		522854D915CD5FD70078DF6D /* MediaListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 522854D815CD5FD70078DF6D /* MediaListTableVC.m */; };
-		522854DD15CD69E00078DF6D /* WebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 522854DC15CD69E00078DF6D /* WebViewVC.m */; };
+		522854DD15CD69E00078DF6D /* TextViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 522854DC15CD69E00078DF6D /* TextViewVC.m */; };
 		523708A115FB3DDD00395103 /* GroupDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 523708A015FB3DDD00395103 /* GroupDB.m */; };
 		523708A515FB3DF400395103 /* MediaDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 523708A415FB3DF400395103 /* MediaDB.m */; };
 		5251FF0315BAC7F40039C78C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5251FF0215BAC7F40039C78C /* UIKit.framework */; };
@@ -49,8 +49,8 @@
 /* Begin PBXFileReference section */
 		522854D715CD5FD70078DF6D /* MediaListTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaListTableVC.h; sourceTree = "<group>"; };
 		522854D815CD5FD70078DF6D /* MediaListTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaListTableVC.m; sourceTree = "<group>"; };
-		522854DB15CD69E00078DF6D /* WebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewVC.h; sourceTree = "<group>"; };
-		522854DC15CD69E00078DF6D /* WebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewVC.m; sourceTree = "<group>"; };
+		522854DB15CD69E00078DF6D /* TextViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewVC.h; sourceTree = "<group>"; };
+		522854DC15CD69E00078DF6D /* TextViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewVC.m; sourceTree = "<group>"; };
 		5237089F15FB3DDD00395103 /* GroupDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDB.h; sourceTree = "<group>"; };
 		523708A015FB3DDD00395103 /* GroupDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDB.m; sourceTree = "<group>"; };
 		523708A315FB3DF400395103 /* MediaDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaDB.h; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 		5251FF1E15BAC8140039C78C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				522854DB15CD69E00078DF6D /* WebViewVC.h */,
-				522854DC15CD69E00078DF6D /* WebViewVC.m */,
+				522854DB15CD69E00078DF6D /* TextViewVC.h */,
+				522854DC15CD69E00078DF6D /* TextViewVC.m */,
 				52E95ACD15BDE186004DF9B7 /* tab_2 */,
 				52E95ACC15BDE17B004DF9B7 /* tab_1 */,
 			);
@@ -344,7 +344,7 @@
 				52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */,
 				52E95AD015BDE1B3004DF9B7 /* SubGroupsVC.m in Sources */,
 				522854D915CD5FD70078DF6D /* MediaListTableVC.m in Sources */,
-				522854DD15CD69E00078DF6D /* WebViewVC.m in Sources */,
+				522854DD15CD69E00078DF6D /* TextViewVC.m in Sources */,
 				52DA77C515F25225009B7EC8 /* SongsListVC.m in Sources */,
 				523708A115FB3DDD00395103 /* GroupDB.m in Sources */,
 				523708A515FB3DF400395103 /* MediaDB.m in Sources */,

@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MediaDB.h"
 
-@interface WebViewVC : UIViewController <UIWebViewDelegate>
+@interface TextViewVC : UIViewController 
 
 {
     MediaDB *media;    
-    UIWebView *webView;
+    UITextView *textView;
     UIView *toolBarView;
     
     float blockTextHeight;

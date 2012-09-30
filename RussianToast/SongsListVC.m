@@ -8,7 +8,7 @@
 
 #import "SongsListVC.h"
 #import "MediaDB.h"
-#import "WebViewVC.h"
+#import "TextViewVC.h"
 
 @interface SongsListVC ()
 
@@ -123,7 +123,7 @@
     MediaDB *mediaDB = (MediaDB*)[arraySongsWithCurrentBeginSymbols objectAtIndex:indexPath.row];
     if(mediaDB)
     {
-        WebViewVC *webViewVC = [[WebViewVC alloc] init];
+        TextViewVC *webViewVC = [[TextViewVC alloc] init];
         webViewVC.media = mediaDB;
         [webViewVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:webViewVC animated:YES];
