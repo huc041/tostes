@@ -9,7 +9,7 @@
 #import "FavoriteVC.h"
 #import "MediaDB.h"
 #import "GroupDB.h"
-#import "WebViewVC.h"
+#import "TextViewVC.h"
 
 @interface FavoriteVC ()
 
@@ -41,7 +41,7 @@
     
     self.view.backgroundColor = [UIColor brownColor];
     self.navigationController.navigationBar.topItem.title = @"Избранное";
-    
+        
     table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 49.0f - 46.0f)];
     table.backgroundColor = [UIColor darkGrayColor];
     table.delegate = self;
@@ -112,6 +112,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DLog(@"");
+    
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchFavoriteController sections] objectAtIndex:indexPath.section];
+    MediaDB *mediaDB = [[sectionInfo objects] objectAtIndex:indexPath.row];
+    
+    TextViewVC *textViewVC = [[TextViewVC alloc] init];
+    textViewVC.media = mediaDB;
+    
+    [textViewVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:textViewVC animated:YES];
+    [textViewVC release];
 }
 //-----------------------------------------------------------------------------------
 #pragma mark

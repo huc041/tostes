@@ -15,6 +15,10 @@
 
 #define BUTTON_OFFSET_TAG 455
 
+#define SEND_MAIL_BUTTON_INDEX 0
+#define SEND_SMS_BUTTON_INDEX  1
+#define CANSEL_BUTTON_INDEX 2
+
 static NSString *htmlSTR =  @"<html>"
 @"<style type=\"text/css\">"
 @"body {"
@@ -56,6 +60,12 @@ static NSString *htmlSTR =  @"<html>"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+        
+    // кнопка Share
+    UIBarButtonItem *rightButton = [[[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonSystemItemEdit target:self
+                                                                    action:@selector(sharePress)] autorelease];
+    [rightButton setTintColor:self.navigationController.navigationBar.tintColor];
+    self.navigationItem.rightBarButtonItem = rightButton;
     
     CGRect rectTextView = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 49.0f - 46.0f);
     
@@ -102,7 +112,6 @@ static NSString *htmlSTR =  @"<html>"
     textView.text = media.fullText;
     
     // кнопка Избранное
-    
     UIButton *buttonFavorite = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 2];
     buttonFavorite.selected = [media.isFavorite boolValue];
     buttonFavorite.backgroundColor = (buttonFavorite.selected) ? [UIColor redColor] : [UIColor greenColor];
@@ -144,5 +153,143 @@ static NSString *htmlSTR =  @"<html>"
     }
 }
 //-----------------------------------------------------------------------------------
-
+#pragma mark
+#pragma mark Share Press
+-(void)sharePress
+{
+    DLog(@"");
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Поделиться" delegate:self cancelButtonTitle:@"Отмена" destructiveButtonTitle:@"отправить на почту" otherButtonTitles:@"отправить по смс", nil];
+    [actionSheet showInView:self.view];
+}
+//-----------------------------------------------------------------------------------
+#pragma mark
+#pragma mark UIActionSheet Delegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    DLog(@"buttonIndex - %d",buttonIndex);
+    switch (buttonIndex)
+    {
+        case SEND_MAIL_BUTTON_INDEX:
+            [self sendMail];
+            break;
+        case SEND_SMS_BUTTON_INDEX:
+            [self sendSMS];
+            break;
+        default:
+            NSLog(@"CANSEL Press");
+            break;
+    }
+}
+//-----------------------------------------------------------------------------------
+#pragma mark
+#pragma mark Send Methods
+- (void)sendMail
+{
+    DLog(@"");
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+	picker.mailComposeDelegate = self;
+	[picker setSubject:@"Прекрасные слова..."];
+	
+	// Fill out the email body text
+	[picker setMessageBody:media.fullText isHTML:NO];
+	
+	[self presentModalViewController:picker animated:YES];
+	[picker release];
+}
+//-----------------------------------------------------------------------------------
+- (void)sendSMS
+{
+    DLog(@"");
+    Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
+	if (messageClass != nil)
+    {
+		if ([messageClass canSendText])
+			[self displaySMSComposerSheet];
+		else
+			[self showAlert:@"Устройство не настроено для отправки СМС"];
+	}
+	else 
+        [self showAlert:@"Устройство не настроено для отправки СМС"];
+}
+//-----------------------------------------------------------------------------------
+-(void)displaySMSComposerSheet
+{
+    MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
+	picker.messageComposeDelegate = self;
+    // Fill out the email body text
+	NSString *smsBody = media.fullText;
+    [picker setBody:smsBody];
+    
+	[self presentModalViewController:picker animated:YES];
+	[picker release];
+}
+//-----------------------------------------------------------------------------------
+#pragma mark
+#pragma mark Mail Delegate
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{	
+    NSString *resultMessage = @"";
+    switch (result)
+	{
+		case MFMailComposeResultCancelled:
+			resultMessage = @"Отправка отменена";
+			break;
+		case MFMailComposeResultSaved:
+			resultMessage = @"Ваше письмо сохранено";
+			break;
+		case MFMailComposeResultSent:
+			resultMessage = @"Ошибка отправки";
+			break;
+		case MFMailComposeResultFailed:
+			resultMessage = @"Ошибка отправки";
+			break;
+		default:
+			resultMessage = @"Письмо не отправлено";
+			break;
+	}
+	[self dismissModalViewControllerAnimated:YES];    
+    [self showAlert:resultMessage];
+}
+//-----------------------------------------------------------------------------------
+#pragma mark
+#pragma mark SMS Delegate
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller
+                 didFinishWithResult:(MessageComposeResult)result
+{
+    NSString *resultMessage = @"";
+	switch (result)
+	{
+		case MessageComposeResultCancelled:
+			resultMessage = @"Отправка отменена";
+			break;
+		case MessageComposeResultSent:
+			resultMessage = @"Ваше сообщение отправлено";
+			break;
+		case MessageComposeResultFailed:
+			resultMessage = @"Ошибка отправки";
+			break;
+		default:
+			resultMessage = @"Сообщение не отправлено";
+			break;
+	}
+	[self dismissModalViewControllerAnimated:YES];
+    [self showAlert:resultMessage];
+}
+//-----------------------------------------------------------------------------------
+#pragma mark
+#pragma mark ALERT Methods
+-(void)showAlert:(NSString*)message
+{
+    DLog(@"");
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Сообщение" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"ОК", nil];
+    [alertView show];
+    [alertView autorelease];
+}
+//-----------------------------------------------------------------------------------
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    DLog(@"");
+}
+//-----------------------------------------------------------------------------------
 @end

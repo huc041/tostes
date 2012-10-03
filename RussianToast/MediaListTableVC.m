@@ -89,12 +89,12 @@
     
     MediaDB *mediaDB = [mediaArray objectAtIndex:indexPath.row];
     
-    TextViewVC *webViewVC = [[TextViewVC alloc] init];
-    webViewVC.media = mediaDB;
+    TextViewVC *textViewVC = [[TextViewVC alloc] init];
+    textViewVC.media = mediaDB;
     
-    [webViewVC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:webViewVC animated:YES];
-    [webViewVC release];
+    [textViewVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:textViewVC animated:YES];
+    [textViewVC release];
 }
 //-----------------------------------------------------------------------------------
 @end

@@ -42,7 +42,6 @@
         Class classVC = NSClassFromString(classesArray[j]);
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:[[[classVC alloc] init] autorelease]];
         [navVC.navigationBar setBarStyle:UIBarStyleBlackOpaque];
-//        navVC.navigationBarHidden = YES;
         [tabsArray addObject:navVC];
         [navVC release];
     }

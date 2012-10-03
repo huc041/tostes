@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MediaDB.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface TextViewVC : UIViewController 
+@interface TextViewVC : UIViewController <UIActionSheetDelegate,UIAlertViewDelegate,MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate>
 
 {
     MediaDB *media;    
