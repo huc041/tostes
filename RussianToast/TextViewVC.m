@@ -165,20 +165,13 @@ static NSString *htmlSTR =  @"<html>"
 #pragma mark
 #pragma mark UIActionSheet Delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    DLog(@"buttonIndex - %d",buttonIndex);
-    switch (buttonIndex)
-    {
-        case SEND_MAIL_BUTTON_INDEX:
-            [self sendMail];
-            break;
-        case SEND_SMS_BUTTON_INDEX:
-            [self sendSMS];
-            break;
-        default:
-            NSLog(@"CANSEL Press");
-            break;
-    }
+{    
+    if(buttonIndex == actionSheet.destructiveButtonIndex)
+        [self sendMail];
+    else if ( buttonIndex == actionSheet.firstOtherButtonIndex)
+        [self sendSMS];
+    else
+        NSLog(@"CANSEL Press");
 }
 //-----------------------------------------------------------------------------------
 #pragma mark
