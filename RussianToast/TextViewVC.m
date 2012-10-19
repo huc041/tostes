@@ -159,6 +159,10 @@ static NSString *htmlSTR =  @"<html>"
 {
     DLog(@"");
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Поделиться" delegate:self cancelButtonTitle:@"Отмена" destructiveButtonTitle:@"отправить на почту" otherButtonTitles:@"отправить по смс", nil];
+    
+//    - (void)showFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated NS_AVAILABLE_IOS(3_2);
+
+    
     [actionSheet showInView:self.view];
 }
 //-----------------------------------------------------------------------------------
@@ -221,7 +225,8 @@ static NSString *htmlSTR =  @"<html>"
 #pragma mark Mail Delegate
 - (void)mailComposeController:(MFMailComposeViewController*)controller
           didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
-{	
+{
+    DLog(@"error text - %@",error.userInfo);
     NSString *resultMessage = @"";
     switch (result)
 	{
@@ -232,7 +237,7 @@ static NSString *htmlSTR =  @"<html>"
 			resultMessage = @"Ваше письмо сохранено";
 			break;
 		case MFMailComposeResultSent:
-			resultMessage = @"Ошибка отправки";
+			resultMessage = @"Ваше письмо успешно отправлено";
 			break;
 		case MFMailComposeResultFailed:
 			resultMessage = @"Ошибка отправки";
