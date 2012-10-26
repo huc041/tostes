@@ -173,8 +173,8 @@ void checkAndSet(id object, NSString *propertyKey, id newValue)
 	@catch(NSException *exception)
 	{
 		DLog(@"(!!!) Exception \"%@\", reason: \"%@\"", [exception name], [exception reason]);
-        DLog(@"Object: %@", entityName);
-        DLog(@"Predicate: %@", predicate);
+//        DLog(@"Object: %@", entityName);
+//        DLog(@"Predicate: %@", predicate);
 	}
 	[request release];
 	

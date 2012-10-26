@@ -117,10 +117,10 @@
             NSArray *arrayMedia = [dataString componentsSeparatedByString:@"* * *"];
             for (NSString *mediaText in arrayMedia)
             {
-//                NSLog(@"subGroupDB.name - %@",subGroupDB.name);
-
+//                MediaDB *mediaDB = [CoreDataManager object:@"MediaDB" predicate:[NSPredicate predicateWithFormat:@"fullText like [cd] %@",mediaText] inMainContext:YES];
+//                if(!mediaDB)
+                 MediaDB *mediaDB = (MediaDB*)[CoreDataManager newObject:@"MediaDB" inMainContext:YES];
                 
-                MediaDB *mediaDB = (MediaDB*)[CoreDataManager newObject:@"MediaDB" inMainContext:YES];
                 mediaDB.idGroup = groupDB.id;
                 mediaDB.nameGroup = groupDB.name;
                 mediaDB.isFavorite = [NSNumber numberWithBool:0];

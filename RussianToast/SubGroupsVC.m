@@ -94,7 +94,9 @@
     GroupDB *currentSubGroup = [self.detailFetchResultController.fetchedObjects objectAtIndex:indexPath.row];
     NSPredicate *predicate1 = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idGroup == %@ AND idSubGroup == %@",idParent,currentSubGroup.id]];
     
-    NSArray *arrayMediaObjectsInSubGroup = [CoreDataManager objects:@"MediaDB" withPredicate:predicate1 inMainContext:YES];
+    NSArray *arrayMediaObjectsInSubGroup = [CoreDataManager objects:@"MediaDB" withPredicate:predicate1 WithSortArray:
+                                            [NSArray arrayWithObjects:[[[NSSortDescriptor alloc] initWithKey:@"fullText" ascending:YES] autorelease],nil]
+                                                      WithAscending:YES inMainContext:YES];
     if([arrayMediaObjectsInSubGroup count] > 0)
     {
         MediaListTableVC *tableVC = [[[MediaListTableVC alloc] initWithMediaArray:arrayMediaObjectsInSubGroup] autorelease];
