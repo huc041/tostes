@@ -90,17 +90,28 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     DLog(@"");
-    
     GroupDB *currentSubGroup = [self.detailFetchResultController.fetchedObjects objectAtIndex:indexPath.row];
-    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idGroup == %@ AND idSubGroup == %@",idParent,currentSubGroup.id]];
     
-    NSArray *arrayMediaObjectsInSubGroup = [CoreDataManager objects:@"MediaDB" withPredicate:predicate1 WithSortArray:
-                                            [NSArray arrayWithObjects:[[[NSSortDescriptor alloc] initWithKey:@"fullText" ascending:YES] autorelease],nil]
-                                                      WithAscending:YES inMainContext:YES];
-    if([arrayMediaObjectsInSubGroup count] > 0)
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idGroup == %@",currentSubGroup.id]];
+    NSArray *arraySubGroups = [CoreDataManager objects:@"GroupDB" withPredicate:predicate inMainContext:YES];
+    // проверяем,есть ли подгруппы,если есть - переходим на аналогичный экран,если нет - на экран Media
+    if([arraySubGroups count] > 0)
     {
-        MediaListTableVC *tableVC = [[[MediaListTableVC alloc] initWithMediaArray:arrayMediaObjectsInSubGroup] autorelease];
-        [self.navigationController pushViewController:tableVC animated:YES];
+        SubGroupsVC *detailVC = [[SubGroupsVC alloc] initWithWithIDParent:[NSString stringWithFormat:@"%@",currentSubGroup.id]];
+        [self.navigationController pushViewController:detailVC animated:YES];
+        [detailVC release];
+    }
+    else
+    {
+        NSPredicate *predicate1 = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idGroup == %@",currentSubGroup.id]];
+        NSArray *arrayMediaObjectsInSubGroup = [CoreDataManager objects:@"MediaDB" withPredicate:predicate1 WithSortArray:
+                                                [NSArray arrayWithObjects:[[[NSSortDescriptor alloc] initWithKey:@"fullText" ascending:YES] autorelease],nil]
+                                                          WithAscending:YES inMainContext:YES];
+        if([arrayMediaObjectsInSubGroup count] > 0)
+        {
+            MediaListTableVC *tableVC = [[[MediaListTableVC alloc] initWithMediaArray:arrayMediaObjectsInSubGroup] autorelease];
+            [self.navigationController pushViewController:tableVC animated:YES];
+        }
     }
 }
 //-----------------------------------------------------------------------------------
