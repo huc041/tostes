@@ -119,13 +119,17 @@
                     NSArray *arrayMedia = [dataString componentsSeparatedByString:@"* * *"];
                     for (NSString *mediaText in arrayMedia)
                     {
-                        MediaDB *mediaDB = (MediaDB*)[CoreDataManager newObject:@"MediaDB" inMainContext:YES];
-                        mediaDB.idGroup = groupDB.id;
-                        mediaDB.nameGroup = groupDB.name;
-                        mediaDB.isFavorite = [NSNumber numberWithBool:0];
-                        mediaDB.fullText = mediaText;
-                        
-                        [groupDB addMediaObject:mediaDB];
+#warning  кастыль,ну пока не понял почему поле пустое mediaText
+                        if([mediaText length] > 2)
+                        {
+                            MediaDB *mediaDB = (MediaDB*)[CoreDataManager newObject:@"MediaDB" inMainContext:YES];
+                            mediaDB.idGroup = groupDB.id;
+                            mediaDB.nameGroup = groupDB.name;
+                            mediaDB.isFavorite = [NSNumber numberWithBool:0];
+                            mediaDB.fullText = mediaText;
+                            
+                            [groupDB addMediaObject:mediaDB];
+                        }
                     }
                 }
                 [dataString release];
@@ -133,62 +137,9 @@
 
             j++;
         }
-        
-        
-//        NSArray *arrayGroup = [[array objectAtIndex:0] componentsSeparatedByString:@"_"];
-        
-//        GroupDB *groupDB = [CoreDataManager object:@"GroupDB" predicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"id == %@ AND idParent == 0",[arrayGroup objectAtIndex:0]]] inMainContext:YES];
-//        if(!groupDB) // если не было группы - создаем
-//        {
-//            groupDB = (GroupDB*)[CoreDataManager newObject:@"GroupDB" inMainContext:YES];
-//            groupDB.id = [NSNumber numberWithInt:[[arrayGroup objectAtIndex:0]intValue]];
-//            groupDB.idParent = [NSNumber numberWithInt:0];
-//            groupDB.name = [arrayGroup objectAtIndex:1];
-//        }
-//        
-//        GroupDB *subGroupDB = nil;
-//        if([array count]>1) // есть ли подгруппа?
-//        {
-//            NSArray *arraySubGroup = [[array objectAtIndex:1] componentsSeparatedByString:@"_"];
-//            subGroupDB = [CoreDataManager object:@"GroupDB" predicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"id == %@ AND idParent == %@",[arraySubGroup objectAtIndex:0],groupDB.id]] inMainContext:YES];
-//            if(!subGroupDB)
-//            {
-//                subGroupDB = (GroupDB*)[CoreDataManager newObject:@"GroupDB" inMainContext:YES];
-//                subGroupDB.id = [NSNumber numberWithInt:[[arraySubGroup objectAtIndex:0]intValue]];
-//                subGroupDB.idParent = groupDB.id;
-//                subGroupDB.name = ((NSString*)[arraySubGroup objectAtIndex:1]).stringByDeletingPathExtension;
-//            }
-//        }
-//        
-//        NSData *dataFromFile = [NSData dataWithContentsOfFile:filePath];
-//        NSString *dataString = [[NSString alloc] initWithData:dataFromFile encoding:NSUTF8StringEncoding];
-//        if(dataString) // разбиваем полный текст на элементы MediaDB
-//        {
-//            NSArray *arrayMedia = [dataString componentsSeparatedByString:@"* * *"];
-//            for (NSString *mediaText in arrayMedia)
-//            {
-////                MediaDB *mediaDB = [CoreDataManager object:@"MediaDB" predicate:[NSPredicate predicateWithFormat:@"fullText like [cd] %@",mediaText] inMainContext:YES];
-////                if(!mediaDB)
-//                 MediaDB *mediaDB = (MediaDB*)[CoreDataManager newObject:@"MediaDB" inMainContext:YES];
-//                
-//                mediaDB.idGroup = groupDB.id;
-//                mediaDB.nameGroup = groupDB.name;
-//                mediaDB.isFavorite = [NSNumber numberWithBool:0];
-//                mediaDB.idSubGroup = subGroupDB.id;
-////                mediaDB.nameSubGroup = subGroupDB.name;
-//                mediaDB.fullText = mediaText;
-//                
-//                [groupDB addMediaObject:mediaDB];
-//            }
-//        }
-//        [dataString release];
     }
     
     [CoreDataManager saveMainContext];
-    
-//    NSArray *arrayMediaFromDB = [CoreDataManager objects:@"MediaDB" withPredicate:nil inMainContext:YES];
-//    for (MediaDB*mediaDB in arrayMediaFromDB)
-//        NSLog(@"arrayMedia - %@",mediaDB.idSubGroup);
 }
 //------------------------------------------------------------------------------------------------------------
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -92,7 +92,7 @@
     DLog(@"");
     GroupDB *currentSubGroup = [self.detailFetchResultController.fetchedObjects objectAtIndex:indexPath.row];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idGroup == %@",currentSubGroup.id]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idParent == %@",currentSubGroup.id]];
     NSArray *arraySubGroups = [CoreDataManager objects:@"GroupDB" withPredicate:predicate inMainContext:YES];
     // проверяем,есть ли подгруппы,если есть - переходим на аналогичный экран,если нет - на экран Media
     if([arraySubGroups count] > 0)

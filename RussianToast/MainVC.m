@@ -11,6 +11,7 @@
 #import "SubGroupsVC.h"
 #import "SongsListVC.h"
 #import "MediaDB.h"
+#import "InfoVC.h"
 
 @interface MainVC ()
 @end
@@ -31,6 +32,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // кнопка Share
+    UIBarButtonItem *rightButton = [[[UIBarButtonItem alloc] initWithTitle:@"Info" style:UIBarButtonSystemItemBookmarks target:self
+                                                                    action:@selector(infoPress)] autorelease];
+    [rightButton setTintColor:self.navigationController.navigationBar.tintColor];
+    self.navigationItem.rightBarButtonItem = rightButton;
     
     self.navigationController.navigationBar.topItem.title = @"Главная";
     
@@ -82,8 +89,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     DLog(@"");
-    GroupDB *groupDB = [self.fetchResultController.fetchedObjects objectAtIndex:indexPath.row];
     
+    GroupDB *groupDB = [self.fetchResultController.fetchedObjects objectAtIndex:indexPath.row];
     NSString *predicateSTR = [NSString stringWithFormat:@"idParent == %@",groupDB.id];
     NSArray *arraySubGroups = [CoreDataManager objects:@"GroupDB" withPredicate:[NSPredicate predicateWithFormat:predicateSTR] inMainContext:YES];
     if([arraySubGroups count] == 1) // это песня
@@ -163,4 +170,10 @@
     [table reloadData];
 }
 //--------------------------------------------------------------------
+-(void)infoPress
+{
+    InfoVC *infoVC = [[[InfoVC alloc] init] autorelease];    
+    [infoVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:infoVC animated:YES];
+}
 @end

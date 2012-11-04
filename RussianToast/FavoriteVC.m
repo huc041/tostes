@@ -41,7 +41,16 @@
     
     self.view.backgroundColor = [UIColor brownColor];
     self.navigationController.navigationBar.topItem.title = @"Избранное";
-        
+    
+    emptyMessageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMidX(self.view.frame) - 50.0f, self.view.frame.size.width, 100)];
+    emptyMessageLabel.backgroundColor = [UIColor purpleColor];
+    emptyMessageLabel.font = [UIFont systemFontOfSize:26.0f];
+    emptyMessageLabel.textAlignment = UITextAlignmentCenter;
+    emptyMessageLabel.textColor = [UIColor redColor];
+    emptyMessageLabel.text = @"Список избранного пуст";
+    [self.view addSubview:emptyMessageLabel];
+    [emptyMessageLabel release];
+    
     table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 49.0f - 46.0f)];
     table.backgroundColor = [UIColor darkGrayColor];
     table.delegate = self;
@@ -52,7 +61,17 @@
 //-----------------------------------------------------------------------------------
 -(void)viewWillAppear:(BOOL)animated
 {
-    [table reloadData];
+    if(self.fetchFavoriteController.sections.count == 0)
+    {
+        table.alpha = 0.0f;
+        emptyMessageLabel.alpha = 1.0f;
+    }
+    else
+    {
+        table.alpha = 1.0f;
+        emptyMessageLabel.alpha = 0.0f;
+        [table reloadData];
+    }
 }
 //-----------------------------------------------------------------------------------
 -(void)viewDidDisappear:(BOOL)animated
@@ -64,11 +83,6 @@
 #pragma mark TableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    DLog(@"section count - %d",self.fetchFavoriteController.sections.count);
-//    for (MediaDB*media in self.fetchFavoriteController.fetchedObjects) {
-//        NSLog(@"name section - %@",media.nameGroup);
-//    }
-    
     return self.fetchFavoriteController.sections.count;
 }
 ////-----------------------------------------------------------------------------------

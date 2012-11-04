@@ -11,6 +11,7 @@
 @interface FavoriteVC : UIViewController <UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate>
 
 {
+    UILabel *emptyMessageLabel;
     UITableView *table;
     NSFetchedResultsController *fetchFavoriteController;
 }
