@@ -9,6 +9,7 @@
 #import "CustomTabbarController.h"
 #import <UIKit/UIKit.h>
 
+#define NUM_TABS 2
 
 @implementation CustomTabbarController
 
@@ -26,19 +27,20 @@
 		
 		// Закрываем его белым фоном.		
 		UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tabBar.frame.size.width, tabBar.frame.size.height)];
+//		lbl.backgroundColor = [UIColor colorWithRed: 160/255.0 green: 164/255.0 blue:167/255.0 alpha:1.0f];
 		[lbl setTag:111];
 		[tabBar addSubview:lbl];
 		[lbl release];
 		
 		// Загружаем картинки
-		for (int i = 0; i < 5; ++i) 
+		for (int i = 0; i < NUM_TABS; ++i) 
         {
-			tabIcon[i] = [[UIImageView alloc] initWithFrame:CGRectMake(64.0f * i, 0.0f, 64.0f, 49.0f)];
+			tabIcon[i] = [[UIImageView alloc] initWithFrame:CGRectMake(160.0f * i, 0.0f, 160.0f, 49.0f)];
 			[tabIcon[i] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tab%d.png", i + 1]]];
             [tabIcon[i] setContentMode:UIViewContentModeScaleAspectFit];
 			[tabBar addSubview:tabIcon[i]];
 		}
-		[tabIcon[0] setImage:[UIImage imageNamed:@"tab1_.png"]];
+		[tabIcon[0] setImage:[UIImage imageNamed:@"tab1.png"]];
 	}
 	return self;
 }
@@ -67,30 +69,23 @@
 	[tabBar bringSubviewToFront:[tabBar viewWithTag:111]];
 		
 	// Картинки и надписи.
-	for (int i = 0; i < 5; ++i) 
+	for (int i = 0; i < NUM_TABS; ++i) 
     {
         [tabBar bringSubviewToFront:tabIcon[i]];
 	}
 }
+
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item 
 {
 	int segmentSelected = 0;
     
     segmentSelected = [tabBar.items indexOfObject:item];  
-    
-    if(segmentSelected == 0)
-    {
-        UINavigationController *navVC = (UINavigationController*)[self.viewControllers objectAtIndex:0];
-        
-        if(navVC)
-            [navVC popToRootViewControllerAnimated:YES];
-    }
 
-	[tabIcon[segmentSelected] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tab%d_.png", segmentSelected + 1]]];
+	[tabIcon[segmentSelected] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tab%d_sel.png", segmentSelected + 1]]];
 
 	// Невыбранные табы возвращаем в обычное состояние
-	for (int i = 0; i < 5; ++i) 
+	for (int i = 0; i < NUM_TABS; ++i) 
     {
 		if (i != segmentSelected) 
         {

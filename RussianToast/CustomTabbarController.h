@@ -15,6 +15,5 @@
 }
 
 - (void)hideNativeTabbarImages;
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item;
 
 @end

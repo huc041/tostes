@@ -7,6 +7,7 @@
 //
 
 #import "ExPrefixAppDelegate.h"
+#import "CustomTabbarController.h"
 #import "MainVC.h"
 #import "FavoriteVC.h"
 #import "GroupDB.h"
@@ -36,7 +37,7 @@
     
     NSMutableArray *tabsArray = [[NSMutableArray alloc] initWithCapacity:2];
     NSString *classesArray[2] = {@"MainVC",@"FavoriteVC"};
-    UITabBarController *tabVC = [[[UITabBarController alloc] init] autorelease];
+    CustomTabbarController *tabVC = [[[CustomTabbarController alloc] init] autorelease];
     for (int j =0; j < 2; j++)
     {
         Class classVC = NSClassFromString(classesArray[j]);
