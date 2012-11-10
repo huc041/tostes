@@ -34,19 +34,21 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    NSMutableArray *tabsArray = [[NSMutableArray alloc] initWithCapacity:2];
-    NSString *classesArray[2] = {@"MainVC",@"FavoriteVC"};
-    UITabBarController *tabVC = [[[UITabBarController alloc] init] autorelease];
-    for (int j =0; j < 2; j++)
-    {
-        Class classVC = NSClassFromString(classesArray[j]);
-        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:[[[classVC alloc] init] autorelease]];
-        [navVC.navigationBar setBarStyle:UIBarStyleBlackOpaque];
-        [tabsArray addObject:navVC];
-        [navVC release];
-    }
-    tabVC.viewControllers = tabsArray;
-    [tabsArray release];
+//    NSMutableArray *tabsArray = [[NSMutableArray alloc] initWithCapacity:2];
+//    NSString *classesArray[2] = {@"MainVC",@"FavoriteVC"};
+//    UITabBarController *tabVC = [[[UITabBarController alloc] initWithNibName:@"TabbarController" bundle:[NSBundle mainBundle]] autorelease];
+    UITabBarController *tabVC = [[[NSBundle mainBundle] loadNibNamed:@"TabbarController" owner:nil options:nil] objectAtIndex:0];
+
+//    for (int j =0; j < 2; j++)
+//    {
+//        Class classVC = NSClassFromString(classesArray[j]);
+//        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:[[[classVC alloc] init] autorelease]];
+//        [navVC.navigationBar setBarStyle:UIBarStyleBlackOpaque];
+//        [tabsArray addObject:navVC];
+//        [navVC release];
+//    }
+//    tabVC.viewControllers = tabsArray;
+//    [tabsArray release];
     
     self.window.rootViewController = tabVC;
     

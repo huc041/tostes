@@ -79,6 +79,13 @@
 		529E3B8215D1BFB400EA1685 /* 2_поздравления&4_с 23 февраля.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B8115D1BFB400EA1685 /* 2_поздравления&4_с 23 февраля.txt */; };
 		529E3B8415D1C17500EA1685 /* 2_поздравления&5_с днем Святого Валентина.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B8315D1C17500EA1685 /* 2_поздравления&5_с днем Святого Валентина.txt */; };
 		529E3B8615D1C2BE00EA1685 /* 2_поздравления&6_с Новым Годом.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B8515D1C2BE00EA1685 /* 2_поздравления&6_с Новым Годом.txt */; };
+		52AE8105164E82910039A029 /* TabbarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AE8104164E82910039A029 /* TabbarController.xib */; };
+		52AE8116164E85F40039A029 /* RusTostesTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AE8115164E85F40039A029 /* RusTostesTabbar.m */; };
+		52AE8119164E8B570039A029 /* RusTostTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AE8118164E8B570039A029 /* RusTostTabbarController.m */; };
+		52AE8120164E9F010039A029 /* tab_fav_unsel_160.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AE811E164E9F010039A029 /* tab_fav_unsel_160.png */; };
+		52AE8121164E9F010039A029 /* tab_main_unsel_160.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AE811F164E9F010039A029 /* tab_main_unsel_160.png */; };
+		52AE8124164EA20A0039A029 /* tab_fav_sel_160.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AE8122164EA20A0039A029 /* tab_fav_sel_160.png */; };
+		52AE8125164EA20A0039A029 /* tab_main_sel_160.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AE8123164EA20A0039A029 /* tab_main_sel_160.png */; };
 		52DA77C515F25225009B7EC8 /* SongsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA77C415F25225009B7EC8 /* SongsListVC.m */; };
 		52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E25E9C15BC704500AF82DE /* FavoriteVC.m */; };
 		52E95AD015BDE1B3004DF9B7 /* SubGroupsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E95ACF15BDE1B3004DF9B7 /* SubGroupsVC.m */; };
@@ -184,6 +191,15 @@
 		529E3B8115D1BFB400EA1685 /* 2_поздравления&4_с 23 февраля.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&4_с 23 февраля.txt"; sourceTree = "<group>"; };
 		529E3B8315D1C17500EA1685 /* 2_поздравления&5_с днем Святого Валентина.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&5_с днем Святого Валентина.txt"; sourceTree = "<group>"; };
 		529E3B8515D1C2BE00EA1685 /* 2_поздравления&6_с Новым Годом.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&6_с Новым Годом.txt"; sourceTree = "<group>"; };
+		52AE8104164E82910039A029 /* TabbarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TabbarController.xib; path = ../TabbarController.xib; sourceTree = "<group>"; };
+		52AE8114164E85F40039A029 /* RusTostesTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RusTostesTabbar.h; sourceTree = "<group>"; };
+		52AE8115164E85F40039A029 /* RusTostesTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RusTostesTabbar.m; sourceTree = "<group>"; };
+		52AE8117164E8B570039A029 /* RusTostTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RusTostTabbarController.h; sourceTree = "<group>"; };
+		52AE8118164E8B570039A029 /* RusTostTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RusTostTabbarController.m; sourceTree = "<group>"; };
+		52AE811E164E9F010039A029 /* tab_fav_unsel_160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_fav_unsel_160.png; sourceTree = "<group>"; };
+		52AE811F164E9F010039A029 /* tab_main_unsel_160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_main_unsel_160.png; sourceTree = "<group>"; };
+		52AE8122164EA20A0039A029 /* tab_fav_sel_160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_fav_sel_160.png; sourceTree = "<group>"; };
+		52AE8123164EA20A0039A029 /* tab_main_sel_160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_main_sel_160.png; sourceTree = "<group>"; };
 		52DA77C315F25225009B7EC8 /* SongsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongsListVC.h; sourceTree = "<group>"; };
 		52DA77C415F25225009B7EC8 /* SongsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsListVC.m; sourceTree = "<group>"; };
 		52E25E9815BC678B00AF82DE /* CustomTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTabbarController.h; sourceTree = "<group>"; };
@@ -260,6 +276,11 @@
 		5251FF0A15BAC7F40039C78C /* RussianToast */ = {
 			isa = PBXGroup;
 			children = (
+				52AE8117164E8B570039A029 /* RusTostTabbarController.h */,
+				52AE8118164E8B570039A029 /* RusTostTabbarController.m */,
+				52AE8114164E85F40039A029 /* RusTostesTabbar.h */,
+				52AE8115164E85F40039A029 /* RusTostesTabbar.m */,
+				52AE8111164E85770039A029 /* XIB */,
 				5251FF2015BAC82D0039C78C /* SDK */,
 				5251FF1F15BAC8240039C78C /* CoreData */,
 				5251FF1E15BAC8140039C78C /* Classes */,
@@ -412,9 +433,37 @@
 			name = "Застольные песни";
 			sourceTree = "<group>";
 		};
+		52AE810F164E85470039A029 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				52AE8110164E854D0039A029 /* tabbar */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		52AE8110164E854D0039A029 /* tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				52AE8122164EA20A0039A029 /* tab_fav_sel_160.png */,
+				52AE8123164EA20A0039A029 /* tab_main_sel_160.png */,
+				52AE811E164E9F010039A029 /* tab_fav_unsel_160.png */,
+				52AE811F164E9F010039A029 /* tab_main_unsel_160.png */,
+			);
+			name = tabbar;
+			sourceTree = "<group>";
+		};
+		52AE8111164E85770039A029 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				52AE8104164E82910039A029 /* TabbarController.xib */,
+			);
+			name = XIB;
+			sourceTree = "<group>";
+		};
 		52E25EA615BC7D0D00AF82DE /* sourses */ = {
 			isa = PBXGroup;
 			children = (
+				52AE810F164E85470039A029 /* images */,
 				5266A1C5163A7430002009D7 /* Застольные песни */,
 				5266A1C4163A741F002009D7 /* Поздравления */,
 				5266A1C2163A73EF002009D7 /* Тосты */,
@@ -571,6 +620,11 @@
 				52F48BC3164670BA00F0F1A5 /* 1_тосты&1_юбилеи.txt in Resources */,
 				52F48BC4164670BA00F0F1A5 /* 1_тосты&2_с новым годом.txt in Resources */,
 				52F48BC6164670C500F0F1A5 /* 3_застольные песни&1_nil.txt in Resources */,
+				52AE8105164E82910039A029 /* TabbarController.xib in Resources */,
+				52AE8120164E9F010039A029 /* tab_fav_unsel_160.png in Resources */,
+				52AE8121164E9F010039A029 /* tab_main_unsel_160.png in Resources */,
+				52AE8124164EA20A0039A029 /* tab_fav_sel_160.png in Resources */,
+				52AE8125164EA20A0039A029 /* tab_main_sel_160.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +648,8 @@
 				523708A115FB3DDD00395103 /* GroupDB.m in Sources */,
 				523708A515FB3DF400395103 /* MediaDB.m in Sources */,
 				52F48BC91646743F00F0F1A5 /* InfoVC.m in Sources */,
+				52AE8116164E85F40039A029 /* RusTostesTabbar.m in Sources */,
+				52AE8119164E8B570039A029 /* RusTostTabbarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
