@@ -86,6 +86,9 @@
 		52AE8121164E9F010039A029 /* tab_main_unsel_160.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AE811F164E9F010039A029 /* tab_main_unsel_160.png */; };
 		52AE8124164EA20A0039A029 /* tab_fav_sel_160.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AE8122164EA20A0039A029 /* tab_fav_sel_160.png */; };
 		52AE8125164EA20A0039A029 /* tab_main_sel_160.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AE8123164EA20A0039A029 /* tab_main_sel_160.png */; };
+		52AE812A164EB7850039A029 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AE8129164EB7850039A029 /* MainViewController.xib */; };
+		52AE812E164EB9A30039A029 /* RusTostNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AE812D164EB9A30039A029 /* RusTostNavBar.m */; };
+		52AE8131164EBB010039A029 /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AE8130164EBB010039A029 /* navbar.png */; };
 		52DA77C515F25225009B7EC8 /* SongsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA77C415F25225009B7EC8 /* SongsListVC.m */; };
 		52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E25E9C15BC704500AF82DE /* FavoriteVC.m */; };
 		52E95AD015BDE1B3004DF9B7 /* SubGroupsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E95ACF15BDE1B3004DF9B7 /* SubGroupsVC.m */; };
@@ -200,6 +203,10 @@
 		52AE811F164E9F010039A029 /* tab_main_unsel_160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_main_unsel_160.png; sourceTree = "<group>"; };
 		52AE8122164EA20A0039A029 /* tab_fav_sel_160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_fav_sel_160.png; sourceTree = "<group>"; };
 		52AE8123164EA20A0039A029 /* tab_main_sel_160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_main_sel_160.png; sourceTree = "<group>"; };
+		52AE8129164EB7850039A029 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		52AE812C164EB9A30039A029 /* RusTostNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RusTostNavBar.h; sourceTree = "<group>"; };
+		52AE812D164EB9A30039A029 /* RusTostNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RusTostNavBar.m; sourceTree = "<group>"; };
+		52AE8130164EBB010039A029 /* navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar.png; sourceTree = "<group>"; };
 		52DA77C315F25225009B7EC8 /* SongsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongsListVC.h; sourceTree = "<group>"; };
 		52DA77C415F25225009B7EC8 /* SongsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsListVC.m; sourceTree = "<group>"; };
 		52E25E9815BC678B00AF82DE /* CustomTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTabbarController.h; sourceTree = "<group>"; };
@@ -276,10 +283,6 @@
 		5251FF0A15BAC7F40039C78C /* RussianToast */ = {
 			isa = PBXGroup;
 			children = (
-				52AE8117164E8B570039A029 /* RusTostTabbarController.h */,
-				52AE8118164E8B570039A029 /* RusTostTabbarController.m */,
-				52AE8114164E85F40039A029 /* RusTostesTabbar.h */,
-				52AE8115164E85F40039A029 /* RusTostesTabbar.m */,
 				52AE8111164E85770039A029 /* XIB */,
 				5251FF2015BAC82D0039C78C /* SDK */,
 				5251FF1F15BAC8240039C78C /* CoreData */,
@@ -307,10 +310,10 @@
 		5251FF1E15BAC8140039C78C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				52F48BC71646743F00F0F1A5 /* InfoVC.h */,
-				52F48BC81646743F00F0F1A5 /* InfoVC.m */,
-				522854DB15CD69E00078DF6D /* TextViewVC.h */,
-				522854DC15CD69E00078DF6D /* TextViewVC.m */,
+				52AE812B164EB97E0039A029 /* NavBar */,
+				52AE8128164EA3CF0039A029 /* TabBar */,
+				52AE8126164EA39D0039A029 /* Info */,
+				52AE8127164EA3B40039A029 /* FullVIew */,
 				52E95ACD15BDE186004DF9B7 /* tab_2 */,
 				52E95ACC15BDE17B004DF9B7 /* tab_1 */,
 			);
@@ -436,6 +439,7 @@
 		52AE810F164E85470039A029 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				52AE812F164EBA830039A029 /* navBar */,
 				52AE8110164E854D0039A029 /* tabbar */,
 			);
 			name = images;
@@ -456,8 +460,55 @@
 			isa = PBXGroup;
 			children = (
 				52AE8104164E82910039A029 /* TabbarController.xib */,
+				52AE8129164EB7850039A029 /* MainViewController.xib */,
 			);
 			name = XIB;
+			sourceTree = "<group>";
+		};
+		52AE8126164EA39D0039A029 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				52F48BC71646743F00F0F1A5 /* InfoVC.h */,
+				52F48BC81646743F00F0F1A5 /* InfoVC.m */,
+			);
+			name = Info;
+			sourceTree = "<group>";
+		};
+		52AE8127164EA3B40039A029 /* FullVIew */ = {
+			isa = PBXGroup;
+			children = (
+				522854DB15CD69E00078DF6D /* TextViewVC.h */,
+				522854DC15CD69E00078DF6D /* TextViewVC.m */,
+			);
+			name = FullVIew;
+			sourceTree = "<group>";
+		};
+		52AE8128164EA3CF0039A029 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				52AE8117164E8B570039A029 /* RusTostTabbarController.h */,
+				52AE8118164E8B570039A029 /* RusTostTabbarController.m */,
+				52AE8114164E85F40039A029 /* RusTostesTabbar.h */,
+				52AE8115164E85F40039A029 /* RusTostesTabbar.m */,
+			);
+			name = TabBar;
+			sourceTree = "<group>";
+		};
+		52AE812B164EB97E0039A029 /* NavBar */ = {
+			isa = PBXGroup;
+			children = (
+				52AE812C164EB9A30039A029 /* RusTostNavBar.h */,
+				52AE812D164EB9A30039A029 /* RusTostNavBar.m */,
+			);
+			name = NavBar;
+			sourceTree = "<group>";
+		};
+		52AE812F164EBA830039A029 /* navBar */ = {
+			isa = PBXGroup;
+			children = (
+				52AE8130164EBB010039A029 /* navbar.png */,
+			);
+			name = navBar;
 			sourceTree = "<group>";
 		};
 		52E25EA615BC7D0D00AF82DE /* sourses */ = {
@@ -625,6 +676,8 @@
 				52AE8121164E9F010039A029 /* tab_main_unsel_160.png in Resources */,
 				52AE8124164EA20A0039A029 /* tab_fav_sel_160.png in Resources */,
 				52AE8125164EA20A0039A029 /* tab_main_sel_160.png in Resources */,
+				52AE812A164EB7850039A029 /* MainViewController.xib in Resources */,
+				52AE8131164EBB010039A029 /* navbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +703,7 @@
 				52F48BC91646743F00F0F1A5 /* InfoVC.m in Sources */,
 				52AE8116164E85F40039A029 /* RusTostesTabbar.m in Sources */,
 				52AE8119164E8B570039A029 /* RusTostTabbarController.m in Sources */,
+				52AE812E164EB9A30039A029 /* RusTostNavBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
