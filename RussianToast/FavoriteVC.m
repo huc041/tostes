@@ -11,6 +11,7 @@
 #import "GroupDB.h"
 #import "TextViewVC.h"
 #import "MyLabel.h"
+#import "InfoVC.h"
 
 @interface FavoriteVC ()
 
@@ -239,6 +240,13 @@
 -(void)backPress
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+//--------------------------------------------------------------------
+-(void)infoPress
+{
+    InfoVC *infoVC = [[[InfoVC alloc] init] autorelease];
+    [infoVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 //--------------------------------------------------------------------
 @end
