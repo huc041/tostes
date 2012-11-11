@@ -107,7 +107,9 @@
                 groupDB = (GroupDB*)[CoreDataManager newObject:@"GroupDB" inMainContext:YES];
                 groupDB.id = [NSNumber numberWithInt:currentID];
                 groupDB.idParent = [NSNumber numberWithInt:previosID];
-                groupDB.name = ((NSString*)[arrayData objectAtIndex:1]).stringByDeletingPathExtension;
+                
+                NSString *strName = ((NSString*)[arrayData objectAtIndex:1]).stringByDeletingPathExtension;                
+                groupDB.name = strName.capitalizedString;
             }
             previosID = [groupDB.id intValue];
                                 

@@ -98,21 +98,21 @@
 		52DA77C515F25225009B7EC8 /* SongsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA77C415F25225009B7EC8 /* SongsListVC.m */; };
 		52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E25E9C15BC704500AF82DE /* FavoriteVC.m */; };
 		52E95AD015BDE1B3004DF9B7 /* SubGroupsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E95ACF15BDE1B3004DF9B7 /* SubGroupsVC.m */; };
-		52F48BB6164670BA00F0F1A5 /* 1_тосты&11_муж и жена.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BA7164670BA00F0F1A5 /* 1_тосты&11_муж и жена.txt */; };
-		52F48BB7164670BA00F0F1A5 /* 1_тосты&12_за мужчин.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BA8164670BA00F0F1A5 /* 1_тосты&12_за мужчин.txt */; };
-		52F48BB8164670BA00F0F1A5 /* 1_тосты&7_за здоровье.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BA9164670BA00F0F1A5 /* 1_тосты&7_за здоровье.txt */; };
-		52F48BB9164670BA00F0F1A5 /* 1_тосты&15_тосты одной строкой.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAA164670BA00F0F1A5 /* 1_тосты&15_тосты одной строкой.txt */; };
-		52F48BBA164670BA00F0F1A5 /* 1_тосты&4_свадьба.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAB164670BA00F0F1A5 /* 1_тосты&4_свадьба.txt */; };
-		52F48BBB164670BA00F0F1A5 /* 1_тосты&6_бизнес.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAC164670BA00F0F1A5 /* 1_тосты&6_бизнес.txt */; };
-		52F48BBC164670BA00F0F1A5 /* 1_тосты&8_за счастье,удачу.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAD164670BA00F0F1A5 /* 1_тосты&8_за счастье,удачу.txt */; };
-		52F48BBD164670BA00F0F1A5 /* 1_тосты&9_за друзей.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAE164670BA00F0F1A5 /* 1_тосты&9_за друзей.txt */; };
-		52F48BBE164670BA00F0F1A5 /* 1_тосты&10_за гостей и хозяев.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAF164670BA00F0F1A5 /* 1_тосты&10_за гостей и хозяев.txt */; };
-		52F48BBF164670BA00F0F1A5 /* 1_тосты&13_за женщин.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB0164670BA00F0F1A5 /* 1_тосты&13_за женщин.txt */; };
-		52F48BC0164670BA00F0F1A5 /* 1_тосты&14_разные.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB1164670BA00F0F1A5 /* 1_тосты&14_разные.txt */; };
-		52F48BC1164670BA00F0F1A5 /* 1_тосты&5_военные.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB2164670BA00F0F1A5 /* 1_тосты&5_военные.txt */; };
-		52F48BC2164670BA00F0F1A5 /* 1_тосты&3_именины.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB3164670BA00F0F1A5 /* 1_тосты&3_именины.txt */; };
-		52F48BC3164670BA00F0F1A5 /* 1_тосты&1_юбилеи.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB4164670BA00F0F1A5 /* 1_тосты&1_юбилеи.txt */; };
-		52F48BC4164670BA00F0F1A5 /* 1_тосты&2_с новым годом.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB5164670BA00F0F1A5 /* 1_тосты&2_с новым годом.txt */; };
+		52F48BB6164670BA00F0F1A5 /* 1_Тосты&11_муж и жена.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BA7164670BA00F0F1A5 /* 1_Тосты&11_муж и жена.txt */; };
+		52F48BB7164670BA00F0F1A5 /* 1_Тосты&12_за мужчин.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BA8164670BA00F0F1A5 /* 1_Тосты&12_за мужчин.txt */; };
+		52F48BB8164670BA00F0F1A5 /* 1_Тосты&7_за здоровье.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BA9164670BA00F0F1A5 /* 1_Тосты&7_за здоровье.txt */; };
+		52F48BB9164670BA00F0F1A5 /* 1_Тосты&15_тосты одной строкой.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAA164670BA00F0F1A5 /* 1_Тосты&15_тосты одной строкой.txt */; };
+		52F48BBA164670BA00F0F1A5 /* 1_Тосты&4_свадьба.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAB164670BA00F0F1A5 /* 1_Тосты&4_свадьба.txt */; };
+		52F48BBB164670BA00F0F1A5 /* 1_Тосты&6_бизнес.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAC164670BA00F0F1A5 /* 1_Тосты&6_бизнес.txt */; };
+		52F48BBC164670BA00F0F1A5 /* 1_Тосты&8_за счастье,удачу.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAD164670BA00F0F1A5 /* 1_Тосты&8_за счастье,удачу.txt */; };
+		52F48BBD164670BA00F0F1A5 /* 1_Тосты&9_за друзей.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAE164670BA00F0F1A5 /* 1_Тосты&9_за друзей.txt */; };
+		52F48BBE164670BA00F0F1A5 /* 1_Тосты&10_за гостей и хозяев.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BAF164670BA00F0F1A5 /* 1_Тосты&10_за гостей и хозяев.txt */; };
+		52F48BBF164670BA00F0F1A5 /* 1_Тосты&13_за женщин.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB0164670BA00F0F1A5 /* 1_Тосты&13_за женщин.txt */; };
+		52F48BC0164670BA00F0F1A5 /* 1_Тосты&14_разные.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB1164670BA00F0F1A5 /* 1_Тосты&14_разные.txt */; };
+		52F48BC1164670BA00F0F1A5 /* 1_Тосты&5_военные.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB2164670BA00F0F1A5 /* 1_Тосты&5_военные.txt */; };
+		52F48BC2164670BA00F0F1A5 /* 1_Тосты&3_именины.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB3164670BA00F0F1A5 /* 1_Тосты&3_именины.txt */; };
+		52F48BC3164670BA00F0F1A5 /* 1_Тосты&1_юбилеи.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB4164670BA00F0F1A5 /* 1_Тосты&1_юбилеи.txt */; };
+		52F48BC4164670BA00F0F1A5 /* 1_Тосты&2_с новым годом.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB5164670BA00F0F1A5 /* 1_Тосты&2_с новым годом.txt */; };
 		52F48BC6164670C500F0F1A5 /* 3_Застольные песни&1_nil.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BC5164670C500F0F1A5 /* 3_Застольные песни&1_nil.txt */; };
 		52F48BC91646743F00F0F1A5 /* InfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F48BC81646743F00F0F1A5 /* InfoVC.m */; };
 /* End PBXBuildFile section */
@@ -225,21 +225,21 @@
 		52E25E9C15BC704500AF82DE /* FavoriteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteVC.m; sourceTree = "<group>"; };
 		52E95ACE15BDE1B3004DF9B7 /* SubGroupsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubGroupsVC.h; sourceTree = "<group>"; };
 		52E95ACF15BDE1B3004DF9B7 /* SubGroupsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubGroupsVC.m; sourceTree = "<group>"; };
-		52F48BA7164670BA00F0F1A5 /* 1_тосты&11_муж и жена.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&11_муж и жена.txt"; sourceTree = "<group>"; };
-		52F48BA8164670BA00F0F1A5 /* 1_тосты&12_за мужчин.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&12_за мужчин.txt"; sourceTree = "<group>"; };
-		52F48BA9164670BA00F0F1A5 /* 1_тосты&7_за здоровье.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&7_за здоровье.txt"; sourceTree = "<group>"; };
-		52F48BAA164670BA00F0F1A5 /* 1_тосты&15_тосты одной строкой.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&15_тосты одной строкой.txt"; sourceTree = "<group>"; };
-		52F48BAB164670BA00F0F1A5 /* 1_тосты&4_свадьба.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&4_свадьба.txt"; sourceTree = "<group>"; };
-		52F48BAC164670BA00F0F1A5 /* 1_тосты&6_бизнес.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&6_бизнес.txt"; sourceTree = "<group>"; };
-		52F48BAD164670BA00F0F1A5 /* 1_тосты&8_за счастье,удачу.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&8_за счастье,удачу.txt"; sourceTree = "<group>"; };
-		52F48BAE164670BA00F0F1A5 /* 1_тосты&9_за друзей.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&9_за друзей.txt"; sourceTree = "<group>"; };
-		52F48BAF164670BA00F0F1A5 /* 1_тосты&10_за гостей и хозяев.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&10_за гостей и хозяев.txt"; sourceTree = "<group>"; };
-		52F48BB0164670BA00F0F1A5 /* 1_тосты&13_за женщин.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&13_за женщин.txt"; sourceTree = "<group>"; };
-		52F48BB1164670BA00F0F1A5 /* 1_тосты&14_разные.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&14_разные.txt"; sourceTree = "<group>"; };
-		52F48BB2164670BA00F0F1A5 /* 1_тосты&5_военные.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&5_военные.txt"; sourceTree = "<group>"; };
-		52F48BB3164670BA00F0F1A5 /* 1_тосты&3_именины.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&3_именины.txt"; sourceTree = "<group>"; };
-		52F48BB4164670BA00F0F1A5 /* 1_тосты&1_юбилеи.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&1_юбилеи.txt"; sourceTree = "<group>"; };
-		52F48BB5164670BA00F0F1A5 /* 1_тосты&2_с новым годом.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&2_с новым годом.txt"; sourceTree = "<group>"; };
+		52F48BA7164670BA00F0F1A5 /* 1_Тосты&11_муж и жена.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&11_муж и жена.txt"; sourceTree = "<group>"; };
+		52F48BA8164670BA00F0F1A5 /* 1_Тосты&12_за мужчин.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&12_за мужчин.txt"; sourceTree = "<group>"; };
+		52F48BA9164670BA00F0F1A5 /* 1_Тосты&7_за здоровье.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&7_за здоровье.txt"; sourceTree = "<group>"; };
+		52F48BAA164670BA00F0F1A5 /* 1_Тосты&15_тосты одной строкой.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&15_тосты одной строкой.txt"; sourceTree = "<group>"; };
+		52F48BAB164670BA00F0F1A5 /* 1_Тосты&4_свадьба.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&4_свадьба.txt"; sourceTree = "<group>"; };
+		52F48BAC164670BA00F0F1A5 /* 1_Тосты&6_бизнес.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&6_бизнес.txt"; sourceTree = "<group>"; };
+		52F48BAD164670BA00F0F1A5 /* 1_Тосты&8_за счастье,удачу.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&8_за счастье,удачу.txt"; sourceTree = "<group>"; };
+		52F48BAE164670BA00F0F1A5 /* 1_Тосты&9_за друзей.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&9_за друзей.txt"; sourceTree = "<group>"; };
+		52F48BAF164670BA00F0F1A5 /* 1_Тосты&10_за гостей и хозяев.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&10_за гостей и хозяев.txt"; sourceTree = "<group>"; };
+		52F48BB0164670BA00F0F1A5 /* 1_Тосты&13_за женщин.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&13_за женщин.txt"; sourceTree = "<group>"; };
+		52F48BB1164670BA00F0F1A5 /* 1_Тосты&14_разные.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&14_разные.txt"; sourceTree = "<group>"; };
+		52F48BB2164670BA00F0F1A5 /* 1_Тосты&5_военные.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&5_военные.txt"; sourceTree = "<group>"; };
+		52F48BB3164670BA00F0F1A5 /* 1_Тосты&3_именины.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&3_именины.txt"; sourceTree = "<group>"; };
+		52F48BB4164670BA00F0F1A5 /* 1_Тосты&1_юбилеи.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&1_юбилеи.txt"; sourceTree = "<group>"; };
+		52F48BB5164670BA00F0F1A5 /* 1_Тосты&2_с новым годом.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_Тосты&2_с новым годом.txt"; sourceTree = "<group>"; };
 		52F48BC5164670C500F0F1A5 /* 3_Застольные песни&1_nil.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "3_Застольные песни&1_nil.txt"; sourceTree = "<group>"; };
 		52F48BC71646743F00F0F1A5 /* InfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoVC.h; sourceTree = "<group>"; };
 		52F48BC81646743F00F0F1A5 /* InfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoVC.m; sourceTree = "<group>"; };
@@ -390,21 +390,21 @@
 		5266A1C2163A73EF002009D7 /* Тосты */ = {
 			isa = PBXGroup;
 			children = (
-				52F48BA7164670BA00F0F1A5 /* 1_тосты&11_муж и жена.txt */,
-				52F48BA8164670BA00F0F1A5 /* 1_тосты&12_за мужчин.txt */,
-				52F48BA9164670BA00F0F1A5 /* 1_тосты&7_за здоровье.txt */,
-				52F48BAA164670BA00F0F1A5 /* 1_тосты&15_тосты одной строкой.txt */,
-				52F48BAB164670BA00F0F1A5 /* 1_тосты&4_свадьба.txt */,
-				52F48BAC164670BA00F0F1A5 /* 1_тосты&6_бизнес.txt */,
-				52F48BAD164670BA00F0F1A5 /* 1_тосты&8_за счастье,удачу.txt */,
-				52F48BAE164670BA00F0F1A5 /* 1_тосты&9_за друзей.txt */,
-				52F48BAF164670BA00F0F1A5 /* 1_тосты&10_за гостей и хозяев.txt */,
-				52F48BB0164670BA00F0F1A5 /* 1_тосты&13_за женщин.txt */,
-				52F48BB1164670BA00F0F1A5 /* 1_тосты&14_разные.txt */,
-				52F48BB2164670BA00F0F1A5 /* 1_тосты&5_военные.txt */,
-				52F48BB3164670BA00F0F1A5 /* 1_тосты&3_именины.txt */,
-				52F48BB4164670BA00F0F1A5 /* 1_тосты&1_юбилеи.txt */,
-				52F48BB5164670BA00F0F1A5 /* 1_тосты&2_с новым годом.txt */,
+				52F48BA7164670BA00F0F1A5 /* 1_Тосты&11_муж и жена.txt */,
+				52F48BA8164670BA00F0F1A5 /* 1_Тосты&12_за мужчин.txt */,
+				52F48BA9164670BA00F0F1A5 /* 1_Тосты&7_за здоровье.txt */,
+				52F48BAA164670BA00F0F1A5 /* 1_Тосты&15_тосты одной строкой.txt */,
+				52F48BAB164670BA00F0F1A5 /* 1_Тосты&4_свадьба.txt */,
+				52F48BAC164670BA00F0F1A5 /* 1_Тосты&6_бизнес.txt */,
+				52F48BAD164670BA00F0F1A5 /* 1_Тосты&8_за счастье,удачу.txt */,
+				52F48BAE164670BA00F0F1A5 /* 1_Тосты&9_за друзей.txt */,
+				52F48BAF164670BA00F0F1A5 /* 1_Тосты&10_за гостей и хозяев.txt */,
+				52F48BB0164670BA00F0F1A5 /* 1_Тосты&13_за женщин.txt */,
+				52F48BB1164670BA00F0F1A5 /* 1_Тосты&14_разные.txt */,
+				52F48BB2164670BA00F0F1A5 /* 1_Тосты&5_военные.txt */,
+				52F48BB3164670BA00F0F1A5 /* 1_Тосты&3_именины.txt */,
+				52F48BB4164670BA00F0F1A5 /* 1_Тосты&1_юбилеи.txt */,
+				52F48BB5164670BA00F0F1A5 /* 1_Тосты&2_с новым годом.txt */,
 			);
 			name = "Тосты";
 			sourceTree = "<group>";
@@ -662,21 +662,21 @@
 				52096EB8163A78DA00274925 /* 2_поздравления&40_с Днем Рождения&118_сыну  .txt in Resources */,
 				52096EB9163A78DA00274925 /* 2_поздравления&40_с Днем Рождения&119_тете  .txt in Resources */,
 				52096EBA163A78DA00274925 /* 2_поздравления&40_с Днем Рождения&120_теще  .txt in Resources */,
-				52F48BB6164670BA00F0F1A5 /* 1_тосты&11_муж и жена.txt in Resources */,
-				52F48BB7164670BA00F0F1A5 /* 1_тосты&12_за мужчин.txt in Resources */,
-				52F48BB8164670BA00F0F1A5 /* 1_тосты&7_за здоровье.txt in Resources */,
-				52F48BB9164670BA00F0F1A5 /* 1_тосты&15_тосты одной строкой.txt in Resources */,
-				52F48BBA164670BA00F0F1A5 /* 1_тосты&4_свадьба.txt in Resources */,
-				52F48BBB164670BA00F0F1A5 /* 1_тосты&6_бизнес.txt in Resources */,
-				52F48BBC164670BA00F0F1A5 /* 1_тосты&8_за счастье,удачу.txt in Resources */,
-				52F48BBD164670BA00F0F1A5 /* 1_тосты&9_за друзей.txt in Resources */,
-				52F48BBE164670BA00F0F1A5 /* 1_тосты&10_за гостей и хозяев.txt in Resources */,
-				52F48BBF164670BA00F0F1A5 /* 1_тосты&13_за женщин.txt in Resources */,
-				52F48BC0164670BA00F0F1A5 /* 1_тосты&14_разные.txt in Resources */,
-				52F48BC1164670BA00F0F1A5 /* 1_тосты&5_военные.txt in Resources */,
-				52F48BC2164670BA00F0F1A5 /* 1_тосты&3_именины.txt in Resources */,
-				52F48BC3164670BA00F0F1A5 /* 1_тосты&1_юбилеи.txt in Resources */,
-				52F48BC4164670BA00F0F1A5 /* 1_тосты&2_с новым годом.txt in Resources */,
+				52F48BB6164670BA00F0F1A5 /* 1_Тосты&11_муж и жена.txt in Resources */,
+				52F48BB7164670BA00F0F1A5 /* 1_Тосты&12_за мужчин.txt in Resources */,
+				52F48BB8164670BA00F0F1A5 /* 1_Тосты&7_за здоровье.txt in Resources */,
+				52F48BB9164670BA00F0F1A5 /* 1_Тосты&15_тосты одной строкой.txt in Resources */,
+				52F48BBA164670BA00F0F1A5 /* 1_Тосты&4_свадьба.txt in Resources */,
+				52F48BBB164670BA00F0F1A5 /* 1_Тосты&6_бизнес.txt in Resources */,
+				52F48BBC164670BA00F0F1A5 /* 1_Тосты&8_за счастье,удачу.txt in Resources */,
+				52F48BBD164670BA00F0F1A5 /* 1_Тосты&9_за друзей.txt in Resources */,
+				52F48BBE164670BA00F0F1A5 /* 1_Тосты&10_за гостей и хозяев.txt in Resources */,
+				52F48BBF164670BA00F0F1A5 /* 1_Тосты&13_за женщин.txt in Resources */,
+				52F48BC0164670BA00F0F1A5 /* 1_Тосты&14_разные.txt in Resources */,
+				52F48BC1164670BA00F0F1A5 /* 1_Тосты&5_военные.txt in Resources */,
+				52F48BC2164670BA00F0F1A5 /* 1_Тосты&3_именины.txt in Resources */,
+				52F48BC3164670BA00F0F1A5 /* 1_Тосты&1_юбилеи.txt in Resources */,
+				52F48BC4164670BA00F0F1A5 /* 1_Тосты&2_с новым годом.txt in Resources */,
 				52F48BC6164670C500F0F1A5 /* 3_Застольные песни&1_nil.txt in Resources */,
 				52AE8144164EC2FA0039A029 /* tab1_sel.png in Resources */,
 				52AE8145164EC2FA0039A029 /* tab1.png in Resources */,
