@@ -2,7 +2,7 @@
 //  GroupDB.h
 //  RussianToast
 //
-//  Created by Евгений Иванов on 08.09.12.
+//  Created by Евгений Иванов on 10.11.12.
 //
 //
 
@@ -25,5 +25,4 @@
 - (void)removeMediaObject:(MediaDB *)value;
 - (void)addMedia:(NSSet *)values;
 - (void)removeMedia:(NSSet *)values;
-
 @end

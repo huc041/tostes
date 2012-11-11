@@ -12,6 +12,11 @@
 #import "SongsListVC.h"
 #import "MediaDB.h"
 #import "InfoVC.h"
+#import "CustomNabBar.h"
+#import "MainCell.h"
+
+
+static NSArray *arrayImages = nil;
 
 @interface MainVC ()
 @end
@@ -25,6 +30,7 @@
     self = [super init];
     if (self) {
         // Custom initialization
+        arrayImages = [[NSArray alloc] initWithObjects:@"songs.png",@"celebraties.png",@"toats.png", nil];
     }
     return self;
 }
@@ -33,18 +39,37 @@
 {
     [super viewDidLoad];
     
-    // кнопка Share
-    UIBarButtonItem *rightButton = [[[UIBarButtonItem alloc] initWithTitle:@"Info" style:UIBarButtonSystemItemBookmarks target:self
-                                                                    action:@selector(infoPress)] autorelease];
-    [rightButton setTintColor:self.navigationController.navigationBar.tintColor];
-    self.navigationItem.rightBarButtonItem = rightButton;
+    // навбар
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    [navBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
     
-    self.navigationController.navigationBar.topItem.title = @"Главная";
+    // Главная
+    UIButton *titleBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [titleBarButton setBackgroundColor:[UIColor clearColor]];
+    titleBarButton.titleLabel.shadowColor = RGB_Color(190, 157, 96, 1.0f);
+    titleBarButton.titleLabel.shadowOffset = CGSizeMake(-0.3f, 0.3f);
+    titleBarButton.titleLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
+    [titleBarButton setTitle:@"Главная" forState:UIControlStateNormal];
+    [titleBarButton setTitleColor:RGB_Color(66.0f, 42.0f, 2.0f, 1.0f) forState:UIControlStateNormal];
+    [titleBarButton setTitleEdgeInsets:UIEdgeInsetsMake(7.0f, 5.0f, 1.0f, -2.0f)];
+    titleBarButton.frame = CGRectMake(0, 0, 150, 27);
+    self.navigationItem.titleView= titleBarButton;
+    
+    // кнопка Инфо
+    UIButton *toolBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [toolBarButton setBackgroundImage:[UIImage imageNamed:@"info.png"] forState:UIControlStateNormal];
+    toolBarButton.frame = CGRectMake(0, 0, 27, 27);
+    [toolBarButton addTarget:self action:@selector(infoPress) forControlEvents:UIControlEventTouchDown];
+    
+    UIBarButtonItem *rightBarItem = [[[UIBarButtonItem alloc] init] autorelease];
+    rightBarItem.customView = toolBarButton;
+    self.navigationItem.rightBarButtonItem = rightBarItem;
     
     table = [[UITableView alloc] initWithFrame:self.view.bounds];
-    table.backgroundColor = [UIColor grayColor];
+    table.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgrnd.png"]];
     table.delegate = self;
     table.dataSource = self;
+    table.separatorStyle = UITableViewCellSelectionStyleNone;
     [self.view addSubview:table];
     [table release];
 }
@@ -58,7 +83,7 @@
 //-----------------------------------------------------------------------------------
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return 60;
+	return 120;
 }
 //-----------------------------------------------------------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -71,15 +96,20 @@
     GroupDB *groupDB = [self.fetchResultController.fetchedObjects objectAtIndex:indexPath.row];
     
     static NSString *CellIdentifier = @"id";
-    UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MainCell *cell = (MainCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if(!cell)
 	{
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[[MainCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textColor = [UIColor colorWithRed:66.0f/255.0f green:42.0f/255.0f blue:2.0f/255.0f alpha:1.0f];
+        cell.textLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 2.0f);
 	}
     
     if(groupDB)
         cell.textLabel.text = groupDB.name;
+    
+    cell.myImageView.image = [UIImage imageNamed:[arrayImages objectAtIndex:indexPath.row]];
     
 	return cell;
 }

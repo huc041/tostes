@@ -19,4 +19,4 @@
 
 #define APP_DELEGATE ((ExPrefixAppDelegate *)[[UIApplication sharedApplication] delegate])
 #define DLog(fmt, ...) NSLog((@"%08x [%@|%@] " fmt), (int)self, NSStringFromClass([self class]), NSStringFromSelector(_cmd), ##__VA_ARGS__)
-
+#define RGB_Color(a,b,c,d) [UIColor colorWithRed:a/255.0f green:b/255.0f blue:c/255.0f alpha:d]
