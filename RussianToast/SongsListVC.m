@@ -54,7 +54,7 @@
 {
     [super viewDidLoad];
     
-    // Главная
+    // Название
     UIButton *titleBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [titleBarButton setBackgroundColor:[UIColor clearColor]];
     titleBarButton.titleLabel.shadowColor = RGB_Color(190, 157, 96, 1.0f);
