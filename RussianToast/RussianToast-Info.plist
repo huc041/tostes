@@ -37,6 +37,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>MyriadPro-Bold.otf</string>
+		<string>LOBSTER.TTF</string>
 	</array>
 </dict>
 </plist>

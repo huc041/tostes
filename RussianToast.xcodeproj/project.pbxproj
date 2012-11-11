@@ -15,6 +15,7 @@
 		5205A2EE164EE8F3006C34E7 /* songs.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A2EB164EE8F2006C34E7 /* songs.png */; };
 		5205A2EF164EE8F3006C34E7 /* toats.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A2EC164EE8F2006C34E7 /* toats.png */; };
 		5205A300164F7957006C34E7 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5205A2FF164F7957006C34E7 /* MyriadPro-Bold.otf */; };
+		5205A302164F8108006C34E7 /* LOBSTER.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5205A301164F8003006C34E7 /* LOBSTER.TTF */; };
 		52096E4F163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E4C163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt */; };
 		52096E50163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E4D163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt */; };
 		52096E5E163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E53163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt */; };
@@ -112,7 +113,7 @@
 		52F48BC2164670BA00F0F1A5 /* 1_тосты&3_именины.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB3164670BA00F0F1A5 /* 1_тосты&3_именины.txt */; };
 		52F48BC3164670BA00F0F1A5 /* 1_тосты&1_юбилеи.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB4164670BA00F0F1A5 /* 1_тосты&1_юбилеи.txt */; };
 		52F48BC4164670BA00F0F1A5 /* 1_тосты&2_с новым годом.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BB5164670BA00F0F1A5 /* 1_тосты&2_с новым годом.txt */; };
-		52F48BC6164670C500F0F1A5 /* 3_застольные песни&1_nil.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BC5164670C500F0F1A5 /* 3_застольные песни&1_nil.txt */; };
+		52F48BC6164670C500F0F1A5 /* 3_Застольные песни&1_nil.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52F48BC5164670C500F0F1A5 /* 3_Застольные песни&1_nil.txt */; };
 		52F48BC91646743F00F0F1A5 /* InfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F48BC81646743F00F0F1A5 /* InfoVC.m */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		5205A2EB164EE8F2006C34E7 /* songs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = songs.png; sourceTree = "<group>"; };
 		5205A2EC164EE8F2006C34E7 /* toats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toats.png; sourceTree = "<group>"; };
 		5205A2FF164F7957006C34E7 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
+		5205A301164F8003006C34E7 /* LOBSTER.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = LOBSTER.TTF; sourceTree = "<group>"; };
 		52096E4C163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&121_бабушке  .txt"; sourceTree = "<group>"; };
 		52096E4D163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&122_Внуку  .txt"; sourceTree = "<group>"; };
 		52096E53163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&124_девочке.txt"; sourceTree = "<group>"; };
@@ -238,7 +240,7 @@
 		52F48BB3164670BA00F0F1A5 /* 1_тосты&3_именины.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&3_именины.txt"; sourceTree = "<group>"; };
 		52F48BB4164670BA00F0F1A5 /* 1_тосты&1_юбилеи.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&1_юбилеи.txt"; sourceTree = "<group>"; };
 		52F48BB5164670BA00F0F1A5 /* 1_тосты&2_с новым годом.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1_тосты&2_с новым годом.txt"; sourceTree = "<group>"; };
-		52F48BC5164670C500F0F1A5 /* 3_застольные песни&1_nil.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "3_застольные песни&1_nil.txt"; sourceTree = "<group>"; };
+		52F48BC5164670C500F0F1A5 /* 3_Застольные песни&1_nil.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "3_Застольные песни&1_nil.txt"; sourceTree = "<group>"; };
 		52F48BC71646743F00F0F1A5 /* InfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoVC.h; sourceTree = "<group>"; };
 		52F48BC81646743F00F0F1A5 /* InfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -289,6 +291,7 @@
 		5205A2FD164F7929006C34E7 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5205A301164F8003006C34E7 /* LOBSTER.TTF */,
 				5205A2FF164F7957006C34E7 /* MyriadPro-Bold.otf */,
 			);
 			name = fonts;
@@ -473,7 +476,7 @@
 		5266A1C5163A7430002009D7 /* Застольные песни */ = {
 			isa = PBXGroup;
 			children = (
-				52F48BC5164670C500F0F1A5 /* 3_застольные песни&1_nil.txt */,
+				52F48BC5164670C500F0F1A5 /* 3_Застольные песни&1_nil.txt */,
 			);
 			name = "Застольные песни";
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5205A302164F8108006C34E7 /* LOBSTER.TTF in Resources */,
 				5251FF0F15BAC7F40039C78C /* InfoPlist.strings in Resources */,
 				529E3B7F15D1BE1D00EA1685 /* 2_поздравления&3_c 8 марта.txt in Resources */,
 				529E3B8215D1BFB400EA1685 /* 2_поздравления&4_с 23 февраля.txt in Resources */,
@@ -673,7 +677,7 @@
 				52F48BC2164670BA00F0F1A5 /* 1_тосты&3_именины.txt in Resources */,
 				52F48BC3164670BA00F0F1A5 /* 1_тосты&1_юбилеи.txt in Resources */,
 				52F48BC4164670BA00F0F1A5 /* 1_тосты&2_с новым годом.txt in Resources */,
-				52F48BC6164670C500F0F1A5 /* 3_застольные песни&1_nil.txt in Resources */,
+				52F48BC6164670C500F0F1A5 /* 3_Застольные песни&1_nil.txt in Resources */,
 				52AE8144164EC2FA0039A029 /* tab1_sel.png in Resources */,
 				52AE8145164EC2FA0039A029 /* tab1.png in Resources */,
 				52AE8146164EC2FA0039A029 /* tab2.png in Resources */,

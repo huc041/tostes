@@ -15,6 +15,7 @@
 #import "CustomNabBar.h"
 #import "MainCell.h"
 
+#define HEIGHT_MAIN_CELL 120.0f
 
 static NSArray *arrayImages = nil;
 
@@ -83,7 +84,7 @@ static NSArray *arrayImages = nil;
 //-----------------------------------------------------------------------------------
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return 120;
+	return HEIGHT_MAIN_CELL;
 }
 //-----------------------------------------------------------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -102,14 +103,18 @@ static NSArray *arrayImages = nil;
 		cell = [[[MainCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         cell.textLabel.backgroundColor = [UIColor clearColor];
-        cell.textLabel.textColor = [UIColor colorWithRed:66.0f/255.0f green:42.0f/255.0f blue:2.0f/255.0f alpha:1.0f];
         cell.textLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 2.0f);
+        cell.textLabel.font = [UIFont fontWithName:@"Lobster" size:20.0f];
 	}
     
     if(groupDB)
         cell.textLabel.text = groupDB.name;
     
-    cell.myImageView.image = [UIImage imageNamed:[arrayImages objectAtIndex:indexPath.row]];
+    UIImage *image = [UIImage imageNamed:[arrayImages objectAtIndex:indexPath.row]];
+    CGSize sizeImage = image.size;
+    
+    cell.myImageView.frame = CGRectMake(tableView.frame.size.width - sizeImage.width - 20.0f, (HEIGHT_MAIN_CELL - sizeImage.height)/2, sizeImage.width, sizeImage.height);
+    cell.myImageView.image = image;
     
 	return cell;
 }
