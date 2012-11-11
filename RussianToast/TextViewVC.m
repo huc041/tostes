@@ -62,10 +62,14 @@ static NSString *htmlSTR =  @"<html>"
     [super viewDidLoad];
     
     // кнопка Share
-    UIBarButtonItem *rightButton = [[[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonSystemItemEdit target:self
-                                                                    action:@selector(sharePress)] autorelease];
-    [rightButton setTintColor:self.navigationController.navigationBar.tintColor];
-    self.navigationItem.rightBarButtonItem = rightButton;
+    UIButton *toolBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [toolBarButton setBackgroundImage:[UIImage imageNamed:@"share.png"] forState:UIControlStateNormal];
+    toolBarButton.frame = CGRectMake(0, 0, 33, 25);
+    [toolBarButton addTarget:self action:@selector(sharePress) forControlEvents:UIControlEventTouchDown];
+    
+    UIBarButtonItem *rightBarItem = [[[UIBarButtonItem alloc] init] autorelease];
+    rightBarItem.customView = toolBarButton;
+    self.navigationItem.rightBarButtonItem = rightBarItem;
     
     CGRect rectTextView = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 49.0f - 46.0f);
     
