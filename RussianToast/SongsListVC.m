@@ -54,10 +54,33 @@
 {
     [super viewDidLoad];
     
+    // Главная
+    UIButton *titleBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [titleBarButton setBackgroundColor:[UIColor clearColor]];
+    titleBarButton.titleLabel.shadowColor = RGB_Color(190, 157, 96, 1.0f);
+    titleBarButton.titleLabel.shadowOffset = CGSizeMake(-0.3f, 0.3f);
+    titleBarButton.titleLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
+    [titleBarButton setTitle:@"Застольные песни" forState:UIControlStateNormal];
+    [titleBarButton setTitleColor:RGB_Color(66.0f, 42.0f, 2.0f, 1.0f) forState:UIControlStateNormal];
+    [titleBarButton setTitleEdgeInsets:UIEdgeInsetsMake(7.0f, 5.0f, 1.0f, -2.0f)];
+    titleBarButton.frame = CGRectMake(0, 0, 150, 27);
+    self.navigationItem.titleView= titleBarButton;
+    
+    // кнопка Назад
+    UIButton *toolBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [toolBarButton setBackgroundImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
+    toolBarButton.frame = CGRectMake(0, 0, 58, 25);
+    [toolBarButton addTarget:self action:@selector(backPress) forControlEvents:UIControlEventTouchDown];
+    
+    UIBarButtonItem *leftBarItem = [[[UIBarButtonItem alloc] init] autorelease];
+    leftBarItem.customView = toolBarButton;
+    self.navigationItem.leftBarButtonItem = leftBarItem;
+    
     table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 49.0f - 46.0f)];
     table.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgrnd.png"]];
     table.delegate = self;
     table.dataSource = self;
+    [table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.view addSubview:table];
     [table release];
 }
@@ -81,6 +104,7 @@
 {
     if([[dicSongs objectForKey:[alphabet objectAtIndex:section]] count] == 0)
         return nil;
+    
     MyLabel *sectionLabel = [[[MyLabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30.0f)] autorelease];
     sectionLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"sectionView.png"]];
     sectionLabel.textAlignment = UITextAlignmentLeft;
@@ -94,11 +118,6 @@
 {
 	return 60;
 }
-////-----------------------------------------------------------------------------------
-//- (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section
-//{
-//    return [alphabet objectAtIndex:section];
-//}
 //-----------------------------------------------------------------------------------
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
@@ -155,5 +174,9 @@
     }
 }
 //-----------------------------------------------------------------------------------
-
+-(void)backPress
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+//-----------------------------------------------------------------------------------
 @end

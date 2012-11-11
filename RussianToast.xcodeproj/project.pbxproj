@@ -23,6 +23,7 @@
 		5205A30D164FC92C006C34E7 /* SongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5205A30C164FC92C006C34E7 /* SongCell.m */; };
 		5205A30F164FCBB4006C34E7 /* sectionView.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A30E164FCBB4006C34E7 /* sectionView.png */; };
 		5205A312164FCE06006C34E7 /* MyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5205A311164FCE06006C34E7 /* MyLabel.m */; };
+		5205A314164FD0AC006C34E7 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A313164FD0AB006C34E7 /* back.png */; };
 		52096E4F163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E4C163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt */; };
 		52096E50163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E4D163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt */; };
 		52096E5E163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E53163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt */; };
@@ -145,6 +146,7 @@
 		5205A30E164FCBB4006C34E7 /* sectionView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sectionView.png; sourceTree = "<group>"; };
 		5205A310164FCE06006C34E7 /* MyLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLabel.h; sourceTree = "<group>"; };
 		5205A311164FCE06006C34E7 /* MyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLabel.m; sourceTree = "<group>"; };
+		5205A313164FD0AB006C34E7 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		52096E4C163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&121_бабушке  .txt"; sourceTree = "<group>"; };
 		52096E4D163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&122_Внуку  .txt"; sourceTree = "<group>"; };
 		52096E53163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&124_девочке.txt"; sourceTree = "<group>"; };
@@ -506,6 +508,7 @@
 		52AE8136164EBF340039A029 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5205A313164FD0AB006C34E7 /* back.png */,
 				5205A30E164FCBB4006C34E7 /* sectionView.png */,
 				5205A305164FC72E006C34E7 /* smallCellView.png */,
 				5205A2EA164EE8F2006C34E7 /* celebraties.png */,
@@ -720,6 +723,7 @@
 				5205A308164FC795006C34E7 /* Default.png in Resources */,
 				5205A30A164FC79C006C34E7 /* Default@2x.png in Resources */,
 				5205A30F164FCBB4006C34E7 /* sectionView.png in Resources */,
+				5205A314164FD0AC006C34E7 /* back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

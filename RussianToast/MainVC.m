@@ -102,7 +102,6 @@ static NSArray *arrayImages = nil;
 	{
 		cell = [[[MainCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        
         cell.textLabel.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 2.0f);
         cell.textLabel.font = [UIFont fontWithName:@"Lobster" size:20.0f];
