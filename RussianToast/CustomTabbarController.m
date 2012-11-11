@@ -14,6 +14,15 @@
 
 @implementation CustomTabbarController
 
+//----------------------------------------------------------------------------------------------------------------
+- (void)dealloc
+{
+	for (int i = 0; i < 5; ++i)
+		[tabIcon[i] release];
+    
+	[super dealloc];
+}
+//----------------------------------------------------------------------------------------------------------------
 - (CustomTabbarController*)init 
 {
 	if (self = [super init]) 
@@ -26,34 +35,31 @@
 				tabBar = (UITabBar *)view;
 		}
 		
-		// Закрываем его белым фоном.		
-		UILabel *lbl = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, tabBar.frame.size.width, tabBar.frame.size.height)] autorelease];
-		lbl.backgroundColor = [UIColor whiteColor];
-		[lbl setTag:TAB_BAR_TAG];
-		[tabBar addSubview:lbl];
+//		// Закрываем его белым фоном.		
+//		UILabel *lbl = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, tabBar.frame.size.width, tabBar.frame.size.height)] autorelease];
+//		lbl.backgroundColor = [UIColor whiteColor];
+//		[lbl setTag:TAB_BAR_TAG];
+//		[tabBar addSubview:lbl];
+        
+//        UIView *backView = [[[UIView alloc] initWithFrame:tabBar.bounds] autorelease];
+//        backView.backgroundColor = RGB_Color(108.0f, 72.0f, 24.0f, 1.0f);
+//        [tabBar addSubview:backView];
 		
 		// Загружаем картинки
 		for (int i = 0; i < NUM_TABS; ++i) 
         {
 			tabIcon[i] = [[UIImageView alloc] initWithFrame:CGRectMake(160.0f * i, 0.0f, 160.0f, 49.0f)];
-			[tabIcon[i] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tab%d.png", i + 1]]];
+			[tabIcon[i] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tab%d.png",i]]];
             [tabIcon[i] setContentMode:UIViewContentModeScaleAspectFit];
 			[tabBar addSubview:tabIcon[i]];
 		}
-//		[tabIcon[0] setImage:[UIImage imageNamed:@"tab1_sel.png"]];
+		[tabIcon[0] setImage:[UIImage imageNamed:@"tab0_sel.png"]];
+        
+        [self hideNativeTabbarImages];
 	}
 	return self;
 }
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-	if(toInterfaceOrientation == UIInterfaceOrientationPortrait)
-	{
-		return YES;
-	}
-	return NO;
-}
-
+//----------------------------------------------------------------------------------------------------------------
 - (void)hideNativeTabbarImages 
 {
 	// Выводим Custom контент на "поверхность".
@@ -73,27 +79,21 @@
 	for (int i = 0; i < NUM_TABS; ++i)
         [tabBar bringSubviewToFront:tabIcon[i]];
 }
-
+//----------------------------------------------------------------------------------------------------------------
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item 
 {
 	int segmentSelected = 0;
-    segmentSelected = [tabBar.items indexOfObject:item];  
-//	[tabIcon[segmentSelected] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tab%d_sel.png", segmentSelected + 1]]];
+    segmentSelected = [tabBar.items indexOfObject:item];
+    
+	[tabIcon[segmentSelected] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tab%d_sel.png", segmentSelected ]]];
 
 	// Невыбранные табы возвращаем в обычное состояние
 	for (int i = 0; i < NUM_TABS; ++i) 
     {
-//		if (i != segmentSelected)
-//			[tabIcon[i] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tab%d.png", i + 1]]];
+		if (i != segmentSelected)
+			[tabIcon[i] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tab%d.png", i ]]];
 	}
 }
-
-- (void)dealloc 
-{
-	for (int i = 0; i < 5; ++i)
-		[tabIcon[i] release];
-
-	[super dealloc];
-}
+//----------------------------------------------------------------------------------------------------------------
 
 @end

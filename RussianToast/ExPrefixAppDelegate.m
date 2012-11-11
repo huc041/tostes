@@ -38,6 +38,9 @@
     NSMutableArray *tabsArray = [[NSMutableArray alloc] initWithCapacity:2];
     NSString *classesArray[2] = {@"MainVC",@"FavoriteVC"};
     CustomTabbarController *tabVC = [[[CustomTabbarController alloc] init] autorelease];
+    
+    // убираем стандартное выделение таббара
+    [[UITabBar appearance] setSelectionIndicatorImage:[[[UIImage alloc] init] autorelease]];
     for (int j =0; j < 2; j++)
     {
         Class classVC = NSClassFromString(classesArray[j]);
