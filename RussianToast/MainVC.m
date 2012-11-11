@@ -211,4 +211,5 @@ static NSArray *arrayImages = nil;
     [infoVC setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:infoVC animated:YES];
 }
+//--------------------------------------------------------------------
 @end

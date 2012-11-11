@@ -10,6 +10,8 @@
 #import "MediaDB.h"
 #import "GroupDB.h"
 #import "TextViewVC.h"
+#import "MyLabel.h"
+#import "InfoVC.h"
 
 @interface FavoriteVC ()
 
@@ -39,22 +41,48 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor brownColor];
-    self.navigationController.navigationBar.topItem.title = @"Избранное";
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgrnd.png"]];
+
+    // навбар
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    [navBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
     
+    // Главная
+    UIButton *titleBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [titleBarButton setBackgroundColor:[UIColor clearColor]];
+    titleBarButton.titleLabel.shadowColor = RGB_Color(190, 157, 96, 1.0f);
+    titleBarButton.titleLabel.shadowOffset = CGSizeMake(-0.3f, 0.3f);
+    titleBarButton.titleLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
+    [titleBarButton setTitle:@"Избранное" forState:UIControlStateNormal];
+    [titleBarButton setTitleColor:RGB_Color(66.0f, 42.0f, 2.0f, 1.0f) forState:UIControlStateNormal];
+    [titleBarButton setTitleEdgeInsets:UIEdgeInsetsMake(7.0f, 5.0f, 1.0f, -2.0f)];
+    titleBarButton.frame = CGRectMake(0, 0, 150, 27);
+    self.navigationItem.titleView= titleBarButton;
+    
+    // кнопка Инфо
+    UIButton *toolBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [toolBarButton setBackgroundImage:[UIImage imageNamed:@"info.png"] forState:UIControlStateNormal];
+    toolBarButton.frame = CGRectMake(0, 0, 27, 27);
+    [toolBarButton addTarget:self action:@selector(infoPress) forControlEvents:UIControlEventTouchDown];
+    
+    UIBarButtonItem *rightBarItem = [[[UIBarButtonItem alloc] init] autorelease];
+    rightBarItem.customView = toolBarButton;
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+        
     emptyMessageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMidX(self.view.frame) - 50.0f, self.view.frame.size.width, 100)];
-    emptyMessageLabel.backgroundColor = [UIColor purpleColor];
-    emptyMessageLabel.font = [UIFont systemFontOfSize:26.0f];
+    emptyMessageLabel.backgroundColor = [UIColor clearColor];
+    emptyMessageLabel.font = [UIFont fontWithName:@"Lobster" size:20.0f];
     emptyMessageLabel.textAlignment = UITextAlignmentCenter;
-    emptyMessageLabel.textColor = [UIColor redColor];
+    emptyMessageLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 2.0f);
     emptyMessageLabel.text = @"Список избранного пуст";
     [self.view addSubview:emptyMessageLabel];
     [emptyMessageLabel release];
     
     table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 49.0f - 46.0f)];
-    table.backgroundColor = [UIColor darkGrayColor];
+    table.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgrnd.png"]];
     table.delegate = self;
     table.dataSource = self;
+    [table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.view addSubview:table];
     [table release];
 }
@@ -85,11 +113,18 @@
 {
     return self.fetchFavoriteController.sections.count;
 }
-////-----------------------------------------------------------------------------------
-- (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section
+//-----------------------------------------------------------------------------------
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchFavoriteController sections] objectAtIndex:section];
-    return [sectionInfo name];
+
+    MyLabel *sectionLabel = [[[MyLabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30.0f)] autorelease];
+    sectionLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"sectionView.png"]];
+    sectionLabel.textAlignment = UITextAlignmentLeft;
+    sectionLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 1.0f);
+    sectionLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
+    sectionLabel.text = [sectionInfo name];
+    return sectionLabel;
 }
 //-----------------------------------------------------------------------------------
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,6 +146,10 @@
 	{
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 2.0f);
+        cell.textLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
 	}
     
     id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchFavoriteController sections] objectAtIndex:indexPath.section];
@@ -197,6 +236,13 @@
 {
     //DLog(@"");
 //    [table reloadData];
+}
+//--------------------------------------------------------------------
+-(void)infoPress
+{
+    InfoVC *infoVC = [[[InfoVC alloc] init] autorelease];
+    [infoVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 //--------------------------------------------------------------------
 @end
