@@ -24,6 +24,12 @@
 		5205A30F164FCBB4006C34E7 /* sectionView.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A30E164FCBB4006C34E7 /* sectionView.png */; };
 		5205A312164FCE06006C34E7 /* MyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5205A311164FCE06006C34E7 /* MyLabel.m */; };
 		5205A314164FD0AC006C34E7 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A313164FD0AB006C34E7 /* back.png */; };
+		5205A31A164FD5DE006C34E7 /* favorite_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A316164FD5DA006C34E7 /* favorite_sel.png */; };
+		5205A31B164FD5DE006C34E7 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A317164FD5DB006C34E7 /* favorite.png */; };
+		5205A31C164FD5DE006C34E7 /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A318164FD5DC006C34E7 /* minus.png */; };
+		5205A31D164FD5DE006C34E7 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A319164FD5DD006C34E7 /* plus.png */; };
+		5205A31F164FD636006C34E7 /* Aa.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A31E164FD635006C34E7 /* Aa.png */; };
+		5205A321164FE053006C34E7 /* MyriadPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5205A320164FDC9A006C34E7 /* MyriadPro-It.otf */; };
 		52096E4F163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E4C163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt */; };
 		52096E50163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E4D163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt */; };
 		52096E5E163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E53163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt */; };
@@ -147,6 +153,12 @@
 		5205A310164FCE06006C34E7 /* MyLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLabel.h; sourceTree = "<group>"; };
 		5205A311164FCE06006C34E7 /* MyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLabel.m; sourceTree = "<group>"; };
 		5205A313164FD0AB006C34E7 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		5205A316164FD5DA006C34E7 /* favorite_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_sel.png; sourceTree = "<group>"; };
+		5205A317164FD5DB006C34E7 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
+		5205A318164FD5DC006C34E7 /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
+		5205A319164FD5DD006C34E7 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		5205A31E164FD635006C34E7 /* Aa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Aa.png; sourceTree = "<group>"; };
+		5205A320164FDC9A006C34E7 /* MyriadPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-It.otf"; sourceTree = "<group>"; };
 		52096E4C163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&121_бабушке  .txt"; sourceTree = "<group>"; };
 		52096E4D163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&122_Внуку  .txt"; sourceTree = "<group>"; };
 		52096E53163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&124_девочке.txt"; sourceTree = "<group>"; };
@@ -311,10 +323,20 @@
 		5205A2FD164F7929006C34E7 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5205A320164FDC9A006C34E7 /* MyriadPro-It.otf */,
 				5205A301164F8003006C34E7 /* LOBSTER.TTF */,
 				5205A2FF164F7957006C34E7 /* MyriadPro-Bold.otf */,
 			);
 			name = fonts;
+			sourceTree = "<group>";
+		};
+		5205A315164FD2B9006C34E7 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				52F48BC71646743F00F0F1A5 /* InfoVC.h */,
+				52F48BC81646743F00F0F1A5 /* InfoVC.m */,
+			);
+			name = Info;
 			sourceTree = "<group>";
 		};
 		5251FEF315BAC7F40039C78C = {
@@ -377,8 +399,7 @@
 		5251FF1E15BAC8140039C78C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				52F48BC71646743F00F0F1A5 /* InfoVC.h */,
-				52F48BC81646743F00F0F1A5 /* InfoVC.m */,
+				5205A315164FD2B9006C34E7 /* Info */,
 				522854DB15CD69E00078DF6D /* TextViewVC.h */,
 				522854DC15CD69E00078DF6D /* TextViewVC.m */,
 				52E95ACD15BDE186004DF9B7 /* tab_2 */,
@@ -508,6 +529,11 @@
 		52AE8136164EBF340039A029 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5205A31E164FD635006C34E7 /* Aa.png */,
+				5205A316164FD5DA006C34E7 /* favorite_sel.png */,
+				5205A317164FD5DB006C34E7 /* favorite.png */,
+				5205A318164FD5DC006C34E7 /* minus.png */,
+				5205A319164FD5DD006C34E7 /* plus.png */,
 				5205A313164FD0AB006C34E7 /* back.png */,
 				5205A30E164FCBB4006C34E7 /* sectionView.png */,
 				5205A305164FC72E006C34E7 /* smallCellView.png */,
@@ -631,6 +657,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5205A321164FE053006C34E7 /* MyriadPro-It.otf in Resources */,
 				5205A302164F8108006C34E7 /* LOBSTER.TTF in Resources */,
 				5251FF0F15BAC7F40039C78C /* InfoPlist.strings in Resources */,
 				529E3B7F15D1BE1D00EA1685 /* 2_поздравления&3_c 8 марта.txt in Resources */,
@@ -724,6 +751,11 @@
 				5205A30A164FC79C006C34E7 /* Default@2x.png in Resources */,
 				5205A30F164FCBB4006C34E7 /* sectionView.png in Resources */,
 				5205A314164FD0AC006C34E7 /* back.png in Resources */,
+				5205A31A164FD5DE006C34E7 /* favorite_sel.png in Resources */,
+				5205A31B164FD5DE006C34E7 /* favorite.png in Resources */,
+				5205A31C164FD5DE006C34E7 /* minus.png in Resources */,
+				5205A31D164FD5DE006C34E7 /* plus.png in Resources */,
+				5205A31F164FD636006C34E7 /* Aa.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

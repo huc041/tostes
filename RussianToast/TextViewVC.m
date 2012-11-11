@@ -60,7 +60,7 @@ static NSString *htmlSTR =  @"<html>"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
+    
     // кнопка Share
     UIBarButtonItem *rightButton = [[[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonSystemItemEdit target:self
                                                                     action:@selector(sharePress)] autorelease];
@@ -70,26 +70,29 @@ static NSString *htmlSTR =  @"<html>"
     CGRect rectTextView = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 49.0f - 46.0f);
     
     textView = [[UITextView alloc] initWithFrame:rectTextView];
-    textView.backgroundColor = [UIColor whiteColor];
+    textView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgrnd.png"]];
     textView.textAlignment = UITextAlignmentCenter;
+    textView.font = [UIFont fontWithName:@"MyriadPro-It" size:16];
     [self.view addSubview:textView];
     
-    toolBarView  = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(textView.frame), self.view.bounds.size.width, 49.0f)];
-    toolBarView.backgroundColor = [UIColor colorWithWhite:0.4f alpha:1.0f];
+    toolBarView  = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(textView.frame) + 1, self.view.bounds.size.width, 49.0f)];
+    toolBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar.png"]];
     [self.view addSubview:toolBarView];
     [toolBarView release];
     
-    NSArray *arrayRects = [NSArray arrayWithObjects:NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 2.0f - 30.0f, 9.5, 30, 30)),
-                                                    NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) + 2.0f, 9.5, 30, 30)),
-                                                    NSStringFromCGRect(CGRectMake(CGRectGetMaxX(toolBarView.frame) - 25.0f, 14.5, 20, 20)),nil];
+    NSArray *arrayRects = @[NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 46.0f - 28.0f, 9.5, 28, 28)),
+                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 20.0f, 12.0, 39, 23)),
+                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) + 46.0f, 9.5, 28, 28)),
+                            NSStringFromCGRect(CGRectMake(320.0f - 10.0f - 23.0f, 9.5, 28, 28))];
     
-    NSArray *arrayColors = [NSArray arrayWithObjects:[UIColor brownColor],[UIColor brownColor],[UIColor greenColor], nil];
-    for (int j =0; j < 3 ; j++ )
+    NSArray *arrayImages = @[@"plus.png",@"Aa.png",@"minus.png",@"favorite.png"];
+    for (int j =0; j < [arrayRects count] ; j++ )
     {
         UIButton *toolBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        toolBarButton.backgroundColor = [UIColor clearColor];
         toolBarButton.tag  = BUTTON_OFFSET_TAG + j;
         toolBarButton.frame = CGRectFromString([arrayRects objectAtIndex:j]);
-        toolBarButton.backgroundColor = [arrayColors objectAtIndex:j];
+        [toolBarButton setBackgroundImage:[UIImage imageNamed:[arrayImages objectAtIndex:j]] forState:UIControlStateNormal];
         [toolBarButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
         [toolBarButton setSelected:NO];
         [toolBarView addSubview:toolBarButton];
@@ -108,13 +111,15 @@ static NSString *htmlSTR =  @"<html>"
     else
         fontSize = 16.0f;
         
-    textView.font = [UIFont systemFontOfSize:fontSize];
+    textView.font = [UIFont fontWithName:@"MyriadPro-It" size:fontSize];
     textView.text = media.fullText;
     
     // кнопка Избранное
-    UIButton *buttonFavorite = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 2];
+    UIButton *buttonFavorite = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 3];
     buttonFavorite.selected = [media.isFavorite boolValue];
-    buttonFavorite.backgroundColor = (buttonFavorite.selected) ? [UIColor redColor] : [UIColor greenColor];
+    
+    NSString *imageButtonStr = (buttonFavorite.selected) ? @"favorite_sel.png" : @"favorite.png";
+    [buttonFavorite setBackgroundImage:[UIImage imageNamed:imageButtonStr] forState:UIControlStateNormal];
 }
 //-----------------------------------------------------------------------------------
 -(void)viewWillDisappear:(BOOL)animated
@@ -129,28 +134,31 @@ static NSString *htmlSTR =  @"<html>"
 //-----------------------------------------------------------------------------------
 -(void)buttonPress:(UIButton*)button
 {
-    DLog(@"tag - %d",button.tag);
-    if(button.tag == BUTTON_OFFSET_TAG) // decrease font
+    if (button.tag == BUTTON_OFFSET_TAG)         // increase font
+    {
+        if(fontSize < 35)
+            fontSize +=5;
+        textView.font = [UIFont fontWithName:@"MyriadPro-It" size:fontSize];
+    }
+    else if(button.tag == BUTTON_OFFSET_TAG + 2) // decrease font
     {
         if(fontSize > 10)
             fontSize -=5;
         
-        textView.font = [UIFont systemFontOfSize:fontSize];
+        textView.font = [UIFont fontWithName:@"MyriadPro-It" size:fontSize];
     }
-    else if (button.tag == BUTTON_OFFSET_TAG + 1)
-    {
-        if(fontSize < 35)
-            fontSize +=5;
-        textView.font = [UIFont systemFontOfSize:fontSize];
-    }
-    else
+    else if (button.tag == BUTTON_OFFSET_TAG + 3)
     {
         button.selected = !button.selected;
-        button.backgroundColor = (button.selected) ? [UIColor redColor] : [UIColor greenColor];
+        
+        NSString *imageButtonStr = (button.selected) ? @"favorite_sel.png" : @"favorite.png";        
+        [button setBackgroundImage:[UIImage imageNamed:imageButtonStr] forState:UIControlStateNormal];
         
         media.isFavorite = [NSNumber numberWithBool:button.selected];
         [CoreDataManager saveMainContext];
     }
+    else
+        NSLog(@"Aa press");
 }
 //-----------------------------------------------------------------------------------
 #pragma mark
