@@ -8,6 +8,7 @@
 
 #import "TextViewVC.h"
 #import "MediaDB.h"
+#import "InfoVC.h"
 
 @interface TextViewVC ()
 
@@ -70,6 +71,16 @@ static NSString *htmlSTR =  @"<html>"
     UIBarButtonItem *rightBarItem = [[[UIBarButtonItem alloc] init] autorelease];
     rightBarItem.customView = toolBarButton;
     self.navigationItem.rightBarButtonItem = rightBarItem;
+    
+//    // кнопка Назад
+//    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [backButton setBackgroundImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
+//    backButton.frame = CGRectMake(0, 0, 58, 25);
+//    [backButton addTarget:self action:@selector(backPress) forControlEvents:UIControlEventTouchDown];
+//    
+//    UIBarButtonItem *leftBarItem = [[[UIBarButtonItem alloc] init] autorelease];
+//    leftBarItem.customView = backButton;
+//    self.navigationItem.leftBarButtonItem = leftBarItem;
     
     CGRect rectTextView = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 49.0f - 46.0f);
     
@@ -302,4 +313,11 @@ static NSString *htmlSTR =  @"<html>"
     DLog(@"");
 }
 //-----------------------------------------------------------------------------------
+-(void)infoPress
+{
+    InfoVC *infoVC = [[[InfoVC alloc] init] autorelease];
+    [infoVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:infoVC animated:YES];
+}
+//--------------------------------------------------------------------
 @end

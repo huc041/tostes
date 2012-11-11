@@ -11,7 +11,6 @@
 #import "GroupDB.h"
 #import "TextViewVC.h"
 #import "MyLabel.h"
-#import "InfoVC.h"
 
 @interface FavoriteVC ()
 
@@ -68,7 +67,7 @@
     UIBarButtonItem *rightBarItem = [[[UIBarButtonItem alloc] init] autorelease];
     rightBarItem.customView = toolBarButton;
     self.navigationItem.rightBarButtonItem = rightBarItem;
-        
+    
     emptyMessageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMidX(self.view.frame) - 50.0f, self.view.frame.size.width, 100)];
     emptyMessageLabel.backgroundColor = [UIColor clearColor];
     emptyMessageLabel.font = [UIFont fontWithName:@"Lobster" size:20.0f];
@@ -181,7 +180,6 @@
 #pragma mark NSFetchedResultsController Delegate
 - (NSFetchedResultsController*) fetchFavoriteController
 {
-    DLog(@"");
     if (fetchFavoriteController != nil)
     {
         fetchFavoriteController.delegate = (id <NSFetchedResultsControllerDelegate>) self;
@@ -238,11 +236,9 @@
 //    [table reloadData];
 }
 //--------------------------------------------------------------------
--(void)infoPress
+-(void)backPress
 {
-    InfoVC *infoVC = [[[InfoVC alloc] init] autorelease];
-    [infoVC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:infoVC animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 //--------------------------------------------------------------------
 @end
