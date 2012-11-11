@@ -9,6 +9,8 @@
 #import "SongsListVC.h"
 #import "MediaDB.h"
 #import "TextViewVC.h"
+#import "SongCell.h"
+#import "MyLabel.h"
 
 @interface SongsListVC ()
 
@@ -53,7 +55,7 @@
     [super viewDidLoad];
     
     table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 49.0f - 46.0f)];
-    table.backgroundColor = [UIColor darkGrayColor];
+    table.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgrnd.png"]];
     table.delegate = self;
     table.dataSource = self;
     [self.view addSubview:table];
@@ -67,18 +69,36 @@
 	return [alphabet count];
 }
 //-----------------------------------------------------------------------------------
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if([[dicSongs objectForKey:[alphabet objectAtIndex:section]] count] == 0)
+        return 0.0f;
+    else
+        return 30.0f;
+}
+//-----------------------------------------------------------------------------------
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if([[dicSongs objectForKey:[alphabet objectAtIndex:section]] count] == 0)
+        return nil;
+    MyLabel *sectionLabel = [[[MyLabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30.0f)] autorelease];
+    sectionLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"sectionView.png"]];
+    sectionLabel.textAlignment = UITextAlignmentLeft;
+    sectionLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 1.0f);
+    sectionLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
+    sectionLabel.text = [alphabet objectAtIndex:section];
+    return sectionLabel;
+}
+//-----------------------------------------------------------------------------------
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	return 60;
 }
-//-----------------------------------------------------------------------------------
-- (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section
-{
-//    if ([aTableView numberOfRowsInSection:section] == 0)
-//        return nil;
-    
-    return [alphabet objectAtIndex:section];
-}
+////-----------------------------------------------------------------------------------
+//- (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section
+//{
+//    return [alphabet objectAtIndex:section];
+//}
 //-----------------------------------------------------------------------------------
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
@@ -98,11 +118,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"id";
-    UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SongCell *cell = (SongCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if(!cell)
 	{
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[[SongCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 2.0f);
+        cell.textLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
 	}
     
     NSArray *arraySongsWithCurrentBeginSymbols = [dicSongs objectForKey:[alphabet objectAtIndex:indexPath.section]];

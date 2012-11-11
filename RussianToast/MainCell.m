@@ -19,7 +19,7 @@
         // Initialization code
         
         UIView *backView = [[[UIView alloc] initWithFrame:self.bounds] autorelease];
-        backView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cellView"]];
+        backView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bigCellView.png"]];
         self.backgroundView = backView;
         
         UIImageView*imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(320 - 89 - 20, (HEIGHT_CELL - 79)/2, 89, 79)] autorelease];

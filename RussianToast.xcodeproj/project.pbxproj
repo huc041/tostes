@@ -20,6 +20,9 @@
 		5205A306164FC72F006C34E7 /* smallCellView.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A305164FC72E006C34E7 /* smallCellView.png */; };
 		5205A308164FC795006C34E7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A307164FC794006C34E7 /* Default.png */; };
 		5205A30A164FC79C006C34E7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A309164FC79B006C34E7 /* Default@2x.png */; };
+		5205A30D164FC92C006C34E7 /* SongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5205A30C164FC92C006C34E7 /* SongCell.m */; };
+		5205A30F164FCBB4006C34E7 /* sectionView.png in Resources */ = {isa = PBXBuildFile; fileRef = 5205A30E164FCBB4006C34E7 /* sectionView.png */; };
+		5205A312164FCE06006C34E7 /* MyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5205A311164FCE06006C34E7 /* MyLabel.m */; };
 		52096E4F163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E4C163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt */; };
 		52096E50163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E4D163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt */; };
 		52096E5E163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52096E53163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt */; };
@@ -137,6 +140,11 @@
 		5205A305164FC72E006C34E7 /* smallCellView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallCellView.png; sourceTree = "<group>"; };
 		5205A307164FC794006C34E7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5205A309164FC79B006C34E7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5205A30B164FC92C006C34E7 /* SongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongCell.h; sourceTree = "<group>"; };
+		5205A30C164FC92C006C34E7 /* SongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongCell.m; sourceTree = "<group>"; };
+		5205A30E164FCBB4006C34E7 /* sectionView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sectionView.png; sourceTree = "<group>"; };
+		5205A310164FCE06006C34E7 /* MyLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLabel.h; sourceTree = "<group>"; };
+		5205A311164FCE06006C34E7 /* MyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLabel.m; sourceTree = "<group>"; };
 		52096E4C163A789E00274925 /* 2_поздравления&40_с Днем Рождения&121_бабушке  .txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&121_бабушке  .txt"; sourceTree = "<group>"; };
 		52096E4D163A789E00274925 /* 2_поздравления&40_с Днем Рождения&122_Внуку  .txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&122_Внуку  .txt"; sourceTree = "<group>"; };
 		52096E53163A78AE00274925 /* 2_поздравления&40_с Днем Рождения&124_девочке.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&40_с Днем Рождения&124_девочке.txt"; sourceTree = "<group>"; };
@@ -290,6 +298,8 @@
 		5205A2E7164EE3A8006C34E7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5205A30B164FC92C006C34E7 /* SongCell.h */,
+				5205A30C164FC92C006C34E7 /* SongCell.m */,
 				5205A2E4164EE3A4006C34E7 /* MainCell.h */,
 				5205A2E5164EE3A4006C34E7 /* MainCell.m */,
 			);
@@ -393,6 +403,8 @@
 			children = (
 				5205A2D5164EDB0C006C34E7 /* Navbar */,
 				5205A2D3164EDB02006C34E7 /* Tabbar */,
+				5205A310164FCE06006C34E7 /* MyLabel.h */,
+				5205A311164FCE06006C34E7 /* MyLabel.m */,
 			);
 			name = SDK;
 			sourceTree = "<group>";
@@ -494,6 +506,7 @@
 		52AE8136164EBF340039A029 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5205A30E164FCBB4006C34E7 /* sectionView.png */,
 				5205A305164FC72E006C34E7 /* smallCellView.png */,
 				5205A2EA164EE8F2006C34E7 /* celebraties.png */,
 				5205A2EB164EE8F2006C34E7 /* songs.png */,
@@ -706,6 +719,7 @@
 				5205A306164FC72F006C34E7 /* smallCellView.png in Resources */,
 				5205A308164FC795006C34E7 /* Default.png in Resources */,
 				5205A30A164FC79C006C34E7 /* Default@2x.png in Resources */,
+				5205A30F164FCBB4006C34E7 /* sectionView.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +746,8 @@
 				527159D0164ED74400566C95 /* MediaDB.m in Sources */,
 				5205A2D8164EDB44006C34E7 /* CustomNabBar.m in Sources */,
 				5205A2E6164EE3A4006C34E7 /* MainCell.m in Sources */,
+				5205A30D164FC92C006C34E7 /* SongCell.m in Sources */,
+				5205A312164FCE06006C34E7 /* MyLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
