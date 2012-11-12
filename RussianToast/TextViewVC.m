@@ -88,6 +88,7 @@ static NSString *htmlSTR =  @"<html>"
     textView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgrnd.png"]];
     textView.textAlignment = UITextAlignmentCenter;
     textView.font = [UIFont fontWithName:@"MyriadPro-It" size:16];
+    textView.editable = NO;
     [self.view addSubview:textView];
     
     toolBarView  = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(textView.frame) + 1, self.view.bounds.size.width, 49.0f)];
@@ -205,23 +206,19 @@ static NSString *htmlSTR =  @"<html>"
 #pragma mark Send Methods
 - (void)sendMail
 {
-    DLog(@"");
-//#error возвращает nil!
-    
-    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
-    if(picker)
+    DLog(@"");    
+    if ([MFMailComposeViewController canSendMail])
     {
+        MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
         picker.mailComposeDelegate = self;
         [picker setSubject:@"Прекрасные слова..."];
         // Fill out the email body text
         [picker setMessageBody:media.fullText isHTML:NO];
-        
         [self presentViewController:picker animated:YES completion:^{}];
+        [picker release];
     }
     else
         [self showAlert:@"Возможно у Вас не настроен почтовый клиент"];
-
-    [picker release];
 }
 //-----------------------------------------------------------------------------------
 - (void)sendSMS
