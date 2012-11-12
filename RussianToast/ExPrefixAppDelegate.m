@@ -107,6 +107,11 @@
             GroupDB *groupDB = [CoreDataManager object:@"GroupDB" predicate:[NSPredicate predicateWithFormat:predicateSTR] inMainContext:YES];
             if(groupDB == nil)
             {
+                
+                if(currentID == 3)
+                    NSLog(@"STOP SONGS");
+                
+                
                 groupDB = (GroupDB*)[CoreDataManager newObject:@"GroupDB" inMainContext:YES];
                 groupDB.id = [NSNumber numberWithInt:currentID];
                 groupDB.idParent = [NSNumber numberWithInt:previosID];

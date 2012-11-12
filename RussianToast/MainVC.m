@@ -128,7 +128,7 @@ static NSArray *arrayImages = nil;
     GroupDB *groupDB = [self.fetchResultController.fetchedObjects objectAtIndex:indexPath.row];
     NSString *predicateSTR = [NSString stringWithFormat:@"idParent == %@",groupDB.id];
     NSArray *arraySubGroups = [CoreDataManager objects:@"GroupDB" withPredicate:[NSPredicate predicateWithFormat:predicateSTR] inMainContext:YES];
-    if([arraySubGroups count] == 1) // это песня
+    if(!arraySubGroups) // это песня
     {
         NSPredicate *predicateSongs = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idGroup == %@",groupDB.id]];
         NSArray *arraySongs = [CoreDataManager objects:@"MediaDB" withPredicate:predicateSongs inMainContext:YES];

@@ -206,15 +206,22 @@ static NSString *htmlSTR =  @"<html>"
 - (void)sendMail
 {
     DLog(@"");
+//#error возвращает nil!
+    
     MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
-	picker.mailComposeDelegate = self;
-	[picker setSubject:@"Прекрасные слова..."];
-	
-	// Fill out the email body text
-	[picker setMessageBody:media.fullText isHTML:NO];
-	
-	[self presentModalViewController:picker animated:YES];
-	[picker release];
+    if(picker)
+    {
+        picker.mailComposeDelegate = self;
+        [picker setSubject:@"Прекрасные слова..."];
+        // Fill out the email body text
+        [picker setMessageBody:media.fullText isHTML:NO];
+        
+        [self presentViewController:picker animated:YES completion:^{}];
+    }
+    else
+        [self showAlert:@"Возможно у Вас не настроен почтовый клиент"];
+
+    [picker release];
 }
 //-----------------------------------------------------------------------------------
 - (void)sendSMS

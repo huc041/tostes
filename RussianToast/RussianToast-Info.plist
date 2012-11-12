@@ -8,6 +8,16 @@
 	<string>RussianToats</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFiles</key>
+	<array/>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array/>
+		</dict>
+	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>ru.VolSU.RussianToasts</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -21,9 +31,15 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.06</string>
+	<string>1.10</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MyriadPro-Bold.otf</string>
+		<string>LOBSTER.TTF</string>
+		<string>MyriadPro-It.otf</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -33,12 +49,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>MyriadPro-Bold.otf</string>
-		<string>LOBSTER.TTF</string>
-		<string>MyriadPro-It.otf</string>
 	</array>
 </dict>
 </plist>
