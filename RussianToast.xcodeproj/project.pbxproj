@@ -124,6 +124,8 @@
 		5270B8D316516EF1007F0FF6 /* 3_Застольные песни.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5270B8D216516EF1007F0FF6 /* 3_Застольные песни.txt */; };
 		527159CC164ED74400566C95 /* GroupDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 527159CB164ED74400566C95 /* GroupDB.m */; };
 		527159D0164ED74400566C95 /* MediaDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 527159CF164ED74400566C95 /* MediaDB.m */; };
+		529B068616520B22003B9F9B /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B068516520B22003B9F9B /* 57.png */; };
+		529B068916520B2D003B9F9B /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B068816520B2D003B9F9B /* 114.png */; };
 		529E3B7F15D1BE1D00EA1685 /* 2_поздравления&41_c 8 марта.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B7E15D1BE1D00EA1685 /* 2_поздравления&41_c 8 марта.txt */; };
 		529E3B8215D1BFB400EA1685 /* 2_поздравления&42_с 23 февраля.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B8115D1BFB400EA1685 /* 2_поздравления&42_с 23 февраля.txt */; };
 		529E3B8415D1C17500EA1685 /* 2_поздравления&44_с днем Святого Валентина.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B8315D1C17500EA1685 /* 2_поздравления&44_с днем Святого Валентина.txt */; };
@@ -284,6 +286,8 @@
 		527159CB164ED74400566C95 /* GroupDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDB.m; sourceTree = "<group>"; };
 		527159CE164ED74400566C95 /* MediaDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaDB.h; sourceTree = "<group>"; };
 		527159CF164ED74400566C95 /* MediaDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaDB.m; sourceTree = "<group>"; };
+		529B068516520B22003B9F9B /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57.png; sourceTree = "<group>"; };
+		529B068816520B2D003B9F9B /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 114.png; sourceTree = "<group>"; };
 		529E3B7E15D1BE1D00EA1685 /* 2_поздравления&41_c 8 марта.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&41_c 8 марта.txt"; sourceTree = "<group>"; };
 		529E3B8115D1BFB400EA1685 /* 2_поздравления&42_с 23 февраля.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&42_с 23 февраля.txt"; sourceTree = "<group>"; };
 		529E3B8315D1C17500EA1685 /* 2_поздравления&44_с днем Святого Валентина.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&44_с днем Святого Валентина.txt"; sourceTree = "<group>"; };
@@ -414,6 +418,8 @@
 		5251FEF315BAC7F40039C78C = {
 			isa = PBXGroup;
 			children = (
+				529B068816520B2D003B9F9B /* 114.png */,
+				529B068516520B22003B9F9B /* 57.png */,
 				5205A356165032F7006C34E7 /* 1_Тосты&17_с новым годом.txt */,
 				5205A354165032E2006C34E7 /* 1_Тосты&21_бизнес.txt */,
 				5205A352165032C7006C34E7 /* 1_Тосты&20_военные.txt */,
@@ -856,6 +862,8 @@
 				5270B8CE16516C12007F0FF6 /* info.png in Resources */,
 				5270B8CF16516C12007F0FF6 /* info@2x.png in Resources */,
 				5270B8D316516EF1007F0FF6 /* 3_Застольные песни.txt in Resources */,
+				529B068616520B22003B9F9B /* 57.png in Resources */,
+				529B068916520B2D003B9F9B /* 114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
