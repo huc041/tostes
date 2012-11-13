@@ -9,7 +9,7 @@
 #import "FavoriteVC.h"
 #import "MediaDB.h"
 #import "GroupDB.h"
-#import "TextViewVC.h"
+#import "DetailVC.h"
 #import "MyLabel.h"
 #import "InfoVC.h"
 
@@ -173,7 +173,7 @@
     id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchFavoriteController sections] objectAtIndex:indexPath.section];
     MediaDB *mediaDB = [[sectionInfo objects] objectAtIndex:indexPath.row];
     
-    TextViewVC *textViewVC = [[TextViewVC alloc] init];
+    DetailVC *textViewVC = [[DetailVC alloc] init];
     textViewVC.media = mediaDB;
     
     [textViewVC setHidesBottomBarWhenPushed:YES];

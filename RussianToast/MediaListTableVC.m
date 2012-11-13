@@ -7,7 +7,7 @@
 //
 
 #import "MediaListTableVC.h"
-#import "TextViewVC.h"
+#import "DetailVC.h"
 #import "MediaDB.h"
 #import "GroupDB.h"
 
@@ -97,7 +97,7 @@
     
     MediaDB *mediaDB = [mediaArray objectAtIndex:indexPath.row];
     
-    TextViewVC *textViewVC = [[TextViewVC alloc] init];
+    DetailVC *textViewVC = [[DetailVC alloc] init];
     textViewVC.media = mediaDB;
     
     [textViewVC setHidesBottomBarWhenPushed:YES];

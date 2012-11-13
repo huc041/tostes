@@ -2,7 +2,7 @@
 //  MediaDB.m
 //  RussianToast
 //
-//  Created by Евгений Иванов on 10.11.12.
+//  Created by Евгений Иванов on 13.11.12.
 //
 //
 
@@ -14,7 +14,7 @@
 
 @dynamic fullText;
 @dynamic idGroup;
-@dynamic idSubGroup;
+@dynamic identifier;
 @dynamic isFavorite;
 @dynamic name;
 @dynamic nameGroup;

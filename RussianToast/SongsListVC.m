@@ -8,7 +8,7 @@
 
 #import "SongsListVC.h"
 #import "MediaDB.h"
-#import "TextViewVC.h"
+#import "DetailVC.h"
 #import "SongCell.h"
 #import "MyLabel.h"
 
@@ -166,7 +166,7 @@
     MediaDB *mediaDB = (MediaDB*)[arraySongsWithCurrentBeginSymbols objectAtIndex:indexPath.row];
     if(mediaDB)
     {
-        TextViewVC *webViewVC = [[TextViewVC alloc] init];
+        DetailVC *webViewVC = [[DetailVC alloc] init];
         webViewVC.media = mediaDB;
         [webViewVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:webViewVC animated:YES];

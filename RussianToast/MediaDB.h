@@ -2,7 +2,7 @@
 //  MediaDB.h
 //  RussianToast
 //
-//  Created by Евгений Иванов on 10.11.12.
+//  Created by Евгений Иванов on 13.11.12.
 //
 //
 
@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSString * fullText;
 @property (nonatomic, retain) NSNumber * idGroup;
-@property (nonatomic, retain) NSNumber * idSubGroup;
+@property (nonatomic, retain) NSNumber * identifier;
 @property (nonatomic, retain) NSNumber * isFavorite;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * nameGroup;

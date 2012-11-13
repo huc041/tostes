@@ -6,11 +6,11 @@
 //
 //
 
-#import "TextViewVC.h"
+#import "DetailVC.h"
 #import "MediaDB.h"
 #import "InfoVC.h"
 
-@interface TextViewVC ()
+@interface DetailVC ()
 
 @end
 
@@ -36,7 +36,7 @@ static NSString *htmlSTR =  @"<html>"
 @"</div>"
 @"</body></html>";
 
-@implementation TextViewVC
+@implementation DetailVC
 
 @synthesize media;
 
@@ -72,16 +72,6 @@ static NSString *htmlSTR =  @"<html>"
     rightBarItem.customView = toolBarButton;
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
-//    // кнопка Назад
-//    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [backButton setBackgroundImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
-//    backButton.frame = CGRectMake(0, 0, 58, 25);
-//    [backButton addTarget:self action:@selector(backPress) forControlEvents:UIControlEventTouchDown];
-//    
-//    UIBarButtonItem *leftBarItem = [[[UIBarButtonItem alloc] init] autorelease];
-//    leftBarItem.customView = backButton;
-//    self.navigationItem.leftBarButtonItem = leftBarItem;
-    
     CGRect rectTextView = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 49.0f - 46.0f);
     
     textView = [[UITextView alloc] initWithFrame:rectTextView];
@@ -96,16 +86,25 @@ static NSString *htmlSTR =  @"<html>"
     [self.view addSubview:toolBarView];
     [toolBarView release];
     
-    NSArray *arrayRects = @[NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 46.0f - 28.0f, 9.5, 28, 28)),
+    NSArray *arrayRects = @[NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 2*46.0f - 28.0f, 9.5, 28, 28)),
+                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 46.0f - 28.0f, 9.5, 28, 28)),
                             NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 20.0f, 12.0, 39, 23)),
                             NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) + 46.0f, 9.5, 28, 28)),
+                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) + 2*46.0f, 9.5, 28, 28)),
                             NSStringFromCGRect(CGRectMake(320.0f - 10.0f - 23.0f, 9.5, 28, 28))];
     
-    NSArray *arrayImages = @[@"plus.png",@"Aa.png",@"minus.png",@"favorite.png"];
+    NSArray *arrayImages = @[@"pusto 1",@"plus.png",@"Aa.png",@"minus.png",@"pusto 2",@"favorite.png"];
     for (int j =0; j < [arrayRects count] ; j++ )
     {
         UIButton *toolBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        toolBarButton.backgroundColor = [UIColor clearColor];
+        
+        if(j == 0)
+            toolBarButton.backgroundColor = [UIColor redColor];
+        else if(j == 4)
+            toolBarButton.backgroundColor = [UIColor greenColor];
+        else 
+            toolBarButton.backgroundColor = [UIColor clearColor];
+        
         toolBarButton.tag  = BUTTON_OFFSET_TAG + j;
         toolBarButton.frame = CGRectFromString([arrayRects objectAtIndex:j]);
         [toolBarButton setBackgroundImage:[UIImage imageNamed:[arrayImages objectAtIndex:j]] forState:UIControlStateNormal];
@@ -131,7 +130,7 @@ static NSString *htmlSTR =  @"<html>"
     textView.text = media.fullText;
     
     // кнопка Избранное
-    UIButton *buttonFavorite = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 3];
+    UIButton *buttonFavorite = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 5];
     buttonFavorite.selected = [media.isFavorite boolValue];
     
     NSString *imageButtonStr = (buttonFavorite.selected) ? @"favorite_sel.png" : @"favorite.png";
@@ -150,20 +149,50 @@ static NSString *htmlSTR =  @"<html>"
 //-----------------------------------------------------------------------------------
 -(void)buttonPress:(UIButton*)button
 {
-    if (button.tag == BUTTON_OFFSET_TAG)         // increase font
+    if(button.tag == BUTTON_OFFSET_TAG) // previos
+    {
+        NSPredicate *predic = [NSPredicate predicateWithFormat:@"idGroup == %d AND identifier == %d",[media.idGroup integerValue],[media.identifier integerValue] - 1];
+        MediaDB *previosObject = [CoreDataManager object:@"MediaDB" predicate:predic inMainContext:YES];
+        
+        UIButton *nextButton = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 4];
+        nextButton.alpha = 1.0f;
+        
+        button.alpha = (previosObject == nil)? 0 : 1;
+        if(previosObject)
+        {
+            self.media = previosObject;
+            textView.text = media.fullText;
+        }
+    }
+    else if (button.tag == BUTTON_OFFSET_TAG + 1)         // increase font
     {
         if(fontSize < 35)
             fontSize +=5;
         textView.font = [UIFont fontWithName:@"MyriadPro-It" size:fontSize];
     }
-    else if(button.tag == BUTTON_OFFSET_TAG + 2) // decrease font
+    else if(button.tag == BUTTON_OFFSET_TAG + 3) // decrease font
     {
         if(fontSize > 10)
             fontSize -=5;
         
         textView.font = [UIFont fontWithName:@"MyriadPro-It" size:fontSize];
     }
-    else if (button.tag == BUTTON_OFFSET_TAG + 3)
+    else if(button.tag == BUTTON_OFFSET_TAG + 4) // next
+    {
+        NSPredicate *predicNext = [NSPredicate predicateWithFormat:@"idGroup == %d AND identifier == %d",[media.idGroup integerValue],[media.identifier integerValue] + 1];;
+        MediaDB *nextObject = [CoreDataManager object:@"MediaDB" predicate:predicNext inMainContext:YES];
+        
+        UIButton *previosButton = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG];
+        previosButton.alpha = 1.0f;
+        
+        button.alpha = (nextObject == nil)? 0 : 1;
+        if(nextObject)
+        {
+            self.media = nextObject;
+            textView.text = media.fullText;
+        }
+    }
+    else if (button.tag == BUTTON_OFFSET_TAG + 5)
     {
         button.selected = !button.selected;
         

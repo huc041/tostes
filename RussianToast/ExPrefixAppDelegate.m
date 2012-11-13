@@ -130,10 +130,12 @@
                     NSArray *arrayMedia = [dataString componentsSeparatedByString:@"* * *"];
                     for (NSString *mediaText in arrayMedia)
                     {
+                        int index = 100 + [arrayMedia indexOfObject:mediaText];
 #warning  кастыль,ну пока не понял почему поле пустое mediaText
                         if([mediaText length] > 2)
                         {
                             MediaDB *mediaDB = (MediaDB*)[CoreDataManager newObject:@"MediaDB" inMainContext:YES];
+                            mediaDB.identifier = [NSNumber numberWithInt:index];
                             mediaDB.idGroup = groupDB.id;
                             mediaDB.nameGroup = groupDB.name;
                             mediaDB.isFavorite = [NSNumber numberWithBool:0];
