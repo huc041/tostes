@@ -19,6 +19,7 @@
 
 -(void)dealloc
 {
+    self.parentGroup = nil;
     [mediaArray release];
     [super dealloc];
 }
@@ -37,7 +38,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
+    
+    [self setCustomTitle:self.parentGroup.name];
+    
     table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 49.0f - 46.0f)];
     table.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgrnd.png"]];
     table.delegate = self;

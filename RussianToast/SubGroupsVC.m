@@ -22,16 +22,8 @@
 //--------------------------------------------------------------------
 -(void)dealloc
 {
+    self.parentGroup = nil;
     [super dealloc];
-}
-//--------------------------------------------------------------------
-- (id)initWithWithIDParent:(NSString*)parentID
-{
-    self = [super init];
-    if (self) 
-    {
-    }
-    return self;
 }
 //--------------------------------------------------------------------
 - (void)viewDidLoad
@@ -103,7 +95,8 @@
     // проверяем,есть ли подгруппы,если есть - переходим на аналогичный экран,если нет - на экран Media
     if([arraySubGroups count] > 0)
     {
-        SubGroupsVC *detailVC = [[SubGroupsVC alloc] initWithWithIDParent:[NSString stringWithFormat:@"%@",currentSubGroup.id]];
+        SubGroupsVC *detailVC = [[SubGroupsVC alloc] init];
+        detailVC.parentGroup = currentSubGroup;
         [self.navigationController pushViewController:detailVC animated:YES];
         [detailVC release];
     }
@@ -116,6 +109,7 @@
         if([arrayMediaObjectsInSubGroup count] > 0)
         {
             MediaListTableVC *tableVC = [[[MediaListTableVC alloc] initWithMediaArray:arrayMediaObjectsInSubGroup] autorelease];
+            tableVC.parentGroup = currentSubGroup;
             [self.navigationController pushViewController:tableVC animated:YES];
         }
     }
