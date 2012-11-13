@@ -7,18 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GroupDB.h"
 
-@interface SubGroupsVC : UIViewController <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>
+@interface SubGroupsVC : RootVC <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>
 
 {
-    NSString *idParent;
+//    NSString *idParent;
     
     UITableView *table;
     NSFetchedResultsController *detailFetchResultController;
 }
 
-@property (nonatomic,readonly,retain)NSFetchedResultsController *detailFetchResultController;
-
-- (id)initWithWithIDParent:(NSString*)parentID;
+@property (nonatomic,retain)          GroupDB *parentGroup;
+@property (nonatomic,readonly,retain) NSFetchedResultsController *detailFetchResultController;
 
 @end

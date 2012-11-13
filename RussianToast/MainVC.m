@@ -43,19 +43,10 @@ static NSArray *arrayImages = nil;
     // навбар
     UINavigationBar *navBar = self.navigationController.navigationBar;
     [navBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
-    
-    // Главная
-    UIButton *titleBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [titleBarButton setBackgroundColor:[UIColor clearColor]];
-    titleBarButton.titleLabel.shadowColor = RGB_Color(190, 157, 96, 1.0f);
-    titleBarButton.titleLabel.shadowOffset = CGSizeMake(-0.3f, 0.3f);
-    titleBarButton.titleLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
-    [titleBarButton setTitle:@"Главная" forState:UIControlStateNormal];
-    [titleBarButton setTitleColor:RGB_Color(66.0f, 42.0f, 2.0f, 1.0f) forState:UIControlStateNormal];
-    [titleBarButton setTitleEdgeInsets:UIEdgeInsetsMake(7.0f, 5.0f, 1.0f, -2.0f)];
-    titleBarButton.frame = CGRectMake(0, 0, 150, 27);
-    self.navigationItem.titleView= titleBarButton;
-    
+        
+    self.navigationItem.leftBarButtonItem = nil;
+    [self setCustomTitle:@"Главная"];
+   
     // кнопка Инфо
     UIButton *toolBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [toolBarButton setBackgroundImage:[UIImage imageNamed:@"info.png"] forState:UIControlStateNormal];
@@ -141,7 +132,8 @@ static NSArray *arrayImages = nil;
     }
     else if([arraySubGroups count] > 0)
     {
-        SubGroupsVC *detailVC = [[SubGroupsVC alloc] initWithWithIDParent:[NSString stringWithFormat:@"%@",groupDB.id]];
+        SubGroupsVC *detailVC = [[SubGroupsVC alloc] init];
+        detailVC.parentGroup = groupDB;
         [self.navigationController pushViewController:detailVC animated:YES];
         [detailVC release];
     }

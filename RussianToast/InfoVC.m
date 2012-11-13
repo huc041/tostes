@@ -13,10 +13,15 @@
 
 static NSString *textInfo =
 @"<html>"
+@"<head>"
+//@"<link href=\"aboutApp.css\" rel=\"stylesheet\" type=\"text/css\">"
+@"</head>"
 @"<style>"
 @"p {font-size: 11pt;font-family: MyriadPro-Bold;align-left;}"
-@"body {background-image: url(backgrnd.png);font-size: 11pt;font-family: MyriadPro-It;align-left;}"
+@"iframe {background: none;}"
+@"body {background: none;font-size: 11pt;font-family: MyriadPro-It;align-left;}"
 @"</style>"
+@"<body>"
 @"<p>"
 @"iТосты v1.0:"
 @"</p>"
@@ -70,6 +75,7 @@ static NSString *textInfo =
 @"<br>"
 @"<br>"
 @"Дизайнер: Olga Chuykova (<a href=\"mailto:olgachuykova@gmail.com\">olgachuykova@gmail.com</a>)"
+@"</body>"
 @"</html>";
 
 
@@ -104,7 +110,14 @@ static NSString *textInfo =
     
     UIWebView *webView = [[[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 46.0f)] autorelease];
     webView.delegate = self;
-    webView.backgroundColor = [UIColor greenColor];
+    webView.backgroundColor = [UIColor clearColor];
+    
+//    NSURL * _URLForHTMLFile = [[NSBundle mainBundle] URLForResource:@"aboutApp" withExtension:@"html"];
+//    
+//    [webView loadHTMLString:[NSString stringWithContentsOfURL:_URLForHTMLFile
+//                                                          encoding:NSUTF8StringEncoding error:nil]
+//                         baseURL:_URLForHTMLFile];
+    
     [webView loadHTMLString:textInfo baseURL:nil];
     [self.view addSubview:webView];
 }
@@ -148,9 +161,8 @@ static NSString *textInfo =
     
     // Если не удалось отправить письмо, то оповещаем об этом пользователя
     if (result == MFMailComposeResultFailed)
-    {
         ALERT_VIEW(@"Внимание", @"Ошибка отправки сообщения");
-    }
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 @end

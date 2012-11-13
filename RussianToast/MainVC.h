@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainVC : UIViewController <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>
+@interface MainVC : RootVC <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>
 {
     UITableView *table;
-    
     NSFetchedResultsController *fetchResultController;
 }
 

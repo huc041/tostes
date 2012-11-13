@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavoriteVC : UIViewController <UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate>
+@interface FavoriteVC : RootVC <UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate>
 
 {
     UILabel *emptyMessageLabel;

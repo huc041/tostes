@@ -66,15 +66,15 @@
     titleBarButton.frame = CGRectMake(0, 0, 150, 27);
     self.navigationItem.titleView= titleBarButton;
     
-    // кнопка Назад
-    UIButton *toolBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [toolBarButton setBackgroundImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
-    toolBarButton.frame = CGRectMake(0, 0, 58, 25);
-    [toolBarButton addTarget:self action:@selector(backPress) forControlEvents:UIControlEventTouchDown];
-    
-    UIBarButtonItem *leftBarItem = [[[UIBarButtonItem alloc] init] autorelease];
-    leftBarItem.customView = toolBarButton;
-    self.navigationItem.leftBarButtonItem = leftBarItem;
+//    // кнопка Назад
+//    UIButton *toolBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [toolBarButton setBackgroundImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
+//    toolBarButton.frame = CGRectMake(0, 0, 58, 25);
+//    [toolBarButton addTarget:self action:@selector(backPress) forControlEvents:UIControlEventTouchDown];
+//    
+//    UIBarButtonItem *leftBarItem = [[[UIBarButtonItem alloc] init] autorelease];
+//    leftBarItem.customView = toolBarButton;
+//    self.navigationItem.leftBarButtonItem = leftBarItem;
     
     table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 49.0f - 46.0f)];
     table.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgrnd.png"]];

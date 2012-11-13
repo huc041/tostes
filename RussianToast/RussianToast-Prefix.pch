@@ -6,6 +6,7 @@
 #import <CoreData/CoreData.h>
 #import "CoreDataManager.h"
 #import "ExPrefixAppDelegate.h"
+#import "RootVC.h"
 
 #ifndef __IPHONE_3_0
 #warning "This project uses features only available in iOS SDK 3.0 and later."
@@ -22,5 +23,3 @@
 #define RGB_Color(a,b,c,d) [UIColor colorWithRed:a/255.0f green:b/255.0f blue:c/255.0f alpha:d]
 
 #define ALERT_VIEW(TITLE, MESSAGE) [[[[UIAlertView alloc] initWithTitle:TITLE message:MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil]autorelease]show];
-//#define ALERT_VIEW(TITLE, MESSAGE) [[[[UIAlertView alloc] initWithTitle:TITLE message:MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:
-   // nil] autorelease]show];
