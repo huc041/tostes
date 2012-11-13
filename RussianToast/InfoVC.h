@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface InfoVC : UIViewController
+@interface InfoVC : UIViewController <UIWebViewDelegate,MFMailComposeViewControllerDelegate>
 
 {
-    UITextView *textView;
+    
 }
 
 @end

@@ -11,25 +11,67 @@
 @interface InfoVC ()
 @end
 
-static NSString *textInfo = @"Это приложение создано специально для тех, кому надоело молчать за праздничным "
+static NSString *textInfo =
+@"<html>"
+@"<style>"
+@"p {font-size: 11pt;font-family: MyriadPro-Bold;align-left;}"
+@"body {background-image: url(backgrnd.png);font-size: 11pt;font-family: MyriadPro-It;align-left;}"
+@"</style>"
+@"<p>"
+@"iТосты v1.0:"
+@"</p>"
+@"Это приложение создано специально для тех, кому надоело молчать за праздничным "
 @"столом или желать друзьям и знакомым только счастья и здоровья. "
+@"<br>"
+@"<br>"
 @"Давайте мыслить шире!"
-
-@"Ведь девушкам на день рождения гораздо приятнее «получить» богатого "
-@"любовника, чем абстрактное счастье. А Вашему начальнику вместо банального "
+@"<br>"
+@"<br>"
+@"Согласитесь, что девушкам на день рождения гораздо приятнее «получить» богатого "
+@"любовника, чем абстрактное счастье."
+@"А Вашему начальнику вместо банального "
 @"пожелания успехов в работе явно придется по душе Ваше искреннее пожелание "
 @"стать хозяином простой маленькой хижины в два этажа с бассейном, джакузи и "
-@"личной массажисткой мизинчиков, на берегу Карибского моря. "
-
+@"личной массажисткой мизинчиков, на берегу Карибского моря."
+@"<br>"
+@"<br>"
 @"В этом приложении собраны более 1000 тостов и поздравлений, благодаря которым "
 @"Вы будете в центре внимания на любом празднике."
-
+@"<p>"
+@"Как это работает:"
+@"</p>"
 @"Теперь Вам не нужно ломать голову над очередной поздравительной смской. Мы "
-@"придумали все за Вас! Вам осталось только выбрать и отправить. "
-
+@"придумали все за Вас! Вам осталось только выбрать и отправить."
+@"<br>"
+@"<br>"
 @"Пользуйтесь, друзья!"
+@"<br>"
+@"<br>"
+@"Большого Вам бочонка мёда и морского песка в трусах!"
+@"<br>"
+@"<p>"
+@"Что ожидается:"
+@"</p>"
+@"- расширение контента и функционала приложения"
+@"<p>"
+@"Техподдержка:"
+@"</p>"
+@"В случае возникновения проблем с функционированием приложения или если Вы "
+@"нашли ошибку, просьба связаться с нами по e-mail: <a href=\"mailto:ivan.polyntsev@gmail.com\">ivan.polyntsev@gmail.com</a>"
+@"<br>"
+@"<br>"
+@"© 2012. All Rights Reserved"
+@"<br>"
+@"<br>"
+@"Издатель: Ivan Polyntsev (<a href=\"mailto:ivan.polyntsev@gmail.com\">ivan.polyntsev@gmail.com</a>)"
+@"<br>"
+@"<br>"
+@"Разработчик: Evgeny Ivanov(<a href=\"mailto:jovanny041@gmail.com\">jovanny041@gmail.com</a>)"
+@"<br>"
+@"<br>"
+@"Дизайнер: Olga Chuykova (<a href=\"mailto:olgachuykova@gmail.com\">olgachuykova@gmail.com</a>)"
+@"</html>";
 
-@"Большого Вам бочонка мёда и морского песка в трусах!";
 
 @implementation InfoVC
 
@@ -60,12 +102,11 @@ static NSString *textInfo = @"Это приложение создано спе�
     leftBarItem.customView = toolBarButton;
     self.navigationItem.leftBarButtonItem = leftBarItem;
     
-    textView = [[[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 46.0f)] autorelease];
-    textView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgrnd.png"]];
-    textView.textAlignment = UITextAlignmentCenter;
-    textView.font = [UIFont fontWithName:@"MyriadPro-It" size:18.0f];
-    textView.text = textInfo;
-    [self.view addSubview:textView];
+    UIWebView *webView = [[[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 46.0f)] autorelease];
+    webView.delegate = self;
+    webView.backgroundColor = [UIColor greenColor];
+    [webView loadHTMLString:textInfo baseURL:nil];
+    [self.view addSubview:webView];
 }
 
 -(void)backPress
@@ -73,4 +114,43 @@ static NSString *textInfo = @"Это приложение создано спе�
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{    
+    DLog(@"");
+    // Проверяем тип обрабатываемого события
+    if (navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeFormSubmitted)
+    {
+        NSString *requestURLString = request.URL.absoluteString;
+        // Проверяем возможные варианты обработки request - Почта, телефон, ссылка
+        if ([[requestURLString substringToIndex:7] isEqualToString:@"mailto:"])
+        {
+            // Почта
+            if ([MFMailComposeViewController canSendMail])
+            {
+                // Если отправка почты возможна, то проверяем на какую почту посылать и выбираем тему письма
+                NSString *subject = @"[iTostes] Отзыв о приложении для iPhone";
+                
+                MFMailComposeViewController *mailVC = [MFMailComposeViewController new];
+                [mailVC setSubject:subject];
+                [mailVC setMailComposeDelegate:self];
+                [mailVC setToRecipients:@[ [requestURLString substringFromIndex:7] ]];
+                [self presentModalViewController:mailVC animated:YES];
+                [mailVC release];
+            }
+        }
+        return NO;
+    }
+    return YES;
+}
+
+#pragma mark MFMailComposeViewControllerDelegate
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    // Если не удалось отправить письмо, то оповещаем об этом пользователя
+    if (result == MFMailComposeResultFailed)
+    {
+        ALERT_VIEW(@"Внимание", @"Ошибка отправки сообщения");
+    }
+    [self dismissModalViewControllerAnimated:YES];
+}
 @end
