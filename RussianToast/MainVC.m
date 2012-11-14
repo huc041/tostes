@@ -31,7 +31,7 @@ static NSArray *arrayImages = nil;
     self = [super init];
     if (self) {
         // Custom initialization
-        arrayImages = [[NSArray alloc] initWithObjects:@"songs.png",@"celebraties.png",@"toats.png", nil];
+        arrayImages = [[NSArray alloc] initWithObjects:@"songs.png",@"toats.png",@"celebraties.png", nil];
     }
     return self;
 }
