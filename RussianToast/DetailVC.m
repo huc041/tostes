@@ -19,6 +19,8 @@
 #define SEND_MAIL_BUTTON_INDEX 0
 #define SEND_SMS_BUTTON_INDEX  1
 #define CANSEL_BUTTON_INDEX 2
+#define POST_TO_FACEBOOK 45
+#define POST_TO_TWITTER 46
 
 static NSString *htmlSTR =  @"<html>"
 @"<style type=\"text/css\">"
@@ -211,10 +213,13 @@ static NSString *htmlSTR =  @"<html>"
 -(void)sharePress
 {
     DLog(@"");
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Поделиться" delegate:self cancelButtonTitle:@"Отмена" destructiveButtonTitle:@"отправить на почту" otherButtonTitles:@"отправить по смс", nil];
-    
-//    - (void)showFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated NS_AVAILABLE_IOS(3_2);
-
+    UIActionSheet *actionSheet = nil;
+    if(isGreatThanIOS5)
+    {
+        actionSheet = [[UIActionSheet alloc] initWithTitle:@"Поделиться" delegate:self cancelButtonTitle:@"Отмена" destructiveButtonTitle:@"отправить на почту" otherButtonTitles:@"отправить по смс",@"Facebook",@"Twitter", nil];
+    }
+    else
+        actionSheet = [[UIActionSheet alloc] initWithTitle:@"Поделиться" delegate:self cancelButtonTitle:@"Отмена" destructiveButtonTitle:@"отправить на почту" otherButtonTitles:@"отправить по смс", nil];
     
     [actionSheet showInView:self.view];
 }
@@ -227,6 +232,10 @@ static NSString *htmlSTR =  @"<html>"
         [self sendMail];
     else if ( buttonIndex == actionSheet.firstOtherButtonIndex)
         [self sendSMS];
+    else if (isGreatThanIOS5 && buttonIndex == actionSheet.firstOtherButtonIndex + 1)
+        [self sendToSocialNetworkWithIndex:POST_TO_FACEBOOK];
+    else if (isGreatThanIOS5 && buttonIndex == actionSheet.firstOtherButtonIndex + 2)
+        [self sendToSocialNetworkWithIndex:POST_TO_TWITTER];
     else
         NSLog(@"CANSEL Press");
 }
@@ -263,6 +272,39 @@ static NSString *htmlSTR =  @"<html>"
 	}
 	else 
         [self showAlert:@"Устройство не настроено для отправки СМС"];
+}
+//-----------------------------------------------------------------------------------
+-(void)sendToSocialNetworkWithIndex:(int)indexSN
+{
+    DLog(@"");
+    
+    NSString *titleAlert = (indexSN == POST_TO_FACEBOOK) ? @"Facebook" : @"Twitter";
+    NSString *typeSocialNetwork = (indexSN == POST_TO_FACEBOOK) ? SLServiceTypeFacebook : SLServiceTypeTwitter;
+    
+    if([SLComposeViewController isAvailableForServiceType:typeSocialNetwork])
+    {
+        mySLComposeViewController = [SLComposeViewController composeViewControllerForServiceType:typeSocialNetwork];
+        [mySLComposeViewController setInitialText:[NSString stringWithFormat:@"%@",media.fullText]];
+        [self presentViewController:mySLComposeViewController animated:YES completion:nil];
+    }
+    
+    [mySLComposeViewController setCompletionHandler:^(SLComposeViewControllerResult result) {
+        NSLog(@"facebook posting result");
+        NSString *output;
+        switch (result) {
+            case SLComposeViewControllerResultCancelled:
+                output = @"Операция отменена";
+                break;
+            case SLComposeViewControllerResultDone:
+                output = @"Успешная отправка";
+                break;
+            default:
+                break;
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@",titleAlert] message:output delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+        [alert autorelease];
+    }];
 }
 //-----------------------------------------------------------------------------------
 -(void)displaySMSComposerSheet

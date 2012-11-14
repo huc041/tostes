@@ -144,6 +144,8 @@
 		52AE8149164EC3CA0039A029 /* tab1_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AE8148164EC3CA0039A029 /* tab1_sel.png */; };
 		52AE8180164ED1E00039A029 /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AE817E164ED1E00039A029 /* navbar.png */; };
 		52B786AD16527E6F0083E134 /* MediaDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B786AC16527E6F0083E134 /* MediaDB.m */; };
+		52D692A81653E676007D432B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D692A71653E676007D432B /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		52D692AB1653E67B007D432B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D692AA1653E67B007D432B /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		52DA77C515F25225009B7EC8 /* SongsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA77C415F25225009B7EC8 /* SongsListVC.m */; };
 		52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E25E9C15BC704500AF82DE /* FavoriteVC.m */; };
 		52E95AD015BDE1B3004DF9B7 /* SubGroupsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E95ACF15BDE1B3004DF9B7 /* SubGroupsVC.m */; };
@@ -314,6 +316,8 @@
 		52AE817E164ED1E00039A029 /* navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navbar.png; path = images/navbar/navbar.png; sourceTree = "<group>"; };
 		52B786AB16527E6F0083E134 /* MediaDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaDB.h; sourceTree = "<group>"; };
 		52B786AC16527E6F0083E134 /* MediaDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaDB.m; sourceTree = "<group>"; };
+		52D692A71653E676007D432B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		52D692AA1653E67B007D432B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		52DA77C315F25225009B7EC8 /* SongsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongsListVC.h; sourceTree = "<group>"; };
 		52DA77C415F25225009B7EC8 /* SongsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsListVC.m; sourceTree = "<group>"; };
 		52E25E9815BC678B00AF82DE /* CustomTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTabbarController.h; sourceTree = "<group>"; };
@@ -343,6 +347,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52D692AB1653E67B007D432B /* Social.framework in Frameworks */,
+				52D692A81653E676007D432B /* Accounts.framework in Frameworks */,
 				525FF6A6161C7B52003E65D2 /* MessageUI.framework in Frameworks */,
 				5251FF0315BAC7F40039C78C /* UIKit.framework in Frameworks */,
 				5251FF0515BAC7F40039C78C /* Foundation.framework in Frameworks */,
@@ -461,6 +467,8 @@
 		5251FF0115BAC7F40039C78C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52D692AA1653E67B007D432B /* Social.framework */,
+				52D692A71653E676007D432B /* Accounts.framework */,
 				525FF6A5161C7B52003E65D2 /* MessageUI.framework */,
 				5251FF0215BAC7F40039C78C /* UIKit.framework */,
 				5251FF0415BAC7F40039C78C /* Foundation.framework */,

@@ -10,6 +10,8 @@
 #import "MediaDB.h"
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 
 @interface DetailVC : RootVC <UIActionSheetDelegate,UIAlertViewDelegate,MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate>
 
@@ -20,6 +22,8 @@
     
     float blockTextHeight;
     float fontSize;
+    
+    SLComposeViewController *mySLComposeViewController;
 }
 
 @property (nonatomic,retain)MediaDB *media;

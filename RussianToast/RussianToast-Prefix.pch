@@ -23,3 +23,5 @@
 #define RGB_Color(a,b,c,d) [UIColor colorWithRed:a/255.0f green:b/255.0f blue:c/255.0f alpha:d]
 
 #define ALERT_VIEW(TITLE, MESSAGE) [[[[UIAlertView alloc] initWithTitle:TITLE message:MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil]autorelease]show];
+
+#define isGreatThanIOS5 [[UIDevice currentDevice].systemVersion floatValue] > 5.0

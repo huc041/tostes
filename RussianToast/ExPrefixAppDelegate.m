@@ -34,7 +34,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-        
+                
     NSMutableArray *tabsArray = [[NSMutableArray alloc] initWithCapacity:2];
     NSString *classesArray[2] = {@"MainVC",@"FavoriteVC"};
     CustomTabbarController *tabVC = [[[CustomTabbarController alloc] init] autorelease];
