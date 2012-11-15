@@ -146,7 +146,7 @@
 		cell = [[[SongCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
-        cell.textLabel.frame = CGRectMake(0, 0, tableView.frame.size.width - 30.0, 60.0f);
+        cell.textLabel.lineBreakMode = NSLineBreakByCharWrapping;
         cell.textLabel.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 2.0f);
         cell.textLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
@@ -167,8 +167,8 @@
 {
     DLog(@"");
     
-    NSArray *arraySongsWithCurrentBeginSymbols = [dicSongs objectForKey:[alphabet objectAtIndex:indexPath.section]];
-    MediaDB *mediaDB = (MediaDB*)[arraySongsWithCurrentBeginSymbols objectAtIndex:indexPath.row];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.songFRC sections] objectAtIndex:indexPath.section];
+    MediaDB *mediaDB = (MediaDB*)[[sectionInfo objects] objectAtIndex:indexPath.row];
     if(mediaDB)
     {
         DetailVC *webViewVC = [[DetailVC alloc] init];
