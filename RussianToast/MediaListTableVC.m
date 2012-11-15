@@ -10,6 +10,7 @@
 #import "DetailVC.h"
 #import "MediaDB.h"
 #import "GroupDB.h"
+#import "SongCell.h"
 
 @interface MediaListTableVC ()
 
@@ -71,10 +72,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
     static NSString *CellIdentifier = @"id";
-    UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SongCell *cell = (SongCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if(!cell)
 	{
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[[SongCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         cell.textLabel.backgroundColor = [UIColor clearColor];
