@@ -88,28 +88,22 @@ static NSString *htmlSTR =  @"<html>"
     [self.view addSubview:toolBarView];
     [toolBarView release];
     
-    NSArray *arrayRects = @[NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 2*46.0f - 28.0f, 9.5, 28, 28)),
-                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 46.0f - 28.0f, 9.5, 28, 28)),
-                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 20.0f, 12.0, 39, 23)),
-                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) + 46.0f, 9.5, 28, 28)),
-                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) + 2*46.0f, 9.5, 28, 28)),
-                            NSStringFromCGRect(CGRectMake(320.0f - 10.0f - 23.0f, 9.5, 28, 28))];
+    NSLog(@"middle - %f",CGRectGetMidX(toolBarView.frame));
     
-    NSArray *arrayImages = @[@"pusto 1",@"plus.png",@"Aa.png",@"minus.png",@"pusto 2",@"favorite.png"];
+    NSArray *arrayRects = @[NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 2*46.0f - 38.0f, 10.0, 27, 27)),
+                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 41.0f - 28.0f, 10.0, 27, 27)),
+                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) - 14.0f, 10.0, 28, 28)),
+                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) + 41.0f, 10.0, 27, 27)),
+                            NSStringFromCGRect(CGRectMake(CGRectGetMidX(toolBarView.frame) + 2*46.0f + 10.0f, 10.0, 27, 27))];
+    
+    NSArray *arrayImages = @[@"previosBtn.png",@"plus.png",@"favorite.png",@"minus.png",@"nextBtn.png"];
     for (int j =0; j < [arrayRects count] ; j++ )
     {
         UIButton *toolBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        if(j == 0)
-            toolBarButton.backgroundColor = [UIColor redColor];
-        else if(j == 4)
-            toolBarButton.backgroundColor = [UIColor greenColor];
-        else 
-            toolBarButton.backgroundColor = [UIColor clearColor];
-        
         toolBarButton.tag  = BUTTON_OFFSET_TAG + j;
         toolBarButton.frame = CGRectFromString([arrayRects objectAtIndex:j]);
-        [toolBarButton setBackgroundImage:[UIImage imageNamed:[arrayImages objectAtIndex:j]] forState:UIControlStateNormal];
+        [toolBarButton setImage:[UIImage imageNamed:[arrayImages objectAtIndex:j]] forState:UIControlStateNormal];
+//        [toolBarButton setBackgroundImage:[UIImage imageNamed:[arrayImages objectAtIndex:j]] forState:UIControlStateNormal];
         [toolBarButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
         [toolBarButton setSelected:NO];
         [toolBarView addSubview:toolBarButton];
@@ -172,6 +166,16 @@ static NSString *htmlSTR =  @"<html>"
             fontSize +=5;
         textView.font = [UIFont fontWithName:@"MyriadPro-It" size:fontSize];
     }
+    else if (button.tag == BUTTON_OFFSET_TAG + 2)
+    {
+        button.selected = !button.selected;
+        
+        NSString *imageButtonStr = (button.selected) ? @"favorite_sel.png" : @"favorite.png";
+        [button setBackgroundImage:[UIImage imageNamed:imageButtonStr] forState:UIControlStateNormal];
+        
+        media.isFavorite = [NSNumber numberWithBool:button.selected];
+        [CoreDataManager saveMainContext];
+    }
     else if(button.tag == BUTTON_OFFSET_TAG + 3) // decrease font
     {
         if(fontSize > 10)
@@ -193,16 +197,6 @@ static NSString *htmlSTR =  @"<html>"
             self.media = nextObject;
             textView.text = media.fullText;
         }
-    }
-    else if (button.tag == BUTTON_OFFSET_TAG + 5)
-    {
-        button.selected = !button.selected;
-        
-        NSString *imageButtonStr = (button.selected) ? @"favorite_sel.png" : @"favorite.png";        
-        [button setBackgroundImage:[UIImage imageNamed:imageButtonStr] forState:UIControlStateNormal];
-        
-        media.isFavorite = [NSNumber numberWithBool:button.selected];
-        [CoreDataManager saveMainContext];
     }
     else
         NSLog(@"Aa press");

@@ -131,8 +131,8 @@
 		529B06A716524090003B9F9B /* 72.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B06A416524090003B9F9B /* 72.png */; };
 		529B06AF16524C4B003B9F9B /* RootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 529B06AE16524C4A003B9F9B /* RootVC.m */; };
 		529B06B116525602003B9F9B /* back_main.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B06B016525602003B9F9B /* back_main.png */; };
-		529B06B416525613003B9F9B /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B06B216525613003B9F9B /* back.png */; };
-		529B06B516525613003B9F9B /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B06B316525613003B9F9B /* back@2x.png */; };
+		529B06B416525613003B9F9B /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B06B216525613003B9F9B /* back@2x.png */; };
+		529B06B516525613003B9F9B /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B06B316525613003B9F9B /* back.png */; };
 		529E3B7F15D1BE1D00EA1685 /* 2_поздравления&41_c 8 марта.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B7E15D1BE1D00EA1685 /* 2_поздравления&41_c 8 марта.txt */; };
 		529E3B8215D1BFB400EA1685 /* 2_поздравления&42_с 23 февраля.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B8115D1BFB400EA1685 /* 2_поздравления&42_с 23 февраля.txt */; };
 		529E3B8415D1C17500EA1685 /* 2_поздравления&44_с днем Святого Валентина.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529E3B8315D1C17500EA1685 /* 2_поздравления&44_с днем Святого Валентина.txt */; };
@@ -148,6 +148,8 @@
 		52D692AB1653E67B007D432B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D692AA1653E67B007D432B /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		52D7B8BA165572FB009B171A /* nextBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D7B8B6165572FB009B171A /* nextBtn@2x.png */; };
 		52D7B8BC165572FB009B171A /* previosBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D7B8B8165572FB009B171A /* previosBtn@2x.png */; };
+		52D7B8BF165573A7009B171A /* nextBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D7B8BE165573A7009B171A /* nextBtn.png */; };
+		52D7B8C1165573AF009B171A /* previosBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D7B8C0165573AF009B171A /* previosBtn.png */; };
 		52DA77C515F25225009B7EC8 /* SongsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA77C415F25225009B7EC8 /* SongsListVC.m */; };
 		52E25E9D15BC704500AF82DE /* FavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E25E9C15BC704500AF82DE /* FavoriteVC.m */; };
 		52E95AD015BDE1B3004DF9B7 /* SubGroupsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E95ACF15BDE1B3004DF9B7 /* SubGroupsVC.m */; };
@@ -305,8 +307,8 @@
 		529B06AD16524C4A003B9F9B /* RootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootVC.h; sourceTree = "<group>"; };
 		529B06AE16524C4A003B9F9B /* RootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootVC.m; sourceTree = "<group>"; };
 		529B06B016525602003B9F9B /* back_main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_main.png; sourceTree = "<group>"; };
-		529B06B216525613003B9F9B /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		529B06B316525613003B9F9B /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		529B06B216525613003B9F9B /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		529B06B316525613003B9F9B /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		529E3B7E15D1BE1D00EA1685 /* 2_поздравления&41_c 8 марта.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&41_c 8 марта.txt"; sourceTree = "<group>"; };
 		529E3B8115D1BFB400EA1685 /* 2_поздравления&42_с 23 февраля.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&42_с 23 февраля.txt"; sourceTree = "<group>"; };
 		529E3B8315D1C17500EA1685 /* 2_поздравления&44_с днем Святого Валентина.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2_поздравления&44_с днем Святого Валентина.txt"; sourceTree = "<group>"; };
@@ -322,6 +324,8 @@
 		52D692AA1653E67B007D432B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		52D7B8B6165572FB009B171A /* nextBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nextBtn@2x.png"; sourceTree = "<group>"; };
 		52D7B8B8165572FB009B171A /* previosBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "previosBtn@2x.png"; sourceTree = "<group>"; };
+		52D7B8BE165573A7009B171A /* nextBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBtn.png; sourceTree = "<group>"; };
+		52D7B8C0165573AF009B171A /* previosBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previosBtn.png; sourceTree = "<group>"; };
 		52DA77C315F25225009B7EC8 /* SongsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongsListVC.h; sourceTree = "<group>"; };
 		52DA77C415F25225009B7EC8 /* SongsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsListVC.m; sourceTree = "<group>"; };
 		52E25E9815BC678B00AF82DE /* CustomTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTabbarController.h; sourceTree = "<group>"; };
@@ -415,7 +419,9 @@
 		5205A32216501AC8006C34E7 /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				52D7B8BE165573A7009B171A /* nextBtn.png */,
 				52D7B8B6165572FB009B171A /* nextBtn@2x.png */,
+				52D7B8C0165573AF009B171A /* previosBtn.png */,
 				52D7B8B8165572FB009B171A /* previosBtn@2x.png */,
 				5205A32416501BE1006C34E7 /* share.png */,
 				5205A34E16502B2F006C34E7 /* share@2x.png */,
@@ -423,8 +429,8 @@
 				5205A34416502A79006C34E7 /* minus@2x.png */,
 				5205A319164FD5DD006C34E7 /* plus.png */,
 				5205A34216502A69006C34E7 /* plus@2x.png */,
-				529B06B216525613003B9F9B /* back.png */,
-				529B06B316525613003B9F9B /* back@2x.png */,
+				529B06B216525613003B9F9B /* back@2x.png */,
+				529B06B316525613003B9F9B /* back.png */,
 				529B06B016525602003B9F9B /* back_main.png */,
 				5205A34C16502B1E006C34E7 /* back_main@2x.png */,
 				5205A316164FD5DA006C34E7 /* favorite_sel.png */,
@@ -909,10 +915,12 @@
 				529B06A616524090003B9F9B /* 58.png in Resources */,
 				529B06A716524090003B9F9B /* 72.png in Resources */,
 				529B06B116525602003B9F9B /* back_main.png in Resources */,
-				529B06B416525613003B9F9B /* back.png in Resources */,
-				529B06B516525613003B9F9B /* back@2x.png in Resources */,
+				529B06B416525613003B9F9B /* back@2x.png in Resources */,
+				529B06B516525613003B9F9B /* back.png in Resources */,
 				52D7B8BA165572FB009B171A /* nextBtn@2x.png in Resources */,
 				52D7B8BC165572FB009B171A /* previosBtn@2x.png in Resources */,
+				52D7B8BF165573A7009B171A /* nextBtn.png in Resources */,
+				52D7B8C1165573AF009B171A /* previosBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
