@@ -14,9 +14,12 @@
 
 @interface SongsListVC ()
 
+@property (nonatomic,retain)NSFetchedResultsController *songFRC;
 @end
 
 @implementation SongsListVC
+
+@synthesize songFRC = _songFRC;
 
 -(void)dealloc
 {
@@ -32,20 +35,22 @@
     self = [super init];
     if (self) {
         // Custom initialization
-                
-        dicSongs = [NSMutableDictionary new];
-        
-        alphabet = [[NSArray alloc]initWithObjects:@"А",@"Б",@"В",@"Г",@"Д",@"Е",@"Ж",@"З",@"И",@"К",@"Л",
-                    @"М",@"Н",@"О",@"П",@"Р",@"С",@"Т",@"У",@"Ф",@"Х",@"Ц",@"Ч",@"Ш",@"Щ",@"Э",@"Ю",@"Я",nil];
-        
-        for (int j = 0;j < [alphabet count]; j++) {
-            
-            NSString *strREx = [NSString stringWithFormat:@"idGroup == 3 AND fullText BEGINSWITH[cd] '%@'",[alphabet objectAtIndex:j]];
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:strREx];
-            NSArray *tempArray = [CoreDataManager objects:@"MediaDB" withPredicate:predicate inMainContext:YES];
-            if([tempArray count] > 0)
-                [dicSongs setObject:tempArray forKey:[alphabet objectAtIndex:j]];
-        }
+                        
+//        dicSongs = [NSMutableDictionary new];
+//        
+//        alphabet = [[NSArray alloc]initWithObjects:@"А",@"Б",@"В",@"Г",@"Д",@"Е",@"Ж",@"З",@"И",@"К",@"Л",
+//                    @"М",@"Н",@"О",@"П",@"Р",@"С",@"Т",@"У",@"Ф",@"Х",@"Ц",@"Ч",@"Ш",@"Щ",@"Э",@"Ю",@"Я",nil];
+//        
+//        NSLog(@"DO SORT!");
+//        for (int j = 0;j < [alphabet count]; j++) {
+//            
+//            NSString *strREx = [NSString stringWithFormat:@"idGroup == 3 AND fullText BEGINSWITH[cd] '%@'",[alphabet objectAtIndex:j]];
+//            NSPredicate *predicate = [NSPredicate predicateWithFormat:strREx];
+//            NSArray *tempArray = [CoreDataManager objects:@"MediaDB" withPredicate:predicate inMainContext:YES];
+//            if([tempArray count] > 0)
+//                [dicSongs setObject:tempArray forKey:[alphabet objectAtIndex:j]];
+//        }
+//        NSLog(@"AFTER SORT!");
     }
     return self;
 }
@@ -73,34 +78,40 @@
     [table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.view addSubview:table];
     [table release];
+    
+    // start Fetch
+    [self.songFRC performFetch:nil];
 }
 //-----------------------------------------------------------------------------------
 #pragma mark
 #pragma mark TableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return [alphabet count];
+	return [self.songFRC.sections count];
 }
 //-----------------------------------------------------------------------------------
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if([[dicSongs objectForKey:[alphabet objectAtIndex:section]] count] == 0)
-        return 0.0f;
-    else
+//    if([[dicSongs objectForKey:[alphabet objectAtIndex:section]] count] == 0)
+//        return 0.0f;
+//    else
         return 30.0f;
 }
 //-----------------------------------------------------------------------------------
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if([[dicSongs objectForKey:[alphabet objectAtIndex:section]] count] == 0)
-        return nil;
+//    if([[dicSongs objectForKey:[alphabet objectAtIndex:section]] count] == 0)
+//        return nil;
     
     MyLabel *sectionLabel = [[[MyLabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30.0f)] autorelease];
     sectionLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"sectionView.png"]];
     sectionLabel.textAlignment = UITextAlignmentLeft;
     sectionLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 1.0f);
     sectionLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
-    sectionLabel.text = [alphabet objectAtIndex:section];
+        
+    NSString *rawDateStr = [[[self.songFRC sections] objectAtIndex:section] name];
+    rawDateStr = [rawDateStr substringToIndex:1];
+    sectionLabel.text = rawDateStr;
     return sectionLabel;
 }
 //-----------------------------------------------------------------------------------
@@ -108,20 +119,22 @@
 {
 	return 60;
 }
-//-----------------------------------------------------------------------------------
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    return alphabet;
-}
-//-----------------------------------------------------------------------------------
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-{
-    return [alphabet indexOfObject:title];
-}
-//-----------------------------------------------------------------------------------
+////-----------------------------------------------------------------------------------
+//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+//{
+////    return alphabet;
+//    return self.songFRC.sectionIndexTitles;
+//}
+////-----------------------------------------------------------------------------------
+//- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+//{
+//    return [alphabet indexOfObject:title];
+//}
+////-----------------------------------------------------------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[dicSongs objectForKey:[alphabet objectAtIndex:section]] count];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.songFRC sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 //-----------------------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -138,11 +151,16 @@
         cell.textLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
 	}
     
-    NSArray *arraySongsWithCurrentBeginSymbols = [dicSongs objectForKey:[alphabet objectAtIndex:indexPath.section]];
-    MediaDB *mediaDB = (MediaDB*)[arraySongsWithCurrentBeginSymbols objectAtIndex:indexPath.row];
+//    NSArray *arraySongsWithCurrentBeginSymbols = [dicSongs objectForKey:[alphabet objectAtIndex:indexPath.section]];
+//    MediaDB *mediaDB = (MediaDB*)[arraySongsWithCurrentBeginSymbols objectAtIndex:indexPath.row];
+//    if(mediaDB)
+//        cell.textLabel.text = mediaDB.fullText;
+    
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.songFRC sections] objectAtIndex:indexPath.section];
+    MediaDB *mediaDB = (MediaDB*)[[sectionInfo objects] objectAtIndex:indexPath.row];
     if(mediaDB)
         cell.textLabel.text = mediaDB.fullText;
-            
+    
 	return cell;
 }
 //-----------------------------------------------------------------------------------
@@ -167,6 +185,28 @@
 -(void)backPress
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+//-----------------------------------------------------------------------------------
+-(NSFetchedResultsController*)songFRC
+{
+    if(!_songFRC)
+    {
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"MediaDB" inManagedObjectContext:[[CoreDataManager shared] managedObjectContext]];
+        
+        NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+        [fetchRequest setEntity:entity];
+        [fetchRequest setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"fullText" ascending:YES]]];
+        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"idGroup == 3"]];
+        
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                                                    managedObjectContext:[[CoreDataManager shared] managedObjectContext]
+                                                                                                    sectionNameKeyPath:@"firstLiteral"
+                                                                                                    cacheName:nil];
+        aFetchedResultsController.delegate = self;
+        self.songFRC = aFetchedResultsController;
+        [aFetchedResultsController release];
+    }
+    return _songFRC;
 }
 //-----------------------------------------------------------------------------------
 @end

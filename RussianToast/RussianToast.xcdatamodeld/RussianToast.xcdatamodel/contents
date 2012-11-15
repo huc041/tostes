@@ -7,6 +7,7 @@
         <relationship name="media" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MediaDB" inverseName="group" inverseEntity="MediaDB" syncable="YES"/>
     </entity>
     <entity name="MediaDB" representedClassName="MediaDB" syncable="YES">
+        <attribute name="firstLiteral" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="idGroup" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -18,6 +19,6 @@
     </entity>
     <elements>
         <element name="GroupDB" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="MediaDB" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="MediaDB" positionX="0" positionY="0" width="128" height="180"/>
     </elements>
 </model>

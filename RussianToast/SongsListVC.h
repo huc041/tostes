@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SongsListVC : RootVC <UITableViewDataSource,UITableViewDelegate>
+@interface SongsListVC : RootVC <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>
 
 {
     NSArray *songsListArray;

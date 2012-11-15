@@ -113,9 +113,7 @@ static NSArray *arrayImages = nil;
 #pragma mark -
 #pragma mark TableView Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-    DLog(@"");
-    
+{    
     GroupDB *groupDB = [self.fetchResultController.fetchedObjects objectAtIndex:indexPath.row];
     NSString *predicateSTR = [NSString stringWithFormat:@"idParent == %@",groupDB.id];
     NSArray *arraySubGroups = [CoreDataManager objects:@"GroupDB" withPredicate:[NSPredicate predicateWithFormat:predicateSTR] inMainContext:YES];

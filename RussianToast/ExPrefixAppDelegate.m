@@ -140,7 +140,7 @@
                             mediaDB.nameGroup = groupDB.name;
                             mediaDB.isFavorite = [NSNumber numberWithBool:0];
                             mediaDB.fullText = mediaText;
-                            
+                            mediaDB.firstLiteral = [mediaText substringToIndex:1];
                             [groupDB addMediaObject:mediaDB];
                         }
                     }
