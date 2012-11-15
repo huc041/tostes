@@ -210,11 +210,12 @@ static NSString *htmlSTR =  @"<html>"
     UIActionSheet *actionSheet = nil;
     if(isGreatThanIOS5)
     {
-        actionSheet = [[UIActionSheet alloc] initWithTitle:@"Поделиться" delegate:self cancelButtonTitle:@"Отмена" destructiveButtonTitle:@"отправить на почту" otherButtonTitles:@"отправить по смс",@"Facebook",@"Twitter", nil];
+        actionSheet = [[UIActionSheet alloc] initWithTitle:@"Поделиться :" delegate:self cancelButtonTitle:@"Отмена" destructiveButtonTitle:@"отправить на почту" otherButtonTitles:@"отправить по смс",@"Facebook",@"Twitter", nil];
     }
     else
         actionSheet = [[UIActionSheet alloc] initWithTitle:@"Поделиться" delegate:self cancelButtonTitle:@"Отмена" destructiveButtonTitle:@"отправить на почту" otherButtonTitles:@"отправить по смс", nil];
     
+    actionSheet.destructiveButtonIndex = -1;
     [actionSheet showInView:self.view];
 }
 //-----------------------------------------------------------------------------------
@@ -222,7 +223,7 @@ static NSString *htmlSTR =  @"<html>"
 #pragma mark UIActionSheet Delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {    
-    if(buttonIndex == actionSheet.destructiveButtonIndex)
+    if(buttonIndex == 0)
         [self sendMail];
     else if ( buttonIndex == actionSheet.firstOtherButtonIndex)
         [self sendSMS];
