@@ -78,9 +78,11 @@
 		cell = [[[SongCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
+        cell.textLabel.lineBreakMode = NSLineBreakByCharWrapping;
         cell.textLabel.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 2.0f);
         cell.textLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
+        cell.textLabel.textAlignment = UITextAlignmentLeft;
 	}
     
     MediaDB *mediaDB = [mediaArray objectAtIndex:indexPath.row];

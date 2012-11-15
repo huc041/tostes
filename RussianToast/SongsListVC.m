@@ -38,8 +38,8 @@
                         
 //        dicSongs = [NSMutableDictionary new];
 //        
-//        alphabet = [[NSArray alloc]initWithObjects:@"А",@"Б",@"В",@"Г",@"Д",@"Е",@"Ж",@"З",@"И",@"К",@"Л",
-//                    @"М",@"Н",@"О",@"П",@"Р",@"С",@"Т",@"У",@"Ф",@"Х",@"Ц",@"Ч",@"Ш",@"Щ",@"Э",@"Ю",@"Я",nil];
+        alphabet = [[NSArray alloc]initWithObjects:@"А",@"Б",@"В",@"Г",@"Д",@"Е",@"Ж",@"З",@"И",@"К",@"Л",
+                    @"М",@"Н",@"О",@"П",@"Р",@"С",@"Т",@"У",@"Ф",@"Х",@"Ц",@"Ч",@"Ш",@"Щ",@"Э",@"Ю",@"Я",nil];
 //        
 //        NSLog(@"DO SORT!");
 //        for (int j = 0;j < [alphabet count]; j++) {
@@ -119,17 +119,17 @@
 {
 	return 60;
 }
-////-----------------------------------------------------------------------------------
-//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-//{
-////    return alphabet;
-//    return self.songFRC.sectionIndexTitles;
-//}
-////-----------------------------------------------------------------------------------
-//- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-//{
-//    return [alphabet indexOfObject:title];
-//}
+//-----------------------------------------------------------------------------------
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return alphabet;
+    //return self.songFRC.sectionIndexTitles;
+}
+//-----------------------------------------------------------------------------------
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    return [alphabet indexOfObject:title];
+}
 ////-----------------------------------------------------------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -146,15 +146,12 @@
 		cell = [[[SongCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
+        cell.textLabel.frame = CGRectMake(0, 0, tableView.frame.size.width - 30.0, 60.0f);
         cell.textLabel.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = RGB_Color(66.0f, 42.0f, 2.0f, 2.0f);
         cell.textLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
+        cell.textLabel.textAlignment = UITextAlignmentLeft;
 	}
-    
-//    NSArray *arraySongsWithCurrentBeginSymbols = [dicSongs objectForKey:[alphabet objectAtIndex:indexPath.section]];
-//    MediaDB *mediaDB = (MediaDB*)[arraySongsWithCurrentBeginSymbols objectAtIndex:indexPath.row];
-//    if(mediaDB)
-//        cell.textLabel.text = mediaDB.fullText;
     
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.songFRC sections] objectAtIndex:indexPath.section];
     MediaDB *mediaDB = (MediaDB*)[[sectionInfo objects] objectAtIndex:indexPath.row];

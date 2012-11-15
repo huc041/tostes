@@ -103,7 +103,6 @@ static NSString *htmlSTR =  @"<html>"
         toolBarButton.tag  = BUTTON_OFFSET_TAG + j;
         toolBarButton.frame = CGRectFromString([arrayRects objectAtIndex:j]);
         [toolBarButton setImage:[UIImage imageNamed:[arrayImages objectAtIndex:j]] forState:UIControlStateNormal];
-//        [toolBarButton setBackgroundImage:[UIImage imageNamed:[arrayImages objectAtIndex:j]] forState:UIControlStateNormal];
         [toolBarButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
         [toolBarButton setSelected:NO];
         [toolBarView addSubview:toolBarButton];
@@ -125,12 +124,7 @@ static NSString *htmlSTR =  @"<html>"
     textView.font = [UIFont fontWithName:@"MyriadPro-It" size:fontSize];
     textView.text = media.fullText;
     
-    // кнопка Избранное
-    UIButton *buttonFavorite = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 5];
-    buttonFavorite.selected = [media.isFavorite boolValue];
-    
-    NSString *imageButtonStr = (buttonFavorite.selected) ? @"favorite_sel.png" : @"favorite.png";
-    [buttonFavorite setBackgroundImage:[UIImage imageNamed:imageButtonStr] forState:UIControlStateNormal];
+    [self setFavotiteButtonStatus];
 }
 //-----------------------------------------------------------------------------------
 -(void)viewWillDisappear:(BOOL)animated
@@ -158,6 +152,8 @@ static NSString *htmlSTR =  @"<html>"
         {
             self.media = previosObject;
             textView.text = media.fullText;
+            
+            [self setFavotiteButtonStatus];
         }
     }
     else if (button.tag == BUTTON_OFFSET_TAG + 1)         // increase font
@@ -171,7 +167,7 @@ static NSString *htmlSTR =  @"<html>"
         button.selected = !button.selected;
         
         NSString *imageButtonStr = (button.selected) ? @"favorite_sel.png" : @"favorite.png";
-        [button setBackgroundImage:[UIImage imageNamed:imageButtonStr] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:imageButtonStr] forState:UIControlStateNormal];
         
         media.isFavorite = [NSNumber numberWithBool:button.selected];
         [CoreDataManager saveMainContext];
@@ -196,10 +192,22 @@ static NSString *htmlSTR =  @"<html>"
         {
             self.media = nextObject;
             textView.text = media.fullText;
+            
+            [self setFavotiteButtonStatus];
         }
     }
     else
         NSLog(@"Aa press");
+}
+//-----------------------------------------------------------------------------------
+-(void)setFavotiteButtonStatus
+{
+    // кнопка Избранное
+    UIButton *buttonFavorite = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 2];
+    buttonFavorite.selected = [media.isFavorite boolValue];
+    
+    NSString *imageButtonStr = (buttonFavorite.selected) ? @"favorite_sel.png" : @"favorite.png";
+    [buttonFavorite setImage:[UIImage imageNamed:imageButtonStr] forState:UIControlStateNormal];
 }
 //-----------------------------------------------------------------------------------
 #pragma mark

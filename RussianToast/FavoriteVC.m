@@ -12,6 +12,7 @@
 #import "DetailVC.h"
 #import "MyLabel.h"
 #import "InfoVC.h"
+#import "SongCell.h"
 
 @interface FavoriteVC ()
 
@@ -47,21 +48,8 @@
     UINavigationBar *navBar = self.navigationController.navigationBar;
     [navBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
     
-    
     self.navigationItem.leftBarButtonItem = nil;
     [self setCustomTitle:@"Избранное"];
-    
-//    // Главная
-//    UIButton *titleBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [titleBarButton setBackgroundColor:[UIColor clearColor]];
-//    titleBarButton.titleLabel.shadowColor = RGB_Color(190, 157, 96, 1.0f);
-//    titleBarButton.titleLabel.shadowOffset = CGSizeMake(-0.3f, 0.3f);
-//    titleBarButton.titleLabel.font = [UIFont fontWithName:@"MyriadPro-Bold" size:16];
-//    [titleBarButton setTitle:@"Избранное" forState:UIControlStateNormal];
-//    [titleBarButton setTitleColor:RGB_Color(66.0f, 42.0f, 2.0f, 1.0f) forState:UIControlStateNormal];
-//    [titleBarButton setTitleEdgeInsets:UIEdgeInsetsMake(7.0f, 5.0f, 1.0f, -2.0f)];
-//    titleBarButton.frame = CGRectMake(0, 0, 150, 27);
-//    self.navigationItem.titleView= titleBarButton;
     
     // кнопка Инфо
     UIButton *toolBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -145,10 +133,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"id";
-    UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SongCell *cell = (SongCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if(!cell)
 	{
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[[SongCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         cell.textLabel.backgroundColor = [UIColor clearColor];
