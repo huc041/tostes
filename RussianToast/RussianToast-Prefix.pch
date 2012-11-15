@@ -24,4 +24,4 @@
 
 #define ALERT_VIEW(TITLE, MESSAGE) [[[[UIAlertView alloc] initWithTitle:TITLE message:MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil]autorelease]show];
 
-#define isGreatThanIOS5 [[UIDevice currentDevice].systemVersion floatValue] > 5.0
+#define isIOS6 [[UIDevice currentDevice].systemVersion floatValue] >= 6.0

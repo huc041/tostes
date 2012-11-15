@@ -216,7 +216,7 @@ static NSString *htmlSTR =  @"<html>"
 {
     DLog(@"");
     UIActionSheet *actionSheet = nil;
-    if(isGreatThanIOS5)
+    if(isIOS6)
     {
         actionSheet = [[UIActionSheet alloc] initWithTitle:@"Поделиться :" delegate:self cancelButtonTitle:@"Отмена" destructiveButtonTitle:@"отправить на почту" otherButtonTitles:@"отправить по смс",@"Facebook",@"Twitter", nil];
     }
@@ -235,9 +235,9 @@ static NSString *htmlSTR =  @"<html>"
         [self sendMail];
     else if ( buttonIndex == actionSheet.firstOtherButtonIndex)
         [self sendSMS];
-    else if (isGreatThanIOS5 && buttonIndex == actionSheet.firstOtherButtonIndex + 1)
+    else if (isIOS6 && buttonIndex == actionSheet.firstOtherButtonIndex + 1)
         [self sendToSocialNetworkWithIndex:POST_TO_FACEBOOK];
-    else if (isGreatThanIOS5 && buttonIndex == actionSheet.firstOtherButtonIndex + 2)
+    else if (isIOS6 && buttonIndex == actionSheet.firstOtherButtonIndex + 2)
         [self sendToSocialNetworkWithIndex:POST_TO_TWITTER];
     else
         NSLog(@"CANSEL Press");
