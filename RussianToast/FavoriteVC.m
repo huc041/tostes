@@ -158,15 +158,32 @@
 {
     DLog(@"");
     
+    NSMutableArray *arrayList = [NSMutableArray array];
+    for (int section = 0; section < self.fetchFavoriteController.sections.count; section++)
+    {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchFavoriteController sections] objectAtIndex:section];
+        NSArray *objects = [sectionInfo objects];
+        int j = [objects count]-1;
+        while (j >= 0) {
+            MediaDB *mediaDB = [objects objectAtIndex:j];
+            [arrayList addObject:mediaDB];
+            j--;
+        }
+    }
+    
+    // нужно определить индекс объекта в новом массиве
     id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchFavoriteController sections] objectAtIndex:indexPath.section];
     MediaDB *mediaDB = [[sectionInfo objects] objectAtIndex:indexPath.row];
+
+    int index = [arrayList indexOfObject:mediaDB];
+
+    DetailVC *detailVC = [[DetailVC alloc] init];
+    detailVC.arrayMedia = arrayList;
+    detailVC.indexCurrentMedia = index;
     
-    DetailVC *textViewVC = [[DetailVC alloc] init];
-    textViewVC.media = mediaDB;
-    
-    [textViewVC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:textViewVC animated:YES];
-    [textViewVC release];
+    [detailVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:detailVC animated:YES];
+    [detailVC release];
 }
 //-----------------------------------------------------------------------------------
 #pragma mark

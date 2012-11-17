@@ -171,11 +171,12 @@
     MediaDB *mediaDB = (MediaDB*)[[sectionInfo objects] objectAtIndex:indexPath.row];
     if(mediaDB)
     {
-        DetailVC *webViewVC = [[DetailVC alloc] init];
-        webViewVC.media = mediaDB;
-        [webViewVC setHidesBottomBarWhenPushed:YES];
-        [self.navigationController pushViewController:webViewVC animated:YES];
-        [webViewVC release];
+        DetailVC *detailVC = [[DetailVC alloc] init];
+        detailVC.arrayMedia = [sectionInfo objects];
+        detailVC.indexCurrentMedia = indexPath.row;
+        [detailVC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:detailVC animated:YES];
+        [detailVC release];
     }
 }
 //-----------------------------------------------------------------------------------

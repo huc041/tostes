@@ -16,7 +16,6 @@
 @interface DetailVC : RootVC <UIActionSheetDelegate,UIAlertViewDelegate,MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate>
 
 {
-    MediaDB *media;    
     UITextView *textView;
     UIView *toolBarView;
     
@@ -26,6 +25,7 @@
     SLComposeViewController *mySLComposeViewController;
 }
 
-@property (nonatomic,retain)MediaDB *media;
+@property (nonatomic,retain) NSArray *arrayMedia;
+@property (nonatomic,assign) int indexCurrentMedia;
 
 @end

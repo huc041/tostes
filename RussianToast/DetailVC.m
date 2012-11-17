@@ -40,11 +40,12 @@ static NSString *htmlSTR =  @"<html>"
 
 @implementation DetailVC
 
-@synthesize media;
+@synthesize arrayMedia,indexCurrentMedia;
 
 //-----------------------------------------------------------------------------------
 -(void)dealloc
-{    
+{
+    self.arrayMedia = nil;
     [super dealloc];
 }
 //-----------------------------------------------------------------------------------
@@ -122,9 +123,12 @@ static NSString *htmlSTR =  @"<html>"
         fontSize = 16.0f;
         
     textView.font = [UIFont fontWithName:@"MyriadPro-It" size:fontSize];
-    textView.text = media.fullText;
+    
+    MediaDB *currentMedia = [self.arrayMedia objectAtIndex:indexCurrentMedia];
+    textView.text = currentMedia.fullText;
     
     [self setFavotiteButtonStatus];
+    [self checkNavigationButtonStatus];
 }
 //-----------------------------------------------------------------------------------
 -(void)viewWillDisappear:(BOOL)animated
@@ -141,20 +145,25 @@ static NSString *htmlSTR =  @"<html>"
 {
     if(button.tag == BUTTON_OFFSET_TAG) // previos
     {
-        NSPredicate *predic = [NSPredicate predicateWithFormat:@"idGroup == %d AND identifier == %d",[media.idGroup integerValue],[media.identifier integerValue] - 1];
-        MediaDB *previosObject = [CoreDataManager object:@"MediaDB" predicate:predic inMainContext:YES];
-        
-        UIButton *nextButton = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 4];
-        nextButton.alpha = 1.0f;
-        
-        button.alpha = (previosObject == nil)? 0 : 1;
-        if(previosObject)
-        {
-            self.media = previosObject;
-            textView.text = media.fullText;
-            
-            [self setFavotiteButtonStatus];
-        }
+//        NSPredicate *predic = [NSPredicate predicateWithFormat:@"idGroup == %d AND identifier == %d",[media.idGroup integerValue],[media.identifier integerValue] - 1];
+//        MediaDB *previosObject = [CoreDataManager object:@"MediaDB" predicate:predic inMainContext:YES];
+//        
+//        UIButton *nextButton = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 4];
+//        nextButton.alpha = 1.0f;
+//        
+//        button.alpha = (previosObject == nil)? 0 : 1;
+//        if(previosObject)
+//        {
+//            self.media = previosObject;
+//            textView.text = media.fullText;
+//            
+//            [self setFavotiteButtonStatus];
+//        }
+        indexCurrentMedia = indexCurrentMedia -1;
+        MediaDB *curMedia = [self.arrayMedia objectAtIndex:indexCurrentMedia];
+        textView.text = curMedia.fullText;
+        [self setFavotiteButtonStatus];
+        [self checkNavigationButtonStatus];
     }
     else if (button.tag == BUTTON_OFFSET_TAG + 1)         // increase font
     {
@@ -162,14 +171,15 @@ static NSString *htmlSTR =  @"<html>"
             fontSize +=5;
         textView.font = [UIFont fontWithName:@"MyriadPro-It" size:fontSize];
     }
-    else if (button.tag == BUTTON_OFFSET_TAG + 2)
+    else if (button.tag == BUTTON_OFFSET_TAG + 2)         // favorite
     {
         button.selected = !button.selected;
         
         NSString *imageButtonStr = (button.selected) ? @"favorite_sel.png" : @"favorite.png";
         [button setImage:[UIImage imageNamed:imageButtonStr] forState:UIControlStateNormal];
         
-        media.isFavorite = [NSNumber numberWithBool:button.selected];
+        MediaDB *curMedia = [self.arrayMedia objectAtIndex:indexCurrentMedia];
+        curMedia.isFavorite = [NSNumber numberWithBool:button.selected];
         [CoreDataManager saveMainContext];
     }
     else if(button.tag == BUTTON_OFFSET_TAG + 3) // decrease font
@@ -181,30 +191,53 @@ static NSString *htmlSTR =  @"<html>"
     }
     else if(button.tag == BUTTON_OFFSET_TAG + 4) // next
     {
-        NSPredicate *predicNext = [NSPredicate predicateWithFormat:@"idGroup == %d AND identifier == %d",[media.idGroup integerValue],[media.identifier integerValue] + 1];;
-        MediaDB *nextObject = [CoreDataManager object:@"MediaDB" predicate:predicNext inMainContext:YES];
-        
-        UIButton *previosButton = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG];
-        previosButton.alpha = 1.0f;
-        
-        button.alpha = (nextObject == nil)? 0 : 1;
-        if(nextObject)
-        {
-            self.media = nextObject;
-            textView.text = media.fullText;
-            
-            [self setFavotiteButtonStatus];
-        }
+        indexCurrentMedia = indexCurrentMedia +1;
+        MediaDB *curMedia = [self.arrayMedia objectAtIndex:indexCurrentMedia];
+        textView.text = curMedia.fullText;
+        [self setFavotiteButtonStatus];
+        [self checkNavigationButtonStatus];
+//        NSPredicate *predicNext = [NSPredicate predicateWithFormat:@"idGroup == %d AND identifier == %d",[media.idGroup integerValue],[media.identifier integerValue] + 1];;
+//        MediaDB *nextObject = [CoreDataManager object:@"MediaDB" predicate:predicNext inMainContext:YES];
+//        
+//        UIButton *previosButton = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG];
+//        previosButton.alpha = 1.0f;
+//        
+//        button.alpha = (nextObject == nil)? 0 : 1;
+//        if(nextObject)
+//        {
+//            self.media = nextObject;
+//            textView.text = media.fullText;
+//            
+//            [self setFavotiteButtonStatus];
+//        }
     }
     else
         NSLog(@"Aa press");
+}
+//-----------------------------------------------------------------------------------
+-(void)checkNavigationButtonStatus
+{
+    UIButton *previosButton = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG];
+    UIButton *nextButton = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 4];
+    
+    if(indexCurrentMedia == 0)
+        previosButton.alpha = 0;
+    else
+        previosButton.alpha = 1;
+    
+    if(indexCurrentMedia == [self.arrayMedia count]-1)
+        nextButton.alpha = 0;
+    else
+        nextButton.alpha = 1;
 }
 //-----------------------------------------------------------------------------------
 -(void)setFavotiteButtonStatus
 {
     // кнопка Избранное
     UIButton *buttonFavorite = (UIButton*)[toolBarView viewWithTag:BUTTON_OFFSET_TAG + 2];
-    buttonFavorite.selected = [media.isFavorite boolValue];
+    
+    MediaDB *curMedia = [self.arrayMedia objectAtIndex:indexCurrentMedia];
+    buttonFavorite.selected = [curMedia.isFavorite boolValue];
     
     NSString *imageButtonStr = (buttonFavorite.selected) ? @"favorite_sel.png" : @"favorite.png";
     [buttonFavorite setImage:[UIImage imageNamed:imageButtonStr] forState:UIControlStateNormal];
@@ -254,7 +287,9 @@ static NSString *htmlSTR =  @"<html>"
         picker.mailComposeDelegate = self;
         [picker setSubject:@"Прекрасные слова..."];
         // Fill out the email body text
-        [picker setMessageBody:media.fullText isHTML:NO];
+        
+        MediaDB *curMedia = [self.arrayMedia objectAtIndex:indexCurrentMedia];
+        [picker setMessageBody:curMedia.fullText isHTML:NO];
         [self presentViewController:picker animated:YES completion:^{}];
         [picker release];
     }
@@ -287,7 +322,9 @@ static NSString *htmlSTR =  @"<html>"
     if([SLComposeViewController isAvailableForServiceType:typeSocialNetwork])
     {
         mySLComposeViewController = [SLComposeViewController composeViewControllerForServiceType:typeSocialNetwork];
-        [mySLComposeViewController setInitialText:[NSString stringWithFormat:@"%@",media.fullText]];
+        
+        MediaDB *curMedia = [self.arrayMedia objectAtIndex:indexCurrentMedia];
+        [mySLComposeViewController setInitialText:[NSString stringWithFormat:@"%@",curMedia.fullText]];
         [self presentViewController:mySLComposeViewController animated:YES completion:nil];
     }
     
@@ -315,7 +352,9 @@ static NSString *htmlSTR =  @"<html>"
     MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
 	picker.messageComposeDelegate = self;
     // Fill out the email body text
-	NSString *smsBody = media.fullText;
+    
+    MediaDB *curMedia = [self.arrayMedia objectAtIndex:indexCurrentMedia];
+	NSString *smsBody = curMedia.fullText;
     [picker setBody:smsBody];
     
 	[self presentModalViewController:picker animated:YES];

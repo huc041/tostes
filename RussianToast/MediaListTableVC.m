@@ -98,14 +98,13 @@
 {
     DLog(@"");
     
-    MediaDB *mediaDB = [mediaArray objectAtIndex:indexPath.row];
+    DetailVC *detailVC = [[DetailVC alloc] init];
+    detailVC.indexCurrentMedia = indexPath.row;
+    detailVC.arrayMedia = mediaArray;
     
-    DetailVC *textViewVC = [[DetailVC alloc] init];
-    textViewVC.media = mediaDB;
-    
-    [textViewVC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:textViewVC animated:YES];
-    [textViewVC release];
+    [detailVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:detailVC animated:YES];
+    [detailVC release];
 }
 //-----------------------------------------------------------------------------------
 @end
