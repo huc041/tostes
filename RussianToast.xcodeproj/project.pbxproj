@@ -122,13 +122,8 @@
 		5270B8CF16516C12007F0FF6 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5270B8CD16516C12007F0FF6 /* info@2x.png */; };
 		5270B8D316516EF1007F0FF6 /* 3_Застольные песни.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5270B8D216516EF1007F0FF6 /* 3_Застольные песни.txt */; };
 		527159CC164ED74400566C95 /* GroupDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 527159CB164ED74400566C95 /* GroupDB.m */; };
-		529B068616520B22003B9F9B /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B068516520B22003B9F9B /* 57.png */; };
-		529B068916520B2D003B9F9B /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B068816520B2D003B9F9B /* 114.png */; };
 		529B069F16522CD1003B9F9B /* aboutApp.css in Resources */ = {isa = PBXBuildFile; fileRef = 529B069E16522CD1003B9F9B /* aboutApp.css */; };
 		529B06A116522DDD003B9F9B /* aboutApp.html in Resources */ = {isa = PBXBuildFile; fileRef = 529B06A016522DDD003B9F9B /* aboutApp.html */; };
-		529B06A516524090003B9F9B /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B06A216524090003B9F9B /* 29.png */; };
-		529B06A616524090003B9F9B /* 58.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B06A316524090003B9F9B /* 58.png */; };
-		529B06A716524090003B9F9B /* 72.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B06A416524090003B9F9B /* 72.png */; };
 		529B06AF16524C4B003B9F9B /* RootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 529B06AE16524C4A003B9F9B /* RootVC.m */; };
 		529B06B116525602003B9F9B /* back_main.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B06B016525602003B9F9B /* back_main.png */; };
 		529B06B416525613003B9F9B /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 529B06B216525613003B9F9B /* back@2x.png */; };
@@ -297,13 +292,8 @@
 		5270B8D216516EF1007F0FF6 /* 3_Застольные песни.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "3_Застольные песни.txt"; sourceTree = "<group>"; };
 		527159CA164ED74400566C95 /* GroupDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDB.h; sourceTree = "<group>"; };
 		527159CB164ED74400566C95 /* GroupDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDB.m; sourceTree = "<group>"; };
-		529B068516520B22003B9F9B /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57.png; sourceTree = "<group>"; };
-		529B068816520B2D003B9F9B /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 114.png; sourceTree = "<group>"; };
 		529B069E16522CD1003B9F9B /* aboutApp.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = aboutApp.css; sourceTree = "<group>"; };
 		529B06A016522DDD003B9F9B /* aboutApp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aboutApp.html; sourceTree = "<group>"; };
-		529B06A216524090003B9F9B /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29.png; sourceTree = "<group>"; };
-		529B06A316524090003B9F9B /* 58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58.png; sourceTree = "<group>"; };
-		529B06A416524090003B9F9B /* 72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72.png; sourceTree = "<group>"; };
 		529B06AD16524C4A003B9F9B /* RootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootVC.h; sourceTree = "<group>"; };
 		529B06AE16524C4A003B9F9B /* RootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootVC.m; sourceTree = "<group>"; };
 		529B06B016525602003B9F9B /* back_main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_main.png; sourceTree = "<group>"; };
@@ -455,11 +445,6 @@
 		5251FEF315BAC7F40039C78C = {
 			isa = PBXGroup;
 			children = (
-				529B06A216524090003B9F9B /* 29.png */,
-				529B06A316524090003B9F9B /* 58.png */,
-				529B06A416524090003B9F9B /* 72.png */,
-				529B068816520B2D003B9F9B /* 114.png */,
-				529B068516520B22003B9F9B /* 57.png */,
 				5205A309164FC79B006C34E7 /* Default@2x.png */,
 				5205A307164FC794006C34E7 /* Default.png */,
 				5251FF0A15BAC7F40039C78C /* RussianToast */,
@@ -907,13 +892,8 @@
 				5270B8CE16516C12007F0FF6 /* info.png in Resources */,
 				5270B8CF16516C12007F0FF6 /* info@2x.png in Resources */,
 				5270B8D316516EF1007F0FF6 /* 3_Застольные песни.txt in Resources */,
-				529B068616520B22003B9F9B /* 57.png in Resources */,
-				529B068916520B2D003B9F9B /* 114.png in Resources */,
 				529B069F16522CD1003B9F9B /* aboutApp.css in Resources */,
 				529B06A116522DDD003B9F9B /* aboutApp.html in Resources */,
-				529B06A516524090003B9F9B /* 29.png in Resources */,
-				529B06A616524090003B9F9B /* 58.png in Resources */,
-				529B06A716524090003B9F9B /* 72.png in Resources */,
 				529B06B116525602003B9F9B /* back_main.png in Resources */,
 				529B06B416525613003B9F9B /* back@2x.png in Resources */,
 				529B06B516525613003B9F9B /* back.png in Resources */,
