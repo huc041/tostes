@@ -172,8 +172,8 @@
     if(mediaDB)
     {
         DetailVC *detailVC = [[DetailVC alloc] init];
-        detailVC.arrayMedia = [sectionInfo objects];
-        detailVC.indexCurrentMedia = indexPath.row;
+        detailVC.arrayMedia = self.songFRC.fetchedObjects;
+        detailVC.indexCurrentMedia = [self.songFRC.fetchedObjects indexOfObject:mediaDB];
         [detailVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:detailVC animated:YES];
         [detailVC release];
