@@ -116,8 +116,10 @@
                 groupDB.id = [NSNumber numberWithInt:currentID];
                 groupDB.idParent = [NSNumber numberWithInt:previosID];
                 
-                NSString *strName = ((NSString*)[arrayData objectAtIndex:1]).stringByDeletingPathExtension;                
-                groupDB.name = strName.capitalizedString;
+                NSString *strName = ((NSString*)[arrayData objectAtIndex:1]).stringByDeletingPathExtension.lowercaseString;
+                NSString *firstCapChar = [[strName substringToIndex:1] capitalizedString];
+                NSString *cappedString = [strName stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstCapChar];
+                groupDB.name = cappedString;
             }
             previosID = [groupDB.id intValue];
                                 

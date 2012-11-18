@@ -98,8 +98,12 @@ static NSArray *arrayImages = nil;
         cell.textLabel.font = [UIFont fontWithName:@"Lobster" size:20.0f];
 	}
     
+    NSString *strName = groupDB.name.lowercaseString;
+    NSString *firstCapChar = [[strName substringToIndex:1] capitalizedString];
+    NSString *cappedString = [strName stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstCapChar];
+    
     if(groupDB)
-        cell.textLabel.text = groupDB.name;
+        cell.textLabel.text = cappedString.capitalizedString;
     
     UIImage *image = [UIImage imageNamed:[arrayImages objectAtIndex:indexPath.row]];
     CGSize sizeImage = image.size;
